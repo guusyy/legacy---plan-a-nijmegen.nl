@@ -114,6 +114,7 @@ export default {
 
   & a {
     color: var(--pa-maroon);
+    text-decoration: underline;
   }
 }
 
