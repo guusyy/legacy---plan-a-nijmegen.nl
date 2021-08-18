@@ -1,9 +1,17 @@
 <template>
   <Layout>
-    <div class="uk-section">
-      <div class="uk-container uk-container-large">
-        <h1>{{ $page.strapi.homepage.hero.title }}</h1>
-        <Articles :articles="$page.strapi.articles" />
+    <div class="pa-container">
+      <div class="intro-text">
+        <VueMarkdown :source="$page.strapi.homepage.hero.introTekst" class="intro-rte" />
+      </div>
+      <div class="pa-quickbuttons-container">
+        <a class="pa-quickbutton" :href="`/${knop.LinkTekst}`" v-for="knop in $page.strapi.homepage.hero.homepaginaknop" :key="knop.id">
+          <span class="pa-label">{{knop.TekstKnop}}</span>
+          <span class="pa-arrow">></span>
+        </a>
+      </div>
+      <div class="pa-contact-info" v-if="$page.strapi.homepage.hero.infoContact">
+        <VueMarkdown :source="$page.strapi.homepage.hero.infoContact" class="intro-contact" />
       </div>
     </div>
   </Layout>
@@ -27,7 +35,12 @@ query {
     }
     homepage {
       hero {
-        title
+        introTekst
+        infoContact
+        homepaginaknop {
+          TekstKnop
+          LinkTekst
+        }
       }
       seo {
         metaTitle
@@ -37,27 +50,12 @@ query {
         }
       }
     }
-    articles {
-      slug
-      title
-      category {
-        name
-      }
-      image {
-        url
-      }
-      author {
-        name
-        picture {
-          url
-        }
-      }
-    }
   }
 }
 </page-query>
 
 <script>
+import VueMarkdown from "vue-markdown";
 import Articles from "~/components/Articles";
 import { getMetaTags } from "~/utils/seo";
 import { getStrapiMedia } from "~/utils/medias";
@@ -65,6 +63,7 @@ import { getStrapiMedia } from "~/utils/medias";
 export default {
   components: {
     Articles,
+    VueMarkdown
   },
   metaInfo() {
     const { seo } = this.$page.strapi.homepage;
@@ -89,3 +88,89 @@ export default {
   },
 };
 </script>
+
+<style lang="scss">
+
+.pa-container {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.intro-rte h1 {
+  font-size: 6rem;
+  color: var(--pa-maroon);
+  font-weight: 600;
+  max-width: 80%;
+  margin: 5rem 0;
+  line-height: 1.15;
+  word-break: break-word;
+
+  @media (max-width: 64em) {
+    max-width: 100%;
+    font-size: 4rem;
+  }
+
+  & a {
+    color: var(--pa-maroon);
+  }
+}
+
+.pa-quickbuttons-container {
+
+  display: flex;
+  gap: 2rem;
+
+  @media (max-width: 64em) {
+    flex-wrap: wrap;  
+  }
+
+  margin: 5rem 0;
+  
+  & .pa-quickbutton {
+    width: 100%;
+    background: var(--pa-white);
+    border: 1px solid var(--pa-maroon);
+    color: var(--pa-maroon);
+    min-height: 20rem;
+    font-size: 3rem;
+    text-decoration: none;
+
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+
+
+    transition: all .1s ease;
+    
+
+    &:hover {
+      background: var(--pa-maroon);
+      color: var(--pa-white);
+    }
+
+    & .pa-label {
+      word-break: break-word;
+    }
+
+    & .pa-arrow {
+      align-self: flex-end;
+
+      
+      @media (max-width: 64em) {
+        flex-wrap: wrap;  
+      }
+    }
+  }
+}
+
+
+.intro-contact * {
+  text-decoration: none;
+  color: var(--pa-maroon);
+  font-weight: 600;
+  font-size: 4rem;
+}
+
+</style>

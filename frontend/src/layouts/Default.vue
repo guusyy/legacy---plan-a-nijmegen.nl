@@ -1,66 +1,48 @@
 <template>
   <div>
     <Navbar />
-    <slot />
+    <div class="pa-content-container">
+      <transition name="fade" appear>
+        <slot />
+      </transition>
+      <Footer />
+    </div>
   </div>
 </template>
 
 <script>
 import Navbar from "~/components/Navbar";
+import Footer from "~/components/Footer";
 export default {
   components: {
     Navbar,
+    Footer
   },
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
 a {
   text-decoration: none !important;
 }
 
-h1 {
-  font-family: Staatliches !important;
-  font-size: 120px !important;
+.pa-content-container {
+  margin: 4rem 8rem;
+  overflow: auto;
+  height: 100%;
+
+  @media (max-width: 40em) {
+
+    margin: 2rem 4rem;
+  }
 }
 
-#category {
-  font-family: Staatliches !important;
-  font-weight: 500 !important;
+.fade-enter-active {
+  transition: opacity .2s ease;
 }
 
-#title {
-  letter-spacing: 0.4px !important;
-  font-size: 22px !important;
-  font-size: 1.375rem !important;
-  line-height: 1.13636 !important;
+.fade-enter {
+  opacity: 0;
 }
 
-#banner {
-  margin: 20px !important;
-  height: 800px !important;
-}
-
-#editor {
-  font-size: 16px !important;
-  font-size: 1rem !important;
-  line-height: 1.75 !important;
-}
-
-.uk-navbar-container {
-  background: #fff !important;
-  font-family: Staatliches !important;
-}
-
-img:hover {
-  opacity: 1 !important;
-  transition: opacity 0.25s cubic-bezier(0.39, 0.575, 0.565, 1) !important;
-}
-
-.avatar {
-  position: static;
-  border-radius: 50%;
-  width: 30px;
-  height: 30px;
-}
 </style>

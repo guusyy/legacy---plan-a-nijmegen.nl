@@ -5,7 +5,7 @@
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
 module.exports = {
-  siteName: "Strapi Gridsome Blog",
+  siteName: "Plan A Nijmegen",
   siteDescription: "A blog site made using Gridsome and Strapi",
   plugins: [
     {

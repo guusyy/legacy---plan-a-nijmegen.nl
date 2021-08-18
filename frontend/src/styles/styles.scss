@@ -1,0 +1,99 @@
+html {
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  font-weight: 400;
+  line-height: 1.5;
+  font-size: 62.5%;
+  -webkit-text-size-adjust: 100%;
+  background: var(--pa-white);
+  color: hsl(10,74%,23%);
+  color: var(--pa-maroon);
+}
+
+@media (max-width: 40em) {
+  html {
+    font-size: 50%;
+  }
+}
+
+body {
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+img {
+  max-width: 100%;
+}
+
+html, body {
+  height: 100%;
+}
+
+*, :before, :after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  // color: var(--pa-red);
+}
+
+h1 {
+  font-size: 8rem;
+
+  @media (max-width: 64em) {
+    font-size: 4rem;
+  }
+}
+
+p {
+  font-size: 2rem;
+  line-height: 1.15;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+:root {
+  --pa-red: hsl(7,92%,49%);
+  --pa-maroon: hsl(10,74%,23%);
+  --pa-white: hsl(24,100%,99%);
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 1rem;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--pa-white); 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--pa-maroon); 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--pa-maroon); 
+}
+
+::-moz-selection { /* Code for Firefox */
+  color: var(--pa-white);
+  background: var(--pa-red);
+}
+
+::selection {
+  color: var(--pa-white);
+  background: var(--pa-red);
+}
+
+@import './reset.scss'

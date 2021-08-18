@@ -2,13 +2,22 @@
   "collectionName": "components_decoration_heroes",
   "info": {
     "name": "Hero",
-    "icon": "address-card"
+    "icon": "address-card",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "title": {
-      "type": "string",
+    "introTekst": {
+      "type": "richtext",
       "required": true
+    },
+    "homepaginaknop": {
+      "type": "component",
+      "repeatable": true,
+      "component": "knop.homepaginaknop"
+    },
+    "infoContact": {
+      "type": "richtext"
     }
   }
 }

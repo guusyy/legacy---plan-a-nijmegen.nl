@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_knop_homepaginaknops",
+  "info": {
+    "name": "homepaginaknop",
+    "icon": "caret-square-right"
+  },
+  "options": {},
+  "attributes": {
+    "TekstKnop": {
+      "type": "string"
+    },
+    "LinkTekst": {
+      "type": "string"
+    }
+  }
+}
