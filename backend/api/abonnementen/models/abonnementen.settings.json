@@ -23,7 +23,8 @@
     },
     "perks": {
       "collection": "perks",
-      "via": "abonnementen"
+      "via": "abonnementens",
+      "dominant": true
     }
   }
 }

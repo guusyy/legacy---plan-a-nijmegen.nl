@@ -9,7 +9,7 @@
           <li><a href="#">Community</a></li>
           <li><a href="#">Ruimte huren</a></li>
           <li><a href="#">Over ons</a></li>
-          <li><a href="#">Contact</a></li>
+          <li><a href="/contact">Contact</a></li>
         </ul>
       </div>
       <div class="overlay-background" @click="navigationPanelVisible = false"></div>
@@ -36,7 +36,7 @@
         <li><a href="#">Community</a></li>
         <li><a href="#">Ruimte huren</a></li>
         <li><a href="#">Over ons</a></li>
-        <li><a href="#">Contact</a></li>
+        <li><a href="/contact">Contact</a></li>
       </ul>
       <button class="pa-mobile-nav-button" @click="navigationPanelVisible = !navigationPanelVisible">
         <svg viewBox="0 0 341.333 341.333" width="40" height="40">

@@ -14,9 +14,9 @@
     "Perknaam": {
       "type": "string"
     },
-    "abonnementen": {
+    "abonnementens": {
       "via": "perks",
-      "model": "abonnementen"
+      "collection": "abonnementen"
     }
   }
 }
