@@ -3,15 +3,15 @@
     <div class="container">
       <div class="column" >
         <h1>Contact</h1>
-        <div class="pa-contact-info" v-if="$page.strapi.contact.introTekst">
-          <VueMarkdown :source="$page.strapi.contact.introTekst" class="intro-contact" />
+        <div class="contactpage-contact-info" v-if="$page.strapi.contact.introTekst">
+          <VueMarkdown :source="$page.strapi.contact.introTekst" class="contact-info" />
         </div>
         <div class="pa-contact-businesshours" v-if="$page.strapi.contact.introTekst">
           <div class="pa-contact-bar-restaurant">
-            <VueMarkdown :source="$page.strapi.contact.openingtijdenBarRestaurant" class="intro-contact" />
+            <VueMarkdown :source="$page.strapi.contact.openingtijdenBarRestaurant" class="contact-bar-restaurant" />
           </div>
           <div class="pa-contact-workroom">
-            <VueMarkdown :source="$page.strapi.contact.openingstijdenWerkzaal" class="pa-contact-workroom " />
+            <VueMarkdown :source="$page.strapi.contact.openingstijdenWerkzaal" class="contact-workroom" />
           </div>
         </div>
       </div>
@@ -92,7 +92,7 @@ export default {
   }
 }
 
-.pa-contact-info {
+.contactpage-contact-info {
   margin: 3rem 0;
 }
 
