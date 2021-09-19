@@ -42,11 +42,6 @@
 <static-query>
 query {
   strapi {
-    categories {
-      id
-      name
-      slug
-    }
     global {
       siteName
     }

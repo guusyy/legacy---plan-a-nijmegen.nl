@@ -5,7 +5,7 @@
         <ul class="pa-navigation-list-mobile">
           <li><a href="/bar-restaurant">Bar/restaurant</a></li>
           <li><a href="/flexwerken">Werken</a></li>
-          <li><a href="#">Membership</a></li>
+          <li><a href="/membership">Membership</a></li>
           <li><a href="#">Community</a></li>
           <li><a href="#">Ruimte huren</a></li>
           <li><a href="#">Over ons</a></li>
@@ -32,7 +32,7 @@
       <ul class="pa-navigation-list">
         <li><a href="/bar-restaurant">Bar/restaurant</a></li>
         <li><a href="/flexwerken">Werken</a></li>
-        <li><a href="#">Membership</a></li>
+        <li><a href="/membership">Membership</a></li>
         <li><a href="#">Community</a></li>
         <li><a href="#">Ruimte huren</a></li>
         <li><a href="#">Over ons</a></li>
@@ -64,11 +64,6 @@
 <static-query>
 query {
   strapi {
-    categories {
-      id
-      name
-      slug
-    }
     global {
       siteName
     }

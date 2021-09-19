@@ -1,0 +1,28 @@
+{
+  "kind": "singleType",
+  "collectionName": "memberships",
+  "info": {
+    "name": "Membership",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Titel": {
+      "type": "string"
+    },
+    "introTekst": {
+      "type": "richtext"
+    },
+    "abonnementens": {
+      "collection": "abonnementen"
+    },
+    "contactIntro": {
+      "type": "text"
+    }
+  }
+}

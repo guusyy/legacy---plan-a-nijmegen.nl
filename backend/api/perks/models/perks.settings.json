@@ -1,0 +1,22 @@
+{
+  "kind": "collectionType",
+  "collectionName": "perks",
+  "info": {
+    "name": "Perks"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Perknaam": {
+      "type": "string"
+    },
+    "abonnementen": {
+      "via": "perks",
+      "model": "abonnementen"
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/abonnementens",
+      "handler": "abonnementen.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/abonnementens/count",
+      "handler": "abonnementen.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/abonnementens/:id",
+      "handler": "abonnementen.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/abonnementens",
+      "handler": "abonnementen.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/abonnementens/:id",
+      "handler": "abonnementen.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/abonnementens/:id",
+      "handler": "abonnementen.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

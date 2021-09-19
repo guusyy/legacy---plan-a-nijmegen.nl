@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "abonnementens",
+  "info": {
+    "name": "abonnementen",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "titel": {
+      "type": "string"
+    },
+    "prijsPm": {
+      "type": "decimal"
+    },
+    "buttonTekst": {
+      "type": "string"
+    },
+    "perks": {
+      "collection": "perks",
+      "via": "abonnementen"
+    }
+  }
+}

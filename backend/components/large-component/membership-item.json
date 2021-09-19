@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_large_component_membership_items",
+  "info": {
+    "name": "MembershipItem",
+    "icon": "clipboard-list",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Titel": {
+      "type": "string"
+    },
+    "PrijsPm": {
+      "type": "decimal"
+    },
+    "ButtonLabel": {
+      "type": "string"
+    },
+    "Features": {
+      "type": "component",
+      "repeatable": true,
+      "component": "list.features"
+    }
+  }
+}

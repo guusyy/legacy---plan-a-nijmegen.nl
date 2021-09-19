@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_list_features",
+  "info": {
+    "name": "Features",
+    "icon": "bars"
+  },
+  "options": {},
+  "attributes": {
+    "Feature": {
+      "type": "string"
+    }
+  }
+}

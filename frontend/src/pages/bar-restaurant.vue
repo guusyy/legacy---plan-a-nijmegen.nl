@@ -49,11 +49,4 @@ export default {
     grid-template-row: repeat(2, 1fr);
   }
 }
-
-.column {
-
-  & img {
-    
-  }
-}
 </style>
