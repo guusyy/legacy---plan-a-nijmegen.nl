@@ -1,17 +1,18 @@
 <template>
   <div class="pa-navbar">
-    <div class="overlay" :class="navigationPanelVisible ? 'show' : ''">
-      <div class="pa-navigation-list-mobile-container overlay-content">
-        <ul class="pa-navigation-list-mobile">
-          <li><a href="/bar-restaurant">Bar/restaurant</a></li>
-          <li><a href="/flexwerken">Werken</a></li>
-          <li><a href="/membership">Membership</a></li>
-          <li><a href="#">Community</a></li>
-          <li><a href="#">Ruimte huren</a></li>
-          <li><a href="#">Over ons</a></li>
-          <li><a href="/contact">Contact</a></li>
-        </ul>
-      </div>
+    <div class="overlay" :class="[navigationPanelVisible ? 'show' : '']">
+      <transition name="fade">
+        <div v-if="navigationPanelVisible" class="pa-navigation-list-mobile-container overlay-content">
+          <ul class="pa-navigation-list-mobile">
+            <li><a href="/bar-restaurant">Bar/restaurant</a></li>
+            <li><a href="/flexwerken">Werken</a></li>
+            <li><a href="/membership">Membership</a></li>
+            <li><a href="#">Ruimte huren</a></li>
+            <li><a href="#">Over ons</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </div>
+      </transition>
       <div class="overlay-background" @click="navigationPanelVisible = false"></div>
     </div>
     <div class="logo-holder">
@@ -33,7 +34,6 @@
         <li><a href="/bar-restaurant">Bar/restaurant</a></li>
         <li><a href="/flexwerken">Werken</a></li>
         <li><a href="/membership">Membership</a></li>
-        <li><a href="#">Community</a></li>
         <li><a href="#">Ruimte huren</a></li>
         <li><a href="#">Over ons</a></li>
         <li><a href="/contact">Contact</a></li>
@@ -243,6 +243,14 @@ export default {
     height: 100vh;
     z-index: 999;
   }
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: all .5s ease;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0.3;
+  transform: translateX(300px);
 }
 
 </style>

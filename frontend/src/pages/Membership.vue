@@ -14,32 +14,36 @@
           <ul class="features">
             <li v-for="(perk, index) in membership.perks" :key="index">{{perk.Perknaam}}</li>
           </ul>
-          <button>{{membership.buttonTekst}}</button>
+          <button @click="handleGoToForm(membership.titel)">{{membership.buttonTekst}}</button>
         </div>
       </div>
-      <div class="contact-row">
+      <div class="contact-row" ref="form">
         <h2>{{$page.strapi.membership.contactIntro}}</h2>
         <form name="contact" method="POST" data-netlify="true">
           <p>
-            <label>Membership: <select name="membership[]" multiple>
-              <option value="vastFlex">Vast Flex</option>
-              <option value="studentFlex">Student Flex</option>
-            </select></label>
+            <select name="membership[]" v-model="activeMembership">
+              <option v-for="(membership, index) in $page.strapi.membership.abonnementens" :value="membership.titel" :key="index">{{membership.titel}} (€{{membership.prijsPm.toFixed(2).toString().replace(".", ",")}})</option>
+            </select>
           </p>
           <p>
-            <label>Naam: <input type="text" name="name" /></label>   
+            <input type="text" name="name" placeholder="Naam" />
           </p>
           <p>
-            <label>E-mail: <input type="email" name="email" /></label>
+            <input type="email" name="email" placeholder="E-Mail" />
           </p>
           <p>
-            <label>Adres: <input type="text" name="adres" /></label>
+            <input type="text" name="telefoon" placeholder="Telefoon" />
           </p>
           <p>
-            <label>Telefoon: <input type="text" name="telefoon" /></label>
+            <input type="date" name="geboortedatum" placeholder="Geboortedatum" />
+          </p>
+          <p class="address-inputs">
+            <input type="text" name="postcode" placeholder="Postcode" />
+            <input type="text" name="huisnummer" placeholder="Huisnr." />
+            <input type="text" name="toevoegingen" placeholder="Toev." />
           </p>
           <p>
-            <button type="submit">Send</button>
+            <button type="submit"><span>Verstuur</span><span>></span></button>
           </p>
         </form>
       </div>
@@ -90,6 +94,24 @@ export default {
   components: {
     Articles,
     VueMarkdown
+  },
+  data() {
+    return {
+      activeMembership: ''
+    }
+  },
+  beforeMount() {
+    this.activeMembership = this.$page.strapi.membership.abonnementens[0].titel
+  },
+  methods:{
+    handleGoToForm(value) {
+      this.activeMembership = value;
+
+      this.$refs.form.scrollIntoView({
+        block: "center",
+        behavior: "smooth"
+      });
+    },
   },
   metaInfo() {
     const { defaultSeo, favicon } = this.$page.strapi.global;
@@ -160,7 +182,7 @@ export default {
     & li {
       padding-left: 1rem;
       margin: .5rem 0;
-      font-size: 1.8rem;
+      font-size: 2.2rem;
     }
   }
 
@@ -182,6 +204,89 @@ export default {
     &:hover {
       background: var(--pa-maroon);
       color: var(--pa-white);
+    }
+  }
+}
+
+.contact-row {
+
+  & h2 {
+    font-size: 3.5rem;
+    font-weight: 500;
+    margin: 2rem 0;
+    line-height: 5rem;
+  }
+
+  form {
+    width: 100%;
+    max-width: 60rem;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    margin: 4rem 0;
+
+    
+
+    & select, input {
+      font-size: 2rem;
+      font-weight: 600;      
+      width: 100%;
+      height: 4rem;      
+      border: none;
+      border-bottom: 1px solid var(--pa-maroon);
+      background: var(--pa-white);
+      color: var(--pa-maroon);
+      padding: .5rem 1rem;
+
+      @media (max-width: 64em) {
+        height: 6rem;
+      }
+
+      &:focus {
+        outline: 0;
+      }
+
+      &::placeholder {
+        opacity: 0.4;
+        font-weight: 400;
+      }
+    }
+
+    select {
+      display: flex;
+    }
+
+    button {
+      border: 1px solid var(--pa-maroon);
+      background: var(--pa-white);
+      font-size: 2rem;
+      text-transform: uppercase;
+      padding: 1rem;
+      color: var(--pa-maroon);
+      cursor: pointer;
+      transition: all .1s ease;
+      margin: 2rem 0;
+      display: flex;
+      gap: 2rem;
+      margin-left: auto;
+
+      &:focus {
+        outline: 0;
+      }
+
+      &:hover {
+        background: var(--pa-maroon);
+        color: var(--pa-white);
+      }
+    }
+  }
+
+  .address-inputs {
+    display: flex;
+    gap: 1rem;
+
+    @media (max-width: 48em) {
+      flex-direction: column;
     }
   }
 }
