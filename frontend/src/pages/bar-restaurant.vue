@@ -5,8 +5,21 @@
         <h1>Bar/Restaurant</h1>
         <p style="margin-top: 3rem;">Beschrijving met betrekking tot bar/restaurant met foto's van bar en restaurant en binnentuin hiernaast. Beschrijving met betrekking tot bar/restaurant met foto's van bar en restaurant en binnentuin hiernaast. <br /> <br /> Beschrijving met betrekking tot bar/restaurant met foto's van bar en restaurant en binnentuin hiernaast. Beschrijving met betrekking tot bar/restaurant met foto's van bar en restaurant en binnentuin hiernaast. Beschrijving met betrekking tot bar/restaurant met foto's van bar en restaurant en binnentuin hiernaast. Beschrijving met betrekking tot bar/restaurant met foto's van bar en restaurant en binnentuin hiernaast.</p>
       </div>
-      <div class="column">
-        <g-image src="~/assets/placeholder.png"/>
+      <div class="column swiper-holder">
+        <div class="image-holder">
+          <swiper
+            :slides-per-view="1"
+            :space-between="50"
+            @swiper="onSwiper"
+            @slideChange="onSlideChange"
+            ref="mySwiper"
+            :options="swiperOptions"
+          >
+            <swiper-slide><g-image src="~/assets/placeholder.png"/></swiper-slide>
+            <swiper-slide><g-image src="~/assets/placeholder.png"/></swiper-slide>
+            <swiper-slide><g-image src="~/assets/placeholder.png"/></swiper-slide>
+          </swiper>
+        </div>
       </div>
     </div>
   </Layout>
@@ -20,9 +33,17 @@ import Articles from "~/components/Articles";
 import { getMetaTags } from "~/utils/seo";
 import { getStrapiMedia } from "~/utils/medias";
 
+import { Swiper, SwiperSlide, directive } from 'vue-awesome-swiper'
+import 'swiper/swiper.scss'
+
 export default {
   components: {
     Articles,
+    Swiper,
+    SwiperSlide,
+  },
+  directives: {
+    swiper: directive
   },
   metaInfo() {
 
@@ -47,6 +68,15 @@ export default {
   @media (max-width: 64em) {
     grid-template-columns: 1fr;
     grid-template-row: repeat(2, 1fr);
+  }
+}
+
+.swiper-holder {
+  display: flex;
+  justify-content: center;
+
+  .image-holder {
+    width: 90%;
   }
 }
 </style>

@@ -7,8 +7,8 @@
             <li><a href="/bar-restaurant">Bar/restaurant</a></li>
             <li><a href="/flexwerken">Werken</a></li>
             <li><a href="/membership">Membership</a></li>
-            <li><a href="#">Ruimte huren</a></li>
-            <li><a href="#">Over ons</a></li>
+            <li><a href="/ruimte-huren">Ruimte huren</a></li>
+            <li><a href="/over-ons">Over ons</a></li>
             <li><a href="/contact">Contact</a></li>
           </ul>
         </div>
@@ -34,8 +34,8 @@
         <li><a href="/bar-restaurant">Bar/restaurant</a></li>
         <li><a href="/flexwerken">Werken</a></li>
         <li><a href="/membership">Membership</a></li>
-        <li><a href="#">Ruimte huren</a></li>
-        <li><a href="#">Over ons</a></li>
+        <li><a href="/ruimte-huren">Ruimte huren</a></li>
+        <li><a href="/over-ons">Over ons</a></li>
         <li><a href="/contact">Contact</a></li>
       </ul>
       <button class="pa-mobile-nav-button" @click="navigationPanelVisible = !navigationPanelVisible">

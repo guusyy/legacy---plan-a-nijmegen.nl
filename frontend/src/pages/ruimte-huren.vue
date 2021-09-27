@@ -25,12 +25,8 @@
               <option v-for="(membership, index) in $page.strapi.membership.abonnementens" :value="membership.titel" :key="index">{{membership.titel}} (€{{membership.prijsPm.toFixed(2).toString().replace(".", ",")}})</option>
             </select>
           </p>
-          <p class="fullname">
-            <input type="text" name="name" placeholder="Naam" />
-            <input type="text" name="tussenvoegsel" placeholder="Tussenvoegsel" />
-          </p>
           <p>
-            <input type="text" name="achternaam" placeholder="Achternaam" />
+            <input type="text" name="name" placeholder="Naam" />
           </p>
           <p>
             <input type="email" name="email" placeholder="E-Mail" />
@@ -45,6 +41,9 @@
             <input type="text" name="postcode" placeholder="Postcode" />
             <input type="text" name="huisnummer" placeholder="Huisnr." />
             <input type="text" name="toevoegingen" placeholder="Toev." />
+          </p>
+          <p>
+            <textarea name="opmerking" placeholder="Opmerking" />
           </p>
           <p>
             <button type="submit"><span>Verstuur</span><span>></span></button>
@@ -152,7 +151,7 @@ export default {
 .membership-row {
   display: grid;
   max-width: 100%;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 4rem;
 
   @media (max-width: 64em) {
@@ -229,33 +228,9 @@ export default {
     gap: .5rem;
     margin: 4rem 0;
 
-    .fullname {
-      display: flex;
-      gap: 1rem;
+    
 
-      :first-child {
-        width: 60%;
-      }
-
-      :last-child {
-        width: 40%;
-      }
-
-      @media (max-width: 48em) {
-        flex-direction: column;
-        
-        :first-child {
-          width: 100%;
-        }
-
-        :last-child {
-          width: 100%;
-        }
-      }
-    }
-
-
-    & select, input {
+    & select, input, textarea {
       font-size: 2rem;
       font-weight: 600;      
       width: 100%;
@@ -278,6 +253,11 @@ export default {
         opacity: 0.4;
         font-weight: 400;
       }
+    }
+
+    textarea {
+      height: 10rem;
+      resize: none;
     }
 
     select {
