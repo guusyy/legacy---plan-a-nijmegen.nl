@@ -71,7 +71,7 @@ export default {
       translateY: [-5, 0],
       opacity: [0.2, 1],
       duration: 1400,
-      delay: anime.stagger(50) // increase delay by 100ms for each elements.
+      delay: anime.stagger(150)
     });
   },
   metaInfo() {
