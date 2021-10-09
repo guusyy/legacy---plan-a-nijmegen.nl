@@ -9,14 +9,15 @@
       </div>
       <div class="workspace-row" v-if="$page.strapi.ruimteHuren.ruimtes">
         <div class="workspace-item" v-for="(ruimte, index) in $page.strapi.ruimteHuren.ruimtes" :key="index">
-          <!-- <progressive-img
-            v-if="ruimte.Afbeelding" 
-            :src="getStrapiMedia(ruimte.Afbeelding.url)" 
-            :placeholder="getStrapiMedia(ruimte.Afbeelding.formats.thumbnail.url)"
-            :aspect-ratio="ruimte.Afbeelding.height / ruimte.Afbeelding.width"
-            :alt="ruimte.Afbeelding.alternativeText || ruimte.Afbeelding.name"
-          /> -->
-          <g-image v-if="ruimte.Afbeelding" :src="getStrapiMedia(ruimte.Afbeelding.url)" :alt="ruimte.Afbeelding.alternativeText || ruimte.Afbeelding.name" />
+          <ClientOnly>
+            <progressive-img
+              v-if="ruimte.Afbeelding" 
+              :src="getStrapiMedia(ruimte.Afbeelding.url)" 
+              :placeholder="getStrapiMedia(ruimte.Afbeelding.formats.thumbnail.url)"
+              :aspect-ratio="ruimte.Afbeelding.height / ruimte.Afbeelding.width"
+              :alt="ruimte.Afbeelding.alternativeText || ruimte.Afbeelding.name"
+            />
+          </ClientOnly>
           <h3>{{ruimte.Titel}}</h3>
           <p class="workspace-description">{{ruimte.Omschrijving}}</p>
           <button @click="handleGoToForm(ruimte.Titel)">{{ruimte.ButtonTekst}}</button>

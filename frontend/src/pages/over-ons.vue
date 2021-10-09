@@ -9,13 +9,15 @@
       </div>
       <div class="column swiper-holder">
         <div class="image-holder">
-          <progressive-img
-            v-if="$page.strapi.overOn.ImageSlider" 
-            :src="getStrapiMedia($page.strapi.overOn.ImageSlider.url)" 
-            :placeholder="getStrapiMedia($page.strapi.overOn.ImageSlider.formats.thumbnail.url)"
-            :aspect-ratio="$page.strapi.overOn.ImageSlider.height / $page.strapi.overOn.ImageSlider.width"
-            :alt="$page.strapi.overOn.ImageSlider.alternativeText || $page.strapi.overOn.ImageSlider.name"
-          />
+          <ClientOnly>
+            <progressive-img
+              v-if="$page.strapi.overOn.ImageSlider" 
+              :src="getStrapiMedia($page.strapi.overOn.ImageSlider.url)" 
+              :placeholder="getStrapiMedia($page.strapi.overOn.ImageSlider.formats.thumbnail.url)"
+              :aspect-ratio="$page.strapi.overOn.ImageSlider.height / $page.strapi.overOn.ImageSlider.width"
+              :alt="$page.strapi.overOn.ImageSlider.alternativeText || $page.strapi.overOn.ImageSlider.name"
+            />
+          </ClientOnly>
         </div>
       </div>
     </div>
