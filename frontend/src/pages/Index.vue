@@ -6,7 +6,7 @@
       </div>
       <div class="pa-quickbuttons-container">
         <a class="pa-quickbutton" :href="`/${knop.LinkTekst}`" v-for="knop in $page.strapi.homepage.hero.homepaginaknop" :key="knop.id">
-          <span class="pa-label">{{knop.TekstKnop}}</span>
+          <h4 class="pa-label">{{knop.TekstKnop}}</h4>
           <span class="pa-arrow">></span>
         </a>
       </div>
@@ -129,7 +129,7 @@ export default {
 }
 
 .intro-rte h1 {
-  font-size: 6rem;
+  font-size: 5.2rem;
   color: var(--pa-maroon);
   font-weight: 600;
   max-width: 80%;
@@ -170,7 +170,7 @@ export default {
 
     display: flex;
     justify-content: space-between;
-    padding: 1rem;
+    padding: 2rem;
 
 
     transition: all .1s ease;

@@ -1,3 +1,8 @@
+@font-face {
+  font-family: "National";
+  src: url("../assets/national-2-regular.woff2") format("woff2"),
+}
+
 html {
   font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
   font-weight: 400;
@@ -37,10 +42,11 @@ html, body {
 h1, h2, h3, h4, h5, h6 {
   // color: var(--pa-red);
   word-wrap: break-word;
+  font-family: 'National';
 }
 
 h1 {
-  font-size: 8rem;
+  font-size: 6rem;
 
   @media (max-width: 64em) {
     font-size: 4rem;

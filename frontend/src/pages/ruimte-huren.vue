@@ -245,8 +245,8 @@ export default {
 .contact-row {
 
   & h2 {
-    font-size: 3.5rem;
-    font-weight: 500;
+    font-size: 3.2rem;
+    font-weight: 600;
     margin: 2rem 0;
     line-height: 5rem;
   }
