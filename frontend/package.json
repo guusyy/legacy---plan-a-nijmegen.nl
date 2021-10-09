@@ -19,7 +19,8 @@
     "moment": "^2.27.0",
     "swiper": "6",
     "vue-awesome-swiper": "4",
-    "vue-markdown": "^2.2.4"
+    "vue-markdown": "^2.2.4",
+    "vue-progressive-image": "^3.2.0"
   },
   "devDependencies": {
     "eslint": "^7.9.0",

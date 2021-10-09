@@ -9,16 +9,12 @@
       </div>
       <div class="column swiper-holder">
         <div class="image-holder">
-          <g-image v-if="$page.strapi.barRestaurant.ImageSlider" :src="getStrapiMedia($page.strapi.barRestaurant.ImageSlider.url)" :alt="$page.strapi.barRestaurant.ImageSlider.alternativeText || $page.strapi.barRestaurant.ImageSlider.name" />
-          <!-- <swiper
-            :slides-per-view="1"
-            :space-between="50"
-            ref="mySwiper"
-          >
-            <swiper-slide><g-image src="~/assets/placeholder.png"/></swiper-slide>
-            <swiper-slide><g-image src="~/assets/placeholder.png"/></swiper-slide>
-            <swiper-slide><g-image src="~/assets/placeholder.png"/></swiper-slide>
-          </swiper> -->
+          <progressive-img
+            v-if="$page.strapi.barRestaurant.ImageSlider" 
+            :src="getStrapiMedia($page.strapi.barRestaurant.ImageSlider.url)" 
+            :placeholder="getStrapiMedia($page.strapi.barRestaurant.ImageSlider.formats.thumbnail.url)"
+            :aspect-ratio="$page.strapi.barRestaurant.ImageSlider.height / $page.strapi.barRestaurant.ImageSlider.width"
+          />
         </div>
       </div>
     </div>
@@ -50,6 +46,7 @@ query {
         alternativeText
         name
         url
+        formats
       }
     }
   }

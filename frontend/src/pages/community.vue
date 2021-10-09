@@ -5,7 +5,7 @@
         <h1 class="page-title">{{$page.strapi.community.Titel}}</h1>
         <div class="community-grid">
           <article class="community-item" v-for="(communityMember, index) in $page.strapi.community.community_members" :key="index">
-            <g-image class="community-image" v-if="communityMember.Afbeelding" :src="getStrapiMedia(communityMember.Afbeelding.url)" :alt="communityMember.Afbeelding.alternativeText || communityMember.Afbeelding.name" fit="contain"  />
+            <g-image class="community-image" v-if="communityMember.Afbeelding" :src="getStrapiMedia(communityMember.Afbeelding.formats.small.url)" :alt="communityMember.Afbeelding.alternativeText || communityMember.Afbeelding.name" fit="contain"  />
             <div class="title">
               <h2>{{communityMember.NaamAchternaam}}</h2>
               <h3>{{communityMember.NaamBedrijf}}</h3>
@@ -46,6 +46,7 @@ query {
           caption
           previewUrl
           url
+          formats
         }
       }
     }

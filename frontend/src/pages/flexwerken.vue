@@ -9,11 +9,11 @@
       </div>
       <div class="column swiper-holder">
         <div class="image-holder">
-          <g-image 
+          <progressive-img
             v-if="$page.strapi.flexwerken.ImageSlider" 
-            :width="$page.strapi.flexwerken.ImageSlider.width"
             :src="getStrapiMedia($page.strapi.flexwerken.ImageSlider.url)" 
-            :alt="$page.strapi.flexwerken.ImageSlider.alternativeText || $page.strapi.flexwerken.ImageSlider.name" 
+            :placeholder="getStrapiMedia($page.strapi.flexwerken.ImageSlider.formats.thumbnail.url)"
+            :aspect-ratio="$page.strapi.flexwerken.ImageSlider.height / $page.strapi.flexwerken.ImageSlider.width"
           />
         </div>
       </div>
@@ -46,6 +46,7 @@ query {
         alternativeText
         name
         url
+        formats
       }
     }
   }
