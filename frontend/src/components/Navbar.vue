@@ -4,12 +4,12 @@
       <transition name="fade">
         <div v-if="navigationPanelVisible" class="pa-navigation-list-mobile-container overlay-content">
           <ul class="pa-navigation-list-mobile">
-            <li><a href="/bar-restaurant">Bar/restaurant</a></li>
-            <li><a href="/flexwerken">Werken</a></li>
-            <li><a href="/membership">Membership</a></li>
-            <li><a href="/ruimte-huren">Ruimte huren</a></li>
-            <li><a href="/over-ons">Over ons</a></li>
-            <li><a href="/contact">Contact</a></li>
+            <li><a href="/bar-restaurant/">Bar/restaurant</a></li>
+            <li><a href="/flexwerken/">Werken</a></li>
+            <li><a href="/membership/">Membership</a></li>
+            <li><a href="/ruimte-huren/">Ruimte huren</a></li>
+            <li><a href="/over-ons/">Over ons</a></li>
+            <li><a href="/contact/">Contact</a></li>
           </ul>
         </div>
       </transition>
@@ -31,12 +31,12 @@
       
     <nav class="pa-navigation">
       <ul class="pa-navigation-list">
-        <li><a href="/bar-restaurant">Bar/restaurant</a></li>
-        <li><a href="/flexwerken">Werken</a></li>
-        <li><a href="/membership">Membership</a></li>
-        <li><a href="/ruimte-huren">Ruimte huren</a></li>
-        <li><a href="/over-ons">Over ons</a></li>
-        <li><a href="/contact">Contact</a></li>
+        <li><a href="/bar-restaurant/">Bar/restaurant</a></li>
+        <li><a href="/flexwerken/">Werken</a></li>
+        <li><a href="/membership/">Membership</a></li>
+        <li><a href="/ruimte-huren/">Ruimte huren</a></li>
+        <li><a href="/over-ons/">Over ons</a></li>
+        <li><a href="/contact/">Contact</a></li>
       </ul>
       <button class="pa-mobile-nav-button" @click="navigationPanelVisible = !navigationPanelVisible">
         <svg viewBox="0 0 341.333 341.333" width="40" height="40">
