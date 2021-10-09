@@ -19,32 +19,45 @@
       </div>
       <div class="contact-row" ref="form">
         <h2>{{$page.strapi.membership.contactIntro}}</h2>
-        <form name="contact" method="POST" data-netlify="true">
+        <form 
+          name="membership"
+          method="post"
+          v-on:submit.prevent="handleSubmit"
+          action="/success/"
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
+        >
+          <input type="hidden" name="form-name" value="membership" />
           <p>
-            <select name="membership[]" v-model="activeMembership">
+            <select name="membership[]" v-model="formData.activeMembership">
               <option v-for="(membership, index) in $page.strapi.membership.abonnementens" :value="membership.titel" :key="index">{{membership.titel}} (€{{membership.prijsPm.toFixed(2).toString().replace(".", ",")}})</option>
             </select>
           </p>
           <p class="fullname">
-            <input type="text" name="name" placeholder="Naam" />
-            <input type="text" name="tussenvoegsel" placeholder="Tussenvoegsel" />
+            <input type="text" name="name" placeholder="Naam" v-model="formData.naam" />
+            <input type="text" name="tussenvoegsel" placeholder="Tussenvoegsel" v-model="formData.tussenvoegsel" />
+          </p>
+          <p hidden>
+            <label>
+              Vul dit niet in: <input name="bot-field" />
+            </label>
           </p>
           <p>
-            <input type="text" name="achternaam" placeholder="Achternaam" />
+            <input type="text" name="achternaam" placeholder="Achternaam" v-model="formData.achternaam" />
           </p>
           <p>
-            <input type="email" name="email" placeholder="E-Mail" />
+            <input type="email" name="email" placeholder="E-Mail" v-model="formData.email" />
           </p>
           <p>
-            <input type="text" name="telefoon" placeholder="Telefoon" />
+            <input type="text" name="telefoon" placeholder="Telefoon" v-model="formData.telefoon" />
           </p>
           <p>
-            <input type="date" name="geboortedatum" placeholder="Geboortedatum" />
+            <input type="date" name="geboortedatum" placeholder="Geboortedatum" v-model="formData.geboortedatum" />
           </p>
           <p class="address-inputs">
-            <input type="text" name="postcode" placeholder="Postcode" />
-            <input type="text" name="huisnummer" placeholder="Huisnr." />
-            <input type="text" name="toevoegingen" placeholder="Toev." />
+            <input type="text" name="postcode" placeholder="Postcode" v-model="formData.postcode" />
+            <input type="text" name="huisnummer" placeholder="Huisnr." v-model="formData.huisnummer" />
+            <input type="text" name="toevoegingen" placeholder="Toev." v-model="formData.toevoeging" />
           </p>
           <p>
             <button type="submit"><span>Verstuur</span><span>></span></button>
@@ -103,11 +116,13 @@ export default {
   },
   data() {
     return {
-      activeMembership: ''
+      formData: {
+        activeMembership: null
+      }
     }
   },
   beforeMount() {
-    this.activeMembership = this.$page.strapi.membership.abonnementens[0].titel
+    this.formData.activeMembership = this.$page.strapi.membership.abonnementens[0].titel
   },
   mounted() {
 
@@ -132,13 +147,30 @@ export default {
   },
   methods:{
     handleGoToForm(value) {
-      this.activeMembership = value;
+      this.formData.activeMembership = value;
 
       this.$refs.form.scrollIntoView({
         block: "center",
         behavior: "smooth"
       });
     },
+    encode(data) {
+    return Object.keys(data)
+      .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+      .join('&')
+    },
+    handleSubmit(e) {
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: this.encode({
+          'form-name': e.target.getAttribute('name'),
+          ...this.formData,
+        }),
+      })
+      .then(() => console.log('succes!'))
+      .catch(error => alert(error))
+    }
   },
   metaInfo() {
     const { defaultSeo, favicon } = this.$page.strapi.global;
