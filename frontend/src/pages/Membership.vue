@@ -26,15 +26,16 @@
           action="/success/"
           data-netlify="true"
           data-netlify-honeypot="bot-field"
+          v-if="formIsNotSubmitted"
         >
           <input type="hidden" name="form-name" value="membership" />
           <p>
-            <select name="membership[]" v-model="formData.activeMembership">
+            <select name="gekozenMembership" v-model="formData.gekozenMembership">
               <option v-for="(membership, index) in $page.strapi.membership.abonnementens" :value="membership.titel" :key="index">{{membership.titel}} (€{{membership.prijsPm.toFixed(2).toString().replace(".", ",")}})</option>
             </select>
           </p>
           <p class="fullname">
-            <input type="text" name="name" placeholder="Naam" v-model="formData.naam" />
+            <input type="text" name="naam" placeholder="Naam" v-model="formData.naam" required />
             <input type="text" name="tussenvoegsel" placeholder="Tussenvoegsel" v-model="formData.tussenvoegsel" />
           </p>
           <p hidden>
@@ -43,13 +44,13 @@
             </label>
           </p>
           <p>
-            <input type="text" name="achternaam" placeholder="Achternaam" v-model="formData.achternaam" />
+            <input type="text" name="achternaam" placeholder="Achternaam" v-model="formData.achternaam" required />
           </p>
           <p>
-            <input type="email" name="email" placeholder="E-Mail" v-model="formData.email" />
+            <input type="email" name="email" placeholder="E-Mail" v-model="formData.email" required />
           </p>
           <p>
-            <input type="text" name="telefoon" placeholder="Telefoon" v-model="formData.telefoon" />
+            <input type="text" name="telefoon" placeholder="Telefoon" v-model="formData.telefoon" required />
           </p>
           <p>
             <input type="date" name="geboortedatum" placeholder="Geboortedatum" v-model="formData.geboortedatum" />
@@ -63,6 +64,9 @@
             <button type="submit"><span>Verstuur</span><span>></span></button>
           </p>
         </form>
+        <div v-else>
+          <p>Bedankt voor je aanvraag. We nemen zo spoedig mogelijk contact met je op.</p>
+        </div>
       </div>
     </div>
   </Layout>
@@ -116,13 +120,14 @@ export default {
   },
   data() {
     return {
+      formIsNotSubmitted: true,
       formData: {
-        activeMembership: null
+        gekozenMembership: null
       }
     }
   },
   beforeMount() {
-    this.formData.activeMembership = this.$page.strapi.membership.abonnementens[0].titel
+    this.formData.gekozenMembership = this.$page.strapi.membership.abonnementens[0].titel
   },
   mounted() {
 
@@ -147,7 +152,7 @@ export default {
   },
   methods:{
     handleGoToForm(value) {
-      this.formData.activeMembership = value;
+      this.formData.gekozenMembership = value;
 
       this.$refs.form.scrollIntoView({
         block: "center",
@@ -168,7 +173,7 @@ export default {
           ...this.formData,
         }),
       })
-      .then(() => console.log('succes!'))
+      .then(() => this.formIsNotSubmitted = false)
       .catch(error => alert(error))
     }
   },
