@@ -23,6 +23,11 @@
     },
     "contactIntro": {
       "type": "text"
+    },
+    "ContactSuccesMessage": {
+      "type": "text",
+      "default": "Bedankt voor je aanvraag. We nemen zo spoedig mogelijk contact met je op.",
+      "required": true
     }
   }
 }

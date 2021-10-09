@@ -29,6 +29,11 @@
     },
     "ruimtes": {
       "collection": "ruimte"
+    },
+    "ContactSuccesMessage": {
+      "type": "text",
+      "required": true,
+      "default": "Bedankt voor je aanvraag. We nemen zo spoedig mogelijk contact met u op."
     }
   }
 }

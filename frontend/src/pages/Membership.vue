@@ -65,7 +65,7 @@
             </p>
           </form>
           <div class="succes-message" :class="formIsNotSubmitted ? 'hidden' : ''">
-            <p>Bedankt voor je aanvraag. We nemen zo spoedig mogelijk contact met je op.</p>
+            <p>{{$page.strapi.membership.ContactSuccesMessage}}</p>
           </div>
       </div>
     </div>
@@ -100,6 +100,7 @@ query {
         }
       }
       contactIntro
+      ContactSuccesMessage
     }
   }
 }
@@ -160,9 +161,9 @@ export default {
       });
     },
     encode(data) {
-    return Object.keys(data)
-      .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
-      .join('&')
+      return Object.keys(data)
+        .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+        .join('&')
     },
     handleSubmit(e) {
       fetch('/', {
@@ -177,7 +178,7 @@ export default {
       .catch(error => alert(error))
     },
     formIsSubmittedHandler() {
-      this.formIsNotSubmitted = false
+      this.formIsNotSubmitted = false;
 
       anime({
         targets: '.succes-message',

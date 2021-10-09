@@ -26,36 +26,53 @@
       </div>
       <div class="contact-row" ref="form">
         <h2>{{$page.strapi.ruimteHuren.ContactIntro}}</h2>
-        <form name="contact" method="POST" data-netlify="true">
+        <form 
+          name="ruimteHuren"
+          method="post"
+          v-on:submit.prevent="handleSubmit"
+          action="/success/"
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
+          v-if="formIsNotSubmitted"
+        >
+          <input type="hidden" name="form-name" value="ruimteHuren" />
           <p>
-            <select name="ruimte[]" v-model="activeRuimte"  v-if="$page.strapi.ruimteHuren.ruimtes">
+            <select name="gekozenRuimte" v-model="formData.gekozenRuimte"  v-if="$page.strapi.ruimteHuren.ruimtes">
               <option v-for="(ruimte, index) in $page.strapi.ruimteHuren.ruimtes" :value="ruimte.Titel" :key="index">{{ruimte.Titel}}</option>
             </select>
           </p>
           <p>
-            <input type="text" name="name" placeholder="Naam" />
+            <input type="text" name="naam" placeholder="Naam*" v-model="formData.naam" required />
+          </p>
+          <p hidden>
+            <label>
+              Vul dit niet in: <input name="bot-field" />
+            </label>
           </p>
           <p>
-            <input type="email" name="email" placeholder="E-Mail" />
+            <input type="email" name="email" placeholder="E-Mail*" v-model="formData.email" required />
           </p>
           <p>
-            <input type="text" name="telefoon" placeholder="Telefoon" />
+            <input type="text" name="telefoon" placeholder="Telefoon*" v-model="formData.telefoon" required />
           </p>
           <p>
-            <input type="date" name="geboortedatum" placeholder="Geboortedatum" />
+            <input type="date" name="geboortedatum" placeholder="Geboortedatum" v-model="formData.geboortedatum" />
           </p>
           <p class="address-inputs">
-            <input type="text" name="postcode" placeholder="Postcode" />
-            <input type="text" name="huisnummer" placeholder="Huisnr." />
-            <input type="text" name="toevoegingen" placeholder="Toev." />
+            <input type="text" name="postcode" placeholder="Postcode" v-model="formData.postcode" />
+            <input type="text" name="huisnummer" placeholder="Huisnr." v-model="formData.huisnummer" />
+            <input type="text" name="toevoegingen" placeholder="Toev." v-model="formData.toevoeging" />
           </p>
           <p>
-            <textarea name="opmerking" placeholder="Opmerking" />
+            <textarea name="opmerking" placeholder="Opmerking" v-model="formData.opmerking" />
           </p>
           <p>
             <button type="submit"><span>Verstuur</span><span>></span></button>
           </p>
         </form>
+        <div class="succes-message" :class="formIsNotSubmitted ? 'hidden' : ''">
+          <p>{{$page.strapi.ruimteHuren.ContactSuccesMessage}}</p>
+        </div>
       </div>
     </div>
   </Layout>
@@ -96,6 +113,7 @@ query {
         }
       }
       ContactIntro
+      ContactSuccesMessage
     }
   }
 }
@@ -116,7 +134,10 @@ export default {
   },
   data() {
     return {
-      activeRuimte: ''
+      formIsNotSubmitted: true,
+      formData: {
+        gekozenRuimte: null
+      }
     }
   },
   mounted() {
@@ -141,15 +162,42 @@ export default {
       }, 500)
   },
   beforeMount() {
-    this.activeRuimte = this.$page.strapi.ruimteHuren.ruimtes[0].Titel
+    this.formData.gekozenRuimte = this.$page.strapi.ruimteHuren.ruimtes[0].Titel
   },
   methods:{
     handleGoToForm(value) {
-      this.activeRuimte = value;
+      this.formData.gekozenRuimte = value;
 
       this.$refs.form.scrollIntoView({
         block: "center",
         behavior: "smooth"
+      });
+    },
+    encode(data) {
+      return Object.keys(data)
+        .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+        .join('&')
+    },
+    handleSubmit(e) {
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: this.encode({
+          'form-name': e.target.getAttribute('name'),
+          ...this.formData,
+        }),
+      })
+      .then(() => this.formIsSubmittedHandler())
+      .catch(error => alert(error))
+    },
+    formIsSubmittedHandler() {
+      this.formIsNotSubmitted = false;
+
+      anime({
+        targets: '.succes-message',
+        translateY: [-10, 0],
+        opacity: [0, 100],
+        duration: 1000
       });
     },
     getStrapiMedia
@@ -337,6 +385,22 @@ export default {
     @media (max-width: 48em) {
       flex-direction: column;
     }
+  }
+}
+
+.succes-message {
+
+  width: 100%;
+  min-height: 20rem;
+  align-items: center;
+  text-decoration: underline;
+  display: flex;
+  text-align: center;
+  max-width: 60rem;
+
+  &.hidden {
+    display: none;
+    opacity: 0;
   }
 }
 </style>
