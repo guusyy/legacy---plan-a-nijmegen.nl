@@ -2,7 +2,7 @@
   <Layout>
     <div class="container">
       <div class="column" >
-        <h1>{{$page.strapi.barRestaurant.Titel}}</h1>
+        <h1 class="page-title">{{$page.strapi.barRestaurant.Titel}}</h1>
         <p style="margin-top: 3rem;">
           <VueMarkdown :source="$page.strapi.barRestaurant.Beschrijving" />
         </p>

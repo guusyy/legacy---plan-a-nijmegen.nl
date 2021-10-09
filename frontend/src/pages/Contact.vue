@@ -2,7 +2,7 @@
   <Layout>
     <div class="container">
       <div class="column" >
-        <h1>Contact</h1>
+        <h1 class="page-title">Contact</h1>
         <div class="contactpage-contact-info" v-if="$page.strapi.contact.introTekst">
           <VueMarkdown :source="$page.strapi.contact.introTekst" class="contact-info" />
         </div>

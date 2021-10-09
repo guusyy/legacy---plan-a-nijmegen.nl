@@ -165,7 +165,6 @@ export default {
     border: 1px solid var(--pa-maroon);
     color: var(--pa-maroon);
     min-height: 20rem;
-    font-size: 3rem;
     text-decoration: none;
 
     display: flex;
@@ -183,10 +182,12 @@ export default {
 
     & .pa-label {
       word-break: break-word;
+      font-size: 3rem;
     }
 
     & .pa-arrow {
       align-self: flex-end;
+      font-size: 4rem;
 
       
       @media (max-width: 64em) {

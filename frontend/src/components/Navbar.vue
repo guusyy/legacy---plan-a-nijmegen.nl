@@ -124,6 +124,8 @@ export default {
 }
 
 .pa-navbar {
+
+  font-family: "Helvetica Neue",Arial,"Noto Sans",sans-serif;
   
   & .pa-logo-border {
     height: 5rem;

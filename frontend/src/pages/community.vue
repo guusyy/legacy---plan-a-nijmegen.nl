@@ -2,7 +2,7 @@
   <Layout>
     <div class="container">
       <div class="column" >
-        <h1>{{$page.strapi.community.Titel}}</h1>
+        <h1 class="page-title">{{$page.strapi.community.Titel}}</h1>
         <div class="community-grid">
           <article class="community-item" v-for="(communityMember, index) in $page.strapi.community.community_members" :key="index">
             <g-image class="community-image" v-if="communityMember.Afbeelding" :src="getStrapiMedia(communityMember.Afbeelding.url)" :alt="communityMember.Afbeelding.alternativeText || communityMember.Afbeelding.name" fit="contain"  />

@@ -3,7 +3,7 @@
     <div class="container">
       <div class="intro-row">
         <div class="column" >
-          <h1>{{$page.strapi.ruimteHuren .Titel}}</h1>
+          <h1 class="page-title">{{$page.strapi.ruimteHuren .Titel}}</h1>
           <p style="margin-top: 3rem;">{{$page.strapi.ruimteHuren.introTekst}}</p>
         </div>
       </div>
