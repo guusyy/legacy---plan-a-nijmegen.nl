@@ -58,7 +58,7 @@
             <p class="address-inputs">
               <input type="text" name="postcode" placeholder="Postcode" v-model="formData.postcode" />
               <input type="text" name="huisnummer" placeholder="Huisnr." v-model="formData.huisnummer" />
-              <input type="text" name="toevoegingen" placeholder="Toev." v-model="formData.toevoeging" />
+              <input type="text" name="toevoegingen" placeholder="Toev." v-model="formData.toevoegingen" />
             </p>
             <p>
               <button type="submit"><span>Verstuur</span><span>></span></button>
