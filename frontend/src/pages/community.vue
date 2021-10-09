@@ -131,6 +131,7 @@ export default {
   & .community-image {
     max-width: 100%;
     height: 100%;
+    max-height: 30rem;
     min-height: 20rem;
     margin-bottom: 1rem;
     object-fit: cover;
