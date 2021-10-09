@@ -28,33 +28,10 @@ query {
 </page-query>
 
 <script>
-import { getMetaTags } from "~/utils/seo";
-import { getStrapiMedia } from "~/utils/medias";
 
 export default {
   components: {
-  },
-  metaInfo() {
-    const { seo } = this.$page.strapi.homepage;
-    const { defaultSeo, favicon } = this.$page.strapi.global;
-
-    // Merge default and article-specific SEO data
-    const fullSeo = {
-      ...defaultSeo,
-      ...seo,
-    };
-
-    return {
-      title: fullSeo.metaTitle,
-      meta: getMetaTags(fullSeo),
-      link: [
-        {
-          rel: "favicon",
-          href: getStrapiMedia(favicon.url),
-        },
-      ],
-    };
-  },
+  }
 };
 </script>
 
