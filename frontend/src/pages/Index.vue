@@ -5,10 +5,10 @@
         <VueMarkdown :source="$page.strapi.homepage.hero.introTekst" class="intro-rte" />
       </div>
       <div class="pa-quickbuttons-container">
-        <a class="pa-quickbutton" :href="`/${knop.LinkTekst}`" v-for="knop in $page.strapi.homepage.hero.homepaginaknop" :key="knop.id">
+        <g-link class="pa-quickbutton" :to="`/${knop.LinkTekst}`" v-for="knop in $page.strapi.homepage.hero.homepaginaknop" :key="knop.id">
           <h4 class="pa-label">{{knop.TekstKnop}}</h4>
           <span class="pa-arrow">></span>
-        </a>
+        </g-link>
       </div>
       <div class="pa-contact-info" v-if="$page.strapi.homepage.hero.infoContact">
         <VueMarkdown :source="$page.strapi.homepage.hero.infoContact" class="intro-contact" />

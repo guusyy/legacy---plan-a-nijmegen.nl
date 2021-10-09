@@ -36,8 +36,8 @@
     </div>
     <div class="col">
       <ul>
-        <li><a href="#">Disclaimer</a></li>
-        <li><a href="#">Privacybeleid</a></li>
+        <li><g-link to="/disclaimer/">Disclaimer</g-link></li>
+        <li><g-link to="/privacy-beleid/">Privacybeleid</g-link></li>
       </ul>
     </div>
   </footer>

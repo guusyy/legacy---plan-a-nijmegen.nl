@@ -4,13 +4,13 @@
       <transition name="fade">
         <div v-if="navigationPanelVisible" class="pa-navigation-list-mobile-container overlay-content">
           <ul class="pa-navigation-list-mobile">
-            <li><a href="/bar-restaurant/">Bar/restaurant</a></li>
-            <li><a href="/flexwerken/">Werken</a></li>
-            <li><a href="/membership/">Membership</a></li>
-            <li><a href="/community/">Community</a></li>
-            <li><a href="/ruimte-huren/">Ruimte huren</a></li>
-            <li><a href="/over-ons/">Over ons</a></li>
-            <li><a href="/contact/">Contact</a></li>
+            <li><g-link to="/bar-restaurant/">Bar/restaurant</g-link></li>
+            <li><g-link to="/flexwerken/">Werken</g-link></li>
+            <li><g-link to="/membership/">Membership</g-link></li>
+            <li><g-link to="/community/">Community</g-link></li>
+            <li><g-link to="/ruimte-huren/">Ruimte huren</g-link></li>
+            <li><g-link to="/over-ons/">Over ons</g-link></li>
+            <li><g-link to="/contact/">Contact</g-link></li>
           </ul>
         </div>
       </transition>
@@ -18,27 +18,27 @@
     </div>
     <div class="logo-holder">
       <div class="logo-left-holder">
-        <a href="/">
+        <g-link to="/">
           <img src="../assets/PLAN_A_Logo_1_onderdeel_1.svg" alt="">
-        </a>
+        </g-link>
       </div>
       <div class="pa-logo-border"></div>
       <div class="logo-right-holder">
-        <a href="/">
+        <g-link to="/">
           <img src="../assets/PLAN_A_Logo_1_onderdeel_3.svg" alt="">
-        </a>
+        </g-link>
       </div>
     </div>
       
     <nav class="pa-navigation">
       <ul class="pa-navigation-list">
-        <li><a href="/bar-restaurant/">Bar/restaurant</a></li>
-        <li><a href="/flexwerken/">Werken</a></li>
-        <li><a href="/membership/">Membership</a></li>
-        <li><a href="/community/">Community</a></li>
-        <li><a href="/ruimte-huren/">Ruimte huren</a></li>
-        <li><a href="/over-ons/">Over ons</a></li>
-        <li><a href="/contact/">Contact</a></li>
+        <li><g-link to="/bar-restaurant/">Bar/restaurant</g-link></li>
+        <li><g-link to="/flexwerken/">Werken</g-link></li>
+        <li><g-link to="/membership/">Membership</g-link></li>
+        <li><g-link to="/community/">Community</g-link></li>
+        <li><g-link to="/ruimte-huren/">Ruimte huren</g-link></li>
+        <li><g-link to="/over-ons/">Over ons</g-link></li>
+        <li><g-link to="/contact/">Contact</g-link></li>
       </ul>
       <button class="pa-mobile-nav-button" @click="navigationPanelVisible = !navigationPanelVisible">
         <svg viewBox="0 0 341.333 341.333" width="40" height="40">
