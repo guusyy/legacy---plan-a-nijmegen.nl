@@ -19,54 +19,54 @@
       </div>
       <div class="contact-row" ref="form">
         <h2>{{$page.strapi.membership.contactIntro}}</h2>
-        <form 
-          name="membership"
-          method="post"
-          v-on:submit.prevent="handleSubmit"
-          action="/success/"
-          data-netlify="true"
-          data-netlify-honeypot="bot-field"
-          v-if="formIsNotSubmitted"
-        >
-          <input type="hidden" name="form-name" value="membership" />
-          <p>
-            <select name="gekozenMembership" v-model="formData.gekozenMembership">
-              <option v-for="(membership, index) in $page.strapi.membership.abonnementens" :value="membership.titel" :key="index">{{membership.titel}} (€{{membership.prijsPm.toFixed(2).toString().replace(".", ",")}})</option>
-            </select>
-          </p>
-          <p class="fullname">
-            <input type="text" name="naam" placeholder="Naam" v-model="formData.naam" required />
-            <input type="text" name="tussenvoegsel" placeholder="Tussenvoegsel" v-model="formData.tussenvoegsel" />
-          </p>
-          <p hidden>
-            <label>
-              Vul dit niet in: <input name="bot-field" />
-            </label>
-          </p>
-          <p>
-            <input type="text" name="achternaam" placeholder="Achternaam" v-model="formData.achternaam" required />
-          </p>
-          <p>
-            <input type="email" name="email" placeholder="E-Mail" v-model="formData.email" required />
-          </p>
-          <p>
-            <input type="text" name="telefoon" placeholder="Telefoon" v-model="formData.telefoon" required />
-          </p>
-          <p>
-            <input type="date" name="geboortedatum" placeholder="Geboortedatum" v-model="formData.geboortedatum" />
-          </p>
-          <p class="address-inputs">
-            <input type="text" name="postcode" placeholder="Postcode" v-model="formData.postcode" />
-            <input type="text" name="huisnummer" placeholder="Huisnr." v-model="formData.huisnummer" />
-            <input type="text" name="toevoegingen" placeholder="Toev." v-model="formData.toevoeging" />
-          </p>
-          <p>
-            <button type="submit"><span>Verstuur</span><span>></span></button>
-          </p>
-        </form>
-        <div v-else>
-          <p>Bedankt voor je aanvraag. We nemen zo spoedig mogelijk contact met je op.</p>
-        </div>
+          <form 
+            name="membership"
+            method="post"
+            v-on:submit.prevent="handleSubmit"
+            action="/success/"
+            data-netlify="true"
+            data-netlify-honeypot="bot-field"
+            v-if="formIsNotSubmitted"
+          >
+            <input type="hidden" name="form-name" value="membership" />
+            <p>
+              <select name="gekozenMembership" v-model="formData.gekozenMembership">
+                <option v-for="(membership, index) in $page.strapi.membership.abonnementens" :value="membership.titel" :key="index">{{membership.titel}} (€{{membership.prijsPm.toFixed(2).toString().replace(".", ",")}})</option>
+              </select>
+            </p>
+            <p class="fullname">
+              <input type="text" name="naam" placeholder="Naam*" v-model="formData.naam" required />
+              <input type="text" name="tussenvoegsel" placeholder="Tussenvoegsel" v-model="formData.tussenvoegsel" />
+            </p>
+            <p hidden>
+              <label>
+                Vul dit niet in: <input name="bot-field" />
+              </label>
+            </p>
+            <p>
+              <input type="text" name="achternaam" placeholder="Achternaam*" v-model="formData.achternaam" required />
+            </p>
+            <p>
+              <input type="email" name="email" placeholder="E-Mail*" v-model="formData.email" required />
+            </p>
+            <p>
+              <input type="text" name="telefoon" placeholder="Telefoon*" v-model="formData.telefoon" required />
+            </p>
+            <p>
+              <input type="date" name="geboortedatum" placeholder="Geboortedatum" v-model="formData.geboortedatum" />
+            </p>
+            <p class="address-inputs">
+              <input type="text" name="postcode" placeholder="Postcode" v-model="formData.postcode" />
+              <input type="text" name="huisnummer" placeholder="Huisnr." v-model="formData.huisnummer" />
+              <input type="text" name="toevoegingen" placeholder="Toev." v-model="formData.toevoeging" />
+            </p>
+            <p>
+              <button type="submit"><span>Verstuur</span><span>></span></button>
+            </p>
+          </form>
+          <div class="succes-message" :class="formIsNotSubmitted ? 'hidden' : ''">
+            <p>Bedankt voor je aanvraag. We nemen zo spoedig mogelijk contact met je op.</p>
+          </div>
       </div>
     </div>
   </Layout>
@@ -173,8 +173,18 @@ export default {
           ...this.formData,
         }),
       })
-      .then(() => this.formIsNotSubmitted = false)
+      .then(() => this.formIsSubmittedHandler())
       .catch(error => alert(error))
+    },
+    formIsSubmittedHandler() {
+      this.formIsNotSubmitted = false
+
+      anime({
+        targets: '.succes-message',
+        translateY: [-10, 0],
+        opacity: [0, 100],
+        duration: 1000
+      });
     }
   },
   metaInfo() {
@@ -376,6 +386,22 @@ export default {
     @media (max-width: 48em) {
       flex-direction: column;
     }
+  }
+}
+
+.succes-message {
+
+  width: 100%;
+  min-height: 20rem;
+  align-items: center;
+  text-decoration: underline;
+  display: flex;
+  text-align: center;
+  max-width: 60rem;
+
+  &.hidden {
+    display: none;
+    opacity: 0;
   }
 }
 </style>
