@@ -1,0 +1,38 @@
+{
+  "kind": "singleType",
+  "collectionName": "over_ons",
+  "info": {
+    "name": "OverOns",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Titel": {
+      "type": "string",
+      "default": "Over ons",
+      "required": true
+    },
+    "Beschrijving": {
+      "type": "richtext",
+      "default": "Plan A is een multifunctionele plek in Nijmegen-West die zakelijke en sociale verbinding creeert voor iedereen die wil ontmoeten en ondernemen. Overdag een werkplek, in de avond en het weekend een plek om gezellig te borrelen. Door diverse activiteiten en mensen onder een dak samen te brengen, ontstaan er nieuwe samenwerkingen en kansen.  De plek bestaat uit werkruimtes, flexibele werkplekken en horeca. Daarnaast worden er diverse evenementen georganiseerd. Door middel van memberships kan iedereen lid worden en naar eigen behofte kiezen waar hij gebruik van wilt maken. Drie kenrnwaarden van Plan A zijn.",
+      "required": true
+    },
+    "ImageSlider": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    }
+  }
+}

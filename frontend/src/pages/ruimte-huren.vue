@@ -3,26 +3,24 @@
     <div class="container">
       <div class="intro-row">
         <div class="column" >
-          <h1>{{$page.strapi.membership.Titel}}</h1>
-          <p style="margin-top: 3rem;">{{$page.strapi.membership.introTekst}}</p>
+          <h1>{{$page.strapi.ruimteHuren .Titel}}</h1>
+          <p style="margin-top: 3rem;">{{$page.strapi.ruimteHuren.introTekst}}</p>
         </div>
       </div>
-      <div class="membership-row">
-        <div class="membership-item" v-for="(membership, index) in $page.strapi.membership.abonnementens" :key="index">
-          <h3>{{membership.titel}}</h3>
-          <div class="price">€{{membership.prijsPm.toFixed(2).toString().replace(".", ",")}} <span class="price-label">per maand</span></div>
-          <ul class="features">
-            <li v-for="(perk, index) in membership.perks" :key="index">{{perk.Perknaam}}</li>
-          </ul>
-          <button @click="handleGoToForm(membership.titel)">{{membership.buttonTekst}}</button>
+      <div class="workspace-row" v-if="$page.strapi.ruimteHuren.ruimtes">
+        <div class="workspace-item" v-for="(ruimte, index) in $page.strapi.ruimteHuren.ruimtes" :key="index">
+          <g-image v-if="ruimte.Afbeelding" :src="getStrapiMedia(ruimte.Afbeelding.url)" :alt="ruimte.Afbeelding.alternativeText || ruimte.Afbeelding.name" />
+          <h3>{{ruimte.Titel}}</h3>
+          <p class="workspace-description">{{ruimte.Omschrijving}}</p>
+          <button @click="handleGoToForm(ruimte.Titel)">{{ruimte.ButtonTekst}}</button>
         </div>
       </div>
       <div class="contact-row" ref="form">
-        <h2>{{$page.strapi.membership.contactIntro}}</h2>
+        <h2>{{$page.strapi.ruimteHuren.ContactIntro}}</h2>
         <form name="contact" method="POST" data-netlify="true">
           <p>
-            <select name="membership[]" v-model="activeMembership">
-              <option v-for="(membership, index) in $page.strapi.membership.abonnementens" :value="membership.titel" :key="index">{{membership.titel}} (€{{membership.prijsPm.toFixed(2).toString().replace(".", ",")}})</option>
+            <select name="ruimte[]" v-model="activeRuimte"  v-if="$page.strapi.ruimteHuren.ruimtes">
+              <option v-for="(ruimte, index) in $page.strapi.ruimteHuren.ruimtes" :value="ruimte.Titel" :key="index">{{ruimte.Titel}}</option>
             </select>
           </p>
           <p>
@@ -70,18 +68,24 @@ query {
         }
       }
     }
-    membership {
-      Titel
+    ruimteHuren{
+     	Titel
       introTekst
-      abonnementens {
-        titel
-        prijsPm
-        buttonTekst
-        perks {
-          Perknaam
+      ruimtes {
+        Titel
+        Omschrijving
+        ButtonTekst
+        Afbeelding {
+          width
+          height
+          alternativeText
+          name
+          caption
+          previewUrl
+          url
         }
       }
-      contactIntro
+      ContactIntro
     }
   }
 }
@@ -93,6 +97,8 @@ import VueMarkdown from "vue-markdown";
 import { getMetaTags } from "~/utils/seo";
 import { getStrapiMedia } from "~/utils/medias";
 
+import anime from 'animejs/lib/anime.es.js';
+
 export default {
   components: {
     Articles,
@@ -100,21 +106,43 @@ export default {
   },
   data() {
     return {
-      activeMembership: ''
+      activeRuimte: ''
     }
   },
+  mounted() {
+
+    var tl = anime.timeline({
+      duration: 1500
+    });
+
+    tl
+      .add({
+        targets: '.workspace-item',
+        translateY: [-5, 0],
+        opacity: [0, 1],
+        duration: 1700,
+        delay: anime.stagger(100) // increase delay by 100ms for each elements.
+      }, 100)
+      .add({
+        targets: '.contact-row',
+        translateY: [-5, 0],
+        opacity: [0, 1],
+        duration: 1700,
+      }, 500)
+  },
   beforeMount() {
-    this.activeMembership = this.$page.strapi.membership.abonnementens[0].titel
+    this.activeRuimte = this.$page.strapi.ruimteHuren.ruimtes[0].Titel
   },
   methods:{
     handleGoToForm(value) {
-      this.activeMembership = value;
+      this.activeRuimte = value;
 
       this.$refs.form.scrollIntoView({
         block: "center",
         behavior: "smooth"
       });
     },
+    getStrapiMedia
   },
   metaInfo() {
     const { defaultSeo, favicon } = this.$page.strapi.global;
@@ -148,7 +176,7 @@ export default {
   }
 }
 
-.membership-row {
+.workspace-row {
   display: grid;
   max-width: 100%;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -159,13 +187,16 @@ export default {
     grid-template-row: repeat(2, 1fr);
   }
 
-  & .membership-item {
-
-    border-top: 1px solid var(--pa-maroon);
+  & .workspace-item {
     padding: 1rem 0rem;
     & h3 {
+      margin: 4rem 0 1rem 0;
       font-size: 3rem;
       font-weight: 600;
+    }
+
+    & .workspace-description {
+      margin: 2rem 0;
     }
   }
 

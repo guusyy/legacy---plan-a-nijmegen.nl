@@ -94,6 +94,8 @@ import VueMarkdown from "vue-markdown";
 import { getMetaTags } from "~/utils/seo";
 import { getStrapiMedia } from "~/utils/medias";
 
+import anime from 'animejs/lib/anime.es.js';
+
 export default {
   components: {
     Articles,
@@ -106,6 +108,27 @@ export default {
   },
   beforeMount() {
     this.activeMembership = this.$page.strapi.membership.abonnementens[0].titel
+  },
+  mounted() {
+
+    var tl = anime.timeline({
+      duration: 1500
+    });
+
+    tl
+      .add({
+        targets: '.membership-item',
+        translateY: [-5, 0],
+        opacity: [0, 1],
+        duration: 1700,
+        delay: anime.stagger(100) // increase delay by 100ms for each elements.
+      }, 100)
+      .add({
+        targets: '.contact-row',
+        translateY: [-5, 0],
+        opacity: [0, 1],
+        duration: 1700,
+      }, 500)
   },
   methods:{
     handleGoToForm(value) {

@@ -1,0 +1,39 @@
+{
+  "collectionName": "components_gegevens_gegevens",
+  "info": {
+    "name": "Gegevens",
+    "icon": "address-book"
+  },
+  "options": {},
+  "attributes": {
+    "StraatEnHuisnummer": {
+      "type": "string",
+      "default": "Vlierstraat 24",
+      "required": true
+    },
+    "PostcodeEnStad": {
+      "type": "string",
+      "default": "6524 SM Nijmegen",
+      "required": true
+    },
+    "Telefoonnummer": {
+      "type": "string",
+      "default": "+31 6 123 456 78",
+      "required": true
+    },
+    "Email": {
+      "type": "email",
+      "default": "info@plan-a-nijmegen.nl",
+      "required": true
+    },
+    "Facebook": {
+      "type": "string",
+      "default": "https://facebook.com/#",
+      "required": false
+    },
+    "Instagram": {
+      "type": "string",
+      "default": "https://instagram.com/#"
+    }
+  }
+}

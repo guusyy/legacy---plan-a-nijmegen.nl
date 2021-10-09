@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/ruimte-huren",
+      "handler": "ruimte-huren.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/ruimte-huren",
+      "handler": "ruimte-huren.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/ruimte-huren",
+      "handler": "ruimte-huren.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

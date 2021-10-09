@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/ruimtes",
+      "handler": "ruimte.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/ruimtes/count",
+      "handler": "ruimte.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/ruimtes/:id",
+      "handler": "ruimte.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/ruimtes",
+      "handler": "ruimte.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/ruimtes/:id",
+      "handler": "ruimte.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/ruimtes/:id",
+      "handler": "ruimte.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

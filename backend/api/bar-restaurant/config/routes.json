@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/bar-restaurant",
+      "handler": "bar-restaurant.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/bar-restaurant",
+      "handler": "bar-restaurant.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/bar-restaurant",
+      "handler": "bar-restaurant.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

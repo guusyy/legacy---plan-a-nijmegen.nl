@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "community_members",
+  "info": {
+    "name": "CommunityMembers"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "NaamAchternaam": {
+      "type": "string",
+      "default": "Naam en Achternaam",
+      "required": true
+    },
+    "NaamBedrijf": {
+      "type": "string",
+      "default": "Naam bedrijf",
+      "required": true
+    },
+    "Afbeelding": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    }
+  }
+}

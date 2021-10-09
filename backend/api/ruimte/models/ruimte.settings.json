@@ -1,0 +1,41 @@
+{
+  "kind": "collectionType",
+  "collectionName": "ruimtes",
+  "info": {
+    "name": "Ruimte",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Titel": {
+      "type": "string",
+      "default": "Kantoorunit",
+      "required": true
+    },
+    "Omschrijving": {
+      "type": "text",
+      "default": "Beschrijving van kantoorunit. Beschrijving van kantoorunit. Beschrijving van kantoorunit. Beschrijving van kantoorunit. Beschrijving van kantoorunit.",
+      "required": true
+    },
+    "ButtonTekst": {
+      "type": "string",
+      "default": "Selecteer Deze",
+      "required": true
+    },
+    "Afbeelding": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    }
+  }
+}

@@ -28,7 +28,6 @@ a {
 
 .pa-content-container {
   margin: 4rem 8rem;
-  overflow: auto;
   height: 100%;
 
   @media (max-width: 40em) {
@@ -38,7 +37,7 @@ a {
 }
 
 .fade-enter-active {
-  transition: opacity .2s ease;
+  transition: opacity .4s ease;
 }
 
 .fade-enter {

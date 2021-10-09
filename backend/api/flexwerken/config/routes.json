@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/flexwerken",
+      "handler": "flexwerken.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/flexwerken",
+      "handler": "flexwerken.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/flexwerken",
+      "handler": "flexwerken.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

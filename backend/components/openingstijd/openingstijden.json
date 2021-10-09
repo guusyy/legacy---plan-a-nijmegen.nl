@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_openingstijd_openingstijdens",
+  "info": {
+    "name": "Openingstijden",
+    "icon": "business-time",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Begintijd": {
+      "type": "string",
+      "default": "08:00",
+      "required": true
+    },
+    "Eindtijd": {
+      "type": "string",
+      "required": true,
+      "default": "22:00"
+    }
+  }
+}

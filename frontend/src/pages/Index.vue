@@ -60,10 +60,40 @@ import Articles from "~/components/Articles";
 import { getMetaTags } from "~/utils/seo";
 import { getStrapiMedia } from "~/utils/medias";
 
+import anime from 'animejs/lib/anime.es.js';
+
 export default {
   components: {
     Articles,
     VueMarkdown
+  },
+  mounted() {
+
+    var tl = anime.timeline({
+      duration: 1500
+    });
+
+    tl
+      .add({
+        targets: '.intro-text',
+        translateY: [-20, 0],
+        delay: 100,
+        opacity: [0, 1],
+        duration: 1700,
+      })
+      .add({
+        targets: '.pa-quickbutton',
+        translateY: [-5, 0],
+        opacity: [0, 1],
+        duration: 1700,
+        delay: anime.stagger(200) // increase delay by 100ms for each elements.
+      }, 400)
+      .add({
+        targets: '.pa-contact-info',
+        translateY: [-5, 0],
+        opacity: [0, 1],
+        duration: 1400,
+      }, 1200)
   },
   metaInfo() {
     const { seo } = this.$page.strapi.homepage;

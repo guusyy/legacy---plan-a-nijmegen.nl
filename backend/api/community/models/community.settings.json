@@ -1,0 +1,23 @@
+{
+  "kind": "singleType",
+  "collectionName": "communities",
+  "info": {
+    "name": "Community"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Titel": {
+      "type": "string",
+      "default": "Community",
+      "required": true
+    },
+    "community_members": {
+      "collection": "community-members"
+    }
+  }
+}

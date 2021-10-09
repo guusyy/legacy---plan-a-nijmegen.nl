@@ -1,0 +1,34 @@
+{
+  "kind": "singleType",
+  "collectionName": "ruimte_hurens",
+  "info": {
+    "name": "RuimteHuren",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Titel": {
+      "type": "string",
+      "default": "Ruimte huren",
+      "required": true
+    },
+    "introTekst": {
+      "type": "richtext",
+      "default": "Je kan een kantoorunit huren en vergaderruimte reserveren. Of kom een keer langs op de Vlietstraat om te kijken.",
+      "required": true
+    },
+    "ContactIntro": {
+      "type": "text",
+      "default": "Vul je gegevens in en wij nemen contact met je op om je verzoek af te ronden.",
+      "required": true
+    },
+    "ruimtes": {
+      "collection": "ruimte"
+    }
+  }
+}

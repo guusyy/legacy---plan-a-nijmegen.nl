@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/over-ons",
+      "handler": "over-ons.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/over-ons",
+      "handler": "over-ons.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/over-ons",
+      "handler": "over-ons.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

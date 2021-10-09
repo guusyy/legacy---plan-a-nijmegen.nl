@@ -97,4 +97,18 @@ a {
   background: var(--pa-red);
 }
 
+.pa-contact-businesshours td:first-child {
+  padding-right: 2rem;
+}
+
+.pa-contact-businesshours td {
+  padding: .3rem 0;
+}
+.pa-contact-businesshours table {
+  margin: 2rem 0;
+  width: 35rem;
+  max-width: 100%;
+  font-size: 2rem;
+}
+
 @import './reset.scss'

@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_openingstijd_openingstijds",
+  "info": {
+    "name": "Openingstijd",
+    "icon": "clock"
+  },
+  "options": {},
+  "attributes": {
+    "Dag": {
+      "type": "string"
+    },
+    "Begintijd": {
+      "type": "string"
+    },
+    "Eindtijd": {
+      "type": "string"
+    }
+  }
+}

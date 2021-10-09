@@ -1,0 +1,38 @@
+{
+  "kind": "singleType",
+  "collectionName": "bar_restaurants",
+  "info": {
+    "name": "BarRestaurant",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Titel": {
+      "type": "string",
+      "required": true,
+      "default": "Bar/Restaurant"
+    },
+    "Beschrijving": {
+      "type": "richtext",
+      "default": "Beschrijving met betrekking tot bar/restaurant met foto's van bar en restaurant en binnentuin hiernaast. ",
+      "required": true
+    },
+    "ImageSlider": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    }
+  }
+}

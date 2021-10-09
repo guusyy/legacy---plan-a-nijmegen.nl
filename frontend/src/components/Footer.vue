@@ -2,32 +2,36 @@
   <footer class="pa-footer">
     <div class="col">
       <ul>
-        <li>Vlierstraat 24</li>
-        <li>6524 SM Nijmegen</li>
+        <li>{{$static.strapi.global.Gegevens.StraatEnHuisnummer}}</li>
+        <li>{{$static.strapi.global.Gegevens.PostcodeEnStad}}</li>
       </ul>
     </div>
     <div class="col">
       <ul>
-        <li>+31 6 123 456 78</li>
-        <li><a href="#">info@plan-a-nijmegen.nl</a></li>
+        <li>{{$static.strapi.global.Gegevens.Telefoonnummer}}</li>
+        <li><a :href="'mailto:' + $static.strapi.global.Gegevens.Email">{{$static.strapi.global.Gegevens.Email}}</a></li>
       </ul>
     </div>
     <div class="col">
-      <ul>
-        <li>Maandag t/m vrijdag</li>
-        <li>Zaterdag</li>
-        <li>Zondag</li>
-      </ul>
-      <ul>
-        <li>00:00-00:00</li>
-        <li>00:00-00:00</li>
-        <li>00:00-00:00</li>
-      </ul>
+      <table class="time-table">
+        <tr v-if="$static.strapi.global.OpeningstijdDoordeweeks.Begintijd && $static.strapi.global.OpeningstijdDoordeweeks.Eindtijd">
+          <td>Maandag t/m vrijdag</td>
+          <td><span>{{$static.strapi.global.OpeningstijdDoordeweeks.Begintijd}}</span>-<span>{{$static.strapi.global.OpeningstijdDoordeweeks.Eindtijd}}</span></td>
+        </tr>
+        <tr v-if="$static.strapi.global.OpeningstijdZaterdag.Begintijd && $static.strapi.global.OpeningstijdZaterdag.Eindtijd">
+          <td>Zaterdag</td>
+          <td><span>{{$static.strapi.global.OpeningstijdZaterdag.Begintijd}}</span>-<span>{{$static.strapi.global.OpeningstijdZaterdag.Eindtijd}}</span></td>
+        </tr>
+        <tr v-if="$static.strapi.global.OpeningstijdZondag.Begintijd && $static.strapi.global.OpeningstijdZondag.Eindtijd">
+          <td>Zondag</td>
+          <td><span>{{$static.strapi.global.OpeningstijdZondag.Begintijd}}</span>-<span>{{$static.strapi.global.OpeningstijdZondag.Eindtijd}}</span></td>
+        </tr>
+      </table>
     </div>
     <div class="col">
       <ul>
-        <li><a href="#">Facebook</a></li>
-        <li><a href="#">Instagram</a></li>
+        <li><a target="_blank" :href="$static.strapi.global.Gegevens.Facebook">Facebook</a></li>
+        <li><a target="_blank" :href="$static.strapi.global.Gegevens.Instagram">Instagram</a></li>
       </ul>
     </div>
     <div class="col">
@@ -44,6 +48,26 @@ query {
   strapi {
     global {
       siteName
+      Gegevens {
+        Facebook
+        Instagram
+        StraatEnHuisnummer
+        PostcodeEnStad
+        Telefoonnummer
+        Email
+      }
+      OpeningstijdDoordeweeks {
+        Begintijd
+        Eindtijd
+      }
+      OpeningstijdZaterdag {
+        Begintijd
+        Eindtijd
+      }
+      OpeningstijdZondag {
+        Begintijd
+        Eindtijd
+      }
     }
   }
 }
@@ -67,4 +91,9 @@ query {
   display: flex;
   gap: 1rem;
 }
+
+.time-table td:first-child {
+  padding: 0rem 2rem 0 0;
+}
+
 </style>

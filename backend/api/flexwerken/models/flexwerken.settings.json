@@ -1,0 +1,38 @@
+{
+  "kind": "singleType",
+  "collectionName": "flexwerkens",
+  "info": {
+    "name": "Flexwerken",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Titel": {
+      "type": "string",
+      "default": "Bar/Restaurant",
+      "required": true
+    },
+    "Beschrijving": {
+      "type": "richtext",
+      "default": "Beschrijving van flexwerkplekken en een aantal foto's van de werkzaal hiernaast.",
+      "required": true
+    },
+    "ImageSlider": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    }
+  }
+}

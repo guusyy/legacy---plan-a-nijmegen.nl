@@ -7,6 +7,7 @@
             <li><a href="/bar-restaurant/">Bar/restaurant</a></li>
             <li><a href="/flexwerken/">Werken</a></li>
             <li><a href="/membership/">Membership</a></li>
+            <li><a href="/community/">Community</a></li>
             <li><a href="/ruimte-huren/">Ruimte huren</a></li>
             <li><a href="/over-ons/">Over ons</a></li>
             <li><a href="/contact/">Contact</a></li>
@@ -34,6 +35,7 @@
         <li><a href="/bar-restaurant/">Bar/restaurant</a></li>
         <li><a href="/flexwerken/">Werken</a></li>
         <li><a href="/membership/">Membership</a></li>
+        <li><a href="/community/">Community</a></li>
         <li><a href="/ruimte-huren/">Ruimte huren</a></li>
         <li><a href="/over-ons/">Over ons</a></li>
         <li><a href="/contact/">Contact</a></li>
@@ -90,6 +92,7 @@ export default {
   top: 0;
   width: 100vw;
   background: var(--pa-white);
+  z-index: 100000;
 }
 
 .logo-left-holder {
@@ -126,6 +129,7 @@ export default {
     height: 5rem;
     width: 100%;
     border-bottom: 5px solid var(--pa-red);
+    transform: translateX(0px);
     background-color: var(--pa-white);
   }
 
@@ -186,7 +190,7 @@ export default {
   left: 0px;
   right: 0px;
   bottom: 0px;
-  z-index: 10;
+  z-index: 1000000000000000000;
 
   .overlay-content {
     height: 100%;
