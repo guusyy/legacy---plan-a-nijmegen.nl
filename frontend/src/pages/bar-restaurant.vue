@@ -118,10 +118,18 @@ export default {
 
 .swiper-holder {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
 
   .image-holder {
     width: 90%;
+
+    & img {
+      min-width: 100%;
+    }
+
+    @media (max-width: 64em) {
+      width: 100%;
+    }
   }
 }
 </style>

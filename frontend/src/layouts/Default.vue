@@ -27,12 +27,16 @@ a {
 }
 
 .pa-content-container {
-  margin: 4rem 8rem;
+  margin: 4rem 5rem 4rem 8rem;
   height: 100%;
 
   @media (max-width: 40em) {
 
-    margin: 2rem 4rem;
+    margin: 0 3.5rem 4rem 6.5rem;
+  }
+
+  @media (max-width: 64em) {
+    margin: 0 3.5rem 4rem 6.5rem;
   }
 }
 

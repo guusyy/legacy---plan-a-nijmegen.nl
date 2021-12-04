@@ -1,6 +1,6 @@
 <template>
   <div class="pa-navbar">
-    <div class="overlay" :class="[navigationPanelVisible ? 'show' : '']">
+    <!-- <div class="overlay" :class="[navigationPanelVisible ? 'show' : '']">
       <transition name="fade">
         <div v-if="navigationPanelVisible" class="pa-navigation-list-mobile-container overlay-content">
           <ul class="pa-navigation-list-mobile">
@@ -15,7 +15,7 @@
         </div>
       </transition>
       <div class="overlay-background" @click="navigationPanelVisible = false"></div>
-    </div>
+    </div> -->
     <div class="logo-holder">
       <div class="logo-left-holder">
         <g-link to="/">
@@ -31,6 +31,19 @@
     </div>
       
     <nav class="pa-navigation">
+      <transition name="fade">
+        <div v-if="navigationPanelVisible" class="pa-navigation-list-mobile-container overlay-content">
+          <ul class="pa-navigation-list-mobile">
+            <li><g-link to="/bar-restaurant/">Bar/restaurant</g-link></li>
+            <li><g-link to="/flexwerken/">Werken</g-link></li>
+            <li><g-link to="/membership/">Membership</g-link></li>
+            <li><g-link to="/community/">Community</g-link></li>
+            <li><g-link to="/ruimte-huren/">Ruimte huren</g-link></li>
+            <li><g-link to="/over-ons/">Over ons</g-link></li>
+            <li><g-link to="/contact/">Contact</g-link></li>
+          </ul>
+        </div>
+      </transition>
       <ul class="pa-navigation-list">
         <li><g-link to="/bar-restaurant/">Bar/restaurant</g-link></li>
         <li><g-link to="/flexwerken/">Werken</g-link></li>
@@ -41,7 +54,7 @@
         <li><g-link to="/contact/">Contact</g-link></li>
       </ul>
       <button class="pa-mobile-nav-button" @click="navigationPanelVisible = !navigationPanelVisible">
-        <svg viewBox="0 0 341.333 341.333" width="40" height="40">
+        <svg viewBox="0 0 341.333 341.333">
           <g>
             <g>
               <rect y="277.333" width="341.333" height="42.667"/>
@@ -104,13 +117,31 @@ export default {
   z-index:100000;
   margin-top: .1rem;
 
+  @media (max-width: 64em) {
+    min-width: 6.5rem;
+    height: 4rem;
+  }
+
   & img {
     height: 3.2rem;
+
+    @media (max-width: 64em) {
+      height: 2.5rem;
+    }
+  }
+
+  & a {
+    display: flex;
+    margin-bottom: 4px;
+
+    @media (max-width: 64em) {
+      margin-bottom: 3px;
+    }
   }
 }
 
 .logo-right-holder {
-  min-width: 7rem;
+  min-width: 5rem;
   height: 5rem;
   display: flex;
   justify-content: flex-start;
@@ -118,8 +149,26 @@ export default {
   z-index:100000;
   margin-top: .1rem;
 
+  @media (max-width: 64em) {
+    min-width: 3.5rem;
+    height: 4rem;
+  }
+
   & img {
     height: 3.2rem;
+    
+    @media (max-width: 64em) {
+      height: 2.5rem;
+    }
+  }
+
+  & a {
+    display: flex;
+    margin-bottom: 4px;
+
+    @media (max-width: 64em) {
+      margin-bottom: 3px;
+    }
   }
 }
 
@@ -128,31 +177,38 @@ export default {
   font-family: "Helvetica Neue",Arial,"Noto Sans",sans-serif;
   
   & .pa-logo-border {
-    height: 5rem;
     width: 100%;
-    border-bottom: 5px solid var(--pa-red);
+    border-bottom: 4px solid var(--pa-red);
     transform: translateX(0px);
     background-color: var(--pa-white);
+
+    @media (max-width: 64em) {
+      border-width: 3px;
+    }
   }
 
   & .pa-navigation {
-    margin: 5rem 7rem 0 8rem;
+    margin: 5rem 5rem 0 8rem;
     padding: 1rem 0;
 
     display: flex;
     justify-content: flex-end;
 
+    @media (max-width: 64em) {
+      margin: 5rem 3.5rem 0 6.5rem;
+    }
+
     & .pa-mobile-nav-button {
       border: none;
       background: transparent;
       cursor: pointer;
-
-      margin-right: -3rem;
-
+      padding: 0;
       display: none;
+      height: 3rem;
 
       & svg {
         fill: var(--pa-maroon);
+        width: 3rem;
       }
 
       @media (max-width: 64em) {
@@ -215,18 +271,16 @@ export default {
 
 .pa-navigation-list-mobile-container {
 
-  position: absolute;
+  position: relative;
   top: 0;
   right: 0;
-  height: 100vh;
-  width: 70vw;
+  height: 36rem;
+  width: 100%;
+  margin-right: 2rem;
   background-color: var(--pa-white);
-  padding: 5rem;
+  padding: 0;
 
   z-index: 1000;
-
-  
-
 
   & .pa-navigation-list-mobile {
     display: flex;
@@ -255,8 +309,8 @@ export default {
   transition: all .5s ease;
 }
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
-  opacity: 0.3;
-  transform: translateX(300px);
+  transform: translateY(-300px);
+  height: 0;
 }
 
 </style>
