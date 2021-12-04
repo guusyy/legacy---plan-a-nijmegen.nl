@@ -85,11 +85,22 @@ query {
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 2rem;
+
+  @media (max-width: 64em) {
+    flex-direction: column;
+  }
 }
 
 .col {
   display: flex;
   gap: 1rem;
+
+  @media (max-width: 64em) {
+    
+    &:nth-child(2) {
+      margin-top: -2rem;
+    }
+  }
 }
 
 .time-table td:first-child {

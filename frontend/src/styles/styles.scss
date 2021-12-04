@@ -12,6 +12,10 @@ html {
   background: var(--pa-white);
   color: hsl(10,74%,23%);
   color: var(--pa-maroon);
+
+  @supports (-webkit-touch-callout: none) {
+    letter-spacing: -1.5px;
+  }
 }
 
 .page-title, .nav-title {
