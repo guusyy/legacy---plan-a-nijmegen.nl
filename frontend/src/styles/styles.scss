@@ -15,15 +15,15 @@ html {
 
   @supports (-webkit-touch-callout: none) {
     letter-spacing: -1px;
-
-    h1, h2, h3, h4, h5, h6 {
-      letter-spacing: 0px;
-    }
   }
 }
 
 .page-title, .nav-title {
   font-family: "Helvetica Neue",Arial,"Noto Sans",sans-serif;
+
+  @supports (-webkit-touch-callout: none) {
+    letter-spacing: 0px;
+  }
 }
 
 @media (max-width: 40em) {
