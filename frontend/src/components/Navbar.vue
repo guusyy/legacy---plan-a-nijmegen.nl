@@ -231,7 +231,7 @@ export default {
         text-decoration: none;
         text-transform: uppercase;
         font-weight: 700;
-        font-size: clamp(1.6rem, 1vw + 1rem, 3.2rem);
+        font-size: clamp(1.6rem, 1vw + 1rem, 2.6rem);
 
         &:hover {
           text-decoration: underline;
