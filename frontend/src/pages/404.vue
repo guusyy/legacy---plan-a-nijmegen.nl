@@ -2,7 +2,7 @@
   <Layout>
     <div class="pa-container">
       <h2>Oeps... deze pagina is niet gevonden</h2>
-      <h3>Nu je hier toch bent, heb je al ons mooie <g-link to="/bar-restaurant/" style="text-decoration:underline;">Restaurant</g-link> gezien?</h3>
+      <h3>Nu je hier toch bent, heb je al ons mooie <g-link to="/eten-drinken/" style="text-decoration:underline;">Restaurant</g-link> gezien?</h3>
     </div>
   </Layout>
 </template>

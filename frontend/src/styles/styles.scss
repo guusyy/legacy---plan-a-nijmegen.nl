@@ -93,6 +93,11 @@ a {
     margin-bottom: 2rem;
   }
 
+  h2 {
+    font-size: clamp(2rem, 1vw + 1rem, 2.8rem);
+    line-height: clamp(2.8rem, 1vw + 1rem, 3.6rem);
+  }
+
   ul {
     margin: 2rem 0;
   }
