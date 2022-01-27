@@ -18,7 +18,8 @@
         </div>
       </div>
       <div class="contact-row" ref="form">
-        <h2 class="text">{{$page.strapi.membership.contactIntro}}</h2>
+        <div>
+          <h2 class="text">{{$page.strapi.membership.contactIntro}}</h2>
           <form 
             name="membership"
             method="post"
@@ -30,9 +31,12 @@
           >
             <input type="hidden" name="form-name" value="membership" />
             <p>
-              <select name="gekozenMembership" v-model="formData.gekozenMembership">
-                <option v-for="(membership, index) in $page.strapi.membership.abonnementens" :value="membership.titel" :key="index">{{membership.titel}} (€{{membership.prijsPm.toFixed(2).toString().replace(".", ",")}})</option>
-              </select>
+              <div style="position: relative;" >
+                <select name="gekozenMembership" v-model="formData.gekozenMembership">
+                  <option v-for="(membership, index) in $page.strapi.membership.abonnementens" :value="membership.titel" :key="index">{{membership.titel}} (€{{membership.prijsPm.toFixed(2).toString().replace(".", ",")}})</option>
+                </select>
+                <svg class="select-arrow-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.424 14.144"><path d="M868.108,427.449l-12.944-9.712,12.944-9.712,1.2,1.6L858.5,417.737l10.812,8.112Z" transform="translate(-408.025 869.309) rotate(-90)" fill="#691e0f"/></svg>
+              </div>
             </p>
             <p class="fullname">
               <input type="text" name="naam" placeholder="Naam*" v-model="formData.naam" required />
@@ -67,6 +71,7 @@
           <div class="succes-message" :class="formIsNotSubmitted ? 'hidden' : ''">
             <p>{{$page.strapi.membership.ContactSuccesMessage}}</p>
           </div>
+        </div>
       </div>
     </div>
   </Layout>
@@ -212,6 +217,14 @@ export default {
 
 <style lang="scss" scoped>
 
+.select-arrow-down {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translate(0, -50%);
+  width: 1.6rem;
+}
+
 .intro-row {
   margin-bottom: 4rem;
 }
@@ -280,9 +293,18 @@ export default {
 
 .contact-row {
 
+  display: grid;
+  max-width: 100%;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 4rem;
+
+  @media (max-width: 64em) {
+    grid-template-columns: minmax(10px, 1fr);
+    grid-template-row: repeat(2, 1fr);
+  }
+
   form {
     width: 100%;
-    max-width: 60rem;
     display: flex;
     flex-direction: column;
     gap: .5rem;

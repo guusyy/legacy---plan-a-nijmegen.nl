@@ -10,68 +10,64 @@
       <div class="workspace-row" v-if="$page.strapi.ruimteHuren.ruimtes">
         <div class="workspace-item" v-for="(ruimte, index) in $page.strapi.ruimteHuren.ruimtes" :key="index">
           <g-image v-if="ruimte.Afbeelding" :src="getStrapiMedia(ruimte.Afbeelding.url)" :alt="ruimte.Afbeelding.alternativeText || ruimte.Afbeelding.name" />
-          <!-- <ClientOnly>
-            <progressive-img
-              v-if="ruimte.Afbeelding" 
-              :src="getStrapiMedia(ruimte.Afbeelding.url)" 
-              :placeholder="getStrapiMedia(ruimte.Afbeelding.formats.thumbnail.url)"
-              :aspect-ratio="ruimte.Afbeelding.height / ruimte.Afbeelding.width"
-              :alt="ruimte.Afbeelding.alternativeText || ruimte.Afbeelding.name"
-            />
-          </ClientOnly> -->
           <h3>{{ruimte.Titel}}</h3>
           <p class="workspace-description">{{ruimte.Omschrijving}}</p>
           <button @click="handleGoToForm(ruimte.Titel)">{{ruimte.ButtonTekst}}</button>
         </div>
       </div>
       <div class="contact-row" ref="form">
-        <h2 class="text">{{$page.strapi.ruimteHuren.ContactIntro}}</h2>
-        <form 
-          name="ruimteHuren"
-          method="post"
-          v-on:submit.prevent="handleSubmit"
-          action="/success/"
-          data-netlify="true"
-          data-netlify-honeypot="bot-field"
-          v-if="formIsNotSubmitted"
-        >
-          <input type="hidden" name="form-name" value="ruimteHuren" />
-          <p>
-            <select name="gekozenRuimte" v-model="formData.gekozenRuimte"  v-if="$page.strapi.ruimteHuren.ruimtes">
-              <option v-for="(ruimte, index) in $page.strapi.ruimteHuren.ruimtes" :value="ruimte.Titel" :key="index">{{ruimte.Titel}}</option>
-            </select>
-          </p>
-          <p>
-            <input type="text" name="naam" placeholder="Naam*" v-model="formData.naam" required />
-          </p>
-          <p hidden>
-            <label>
-              Vul dit niet in: <input name="bot-field" />
-            </label>
-          </p>
-          <p>
-            <input type="email" name="email" placeholder="E-Mail*" v-model="formData.email" required />
-          </p>
-          <p>
-            <input type="text" name="telefoon" placeholder="Telefoon*" v-model="formData.telefoon" required />
-          </p>
-          <p>
-            <input type="date" name="geboortedatum" placeholder="Geboortedatum" v-model="formData.geboortedatum" />
-          </p>
-          <p class="address-inputs">
-            <input type="text" name="postcode" placeholder="Postcode" v-model="formData.postcode" />
-            <input type="text" name="huisnummer" placeholder="Huisnr." v-model="formData.huisnummer" />
-            <input type="text" name="toevoegingen" placeholder="Toev." v-model="formData.toevoegingen" />
-          </p>
-          <p>
-            <textarea name="opmerking" placeholder="Opmerking" v-model="formData.opmerking" />
-          </p>
-          <p>
-            <button type="submit"><span>Verstuur</span><span>></span></button>
-          </p>
-        </form>
-        <div class="succes-message" :class="formIsNotSubmitted ? 'hidden' : ''">
-          <p>{{$page.strapi.ruimteHuren.ContactSuccesMessage}}</p>
+        <div>
+          <h2 class="text">{{$page.strapi.ruimteHuren.ContactIntro}}</h2>
+          <form 
+            name="ruimteHuren"
+            method="post"
+            v-on:submit.prevent="handleSubmit"
+            action="/success/"
+            data-netlify="true"
+            data-netlify-honeypot="bot-field"
+            v-if="formIsNotSubmitted"
+          >
+            <input type="hidden" name="form-name" value="ruimteHuren" />
+            <p>
+              <div style="position: relative;">
+                <select name="gekozenRuimte" v-model="formData.gekozenRuimte"  v-if="$page.strapi.ruimteHuren.ruimtes">
+                  <option v-for="(ruimte, index) in $page.strapi.ruimteHuren.ruimtes" :value="ruimte.Titel" :key="index">{{ruimte.Titel}}</option>
+                </select>
+                <svg class="select-arrow-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.424 14.144"><path d="M868.108,427.449l-12.944-9.712,12.944-9.712,1.2,1.6L858.5,417.737l10.812,8.112Z" transform="translate(-408.025 869.309) rotate(-90)" fill="#691e0f"/></svg>
+              </div>
+            </p>
+            <p>
+              <input type="text" name="naam" placeholder="Naam*" v-model="formData.naam" required />
+            </p>
+            <p hidden>
+              <label>
+                Vul dit niet in: <input name="bot-field" />
+              </label>
+            </p>
+            <p>
+              <input type="email" name="email" placeholder="E-Mail*" v-model="formData.email" required />
+            </p>
+            <p>
+              <input type="text" name="telefoon" placeholder="Telefoon*" v-model="formData.telefoon" required />
+            </p>
+            <p>
+              <input type="date" name="geboortedatum" placeholder="Geboortedatum" v-model="formData.geboortedatum" />
+            </p>
+            <p class="address-inputs">
+              <input type="text" name="postcode" placeholder="Postcode" v-model="formData.postcode" />
+              <input type="text" name="huisnummer" placeholder="Huisnr." v-model="formData.huisnummer" />
+              <input type="text" name="toevoegingen" placeholder="Toev." v-model="formData.toevoegingen" />
+            </p>
+            <p>
+              <textarea name="opmerking" placeholder="Opmerking" v-model="formData.opmerking" />
+            </p>
+            <p>
+              <button type="submit"><span>Verstuur</span><span>></span></button>
+            </p>
+          </form>
+          <div class="succes-message" :class="formIsNotSubmitted ? 'hidden' : ''">
+            <p>{{$page.strapi.ruimteHuren.ContactSuccesMessage}}</p>
+          </div>
         </div>
       </div>
     </div>
@@ -226,6 +222,14 @@ export default {
 
 <style lang="scss" scoped>
 
+.select-arrow-down {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translate(0, -50%);
+  width: 1.6rem;
+}
+
 .intro-row {
   margin-bottom: 4rem;
 }
@@ -297,9 +301,18 @@ export default {
 
 .contact-row {
 
+  display: grid;
+  max-width: 100%;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 4rem;
+
+  @media (max-width: 64em) {
+    grid-template-columns: minmax(10px, 1fr);
+    grid-template-row: repeat(2, 1fr);
+  }
+
   form {
     width: 100%;
-    max-width: 60rem;
     display: flex;
     flex-direction: column;
     gap: .5rem;

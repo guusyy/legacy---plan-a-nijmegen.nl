@@ -17,10 +17,6 @@ html {
   background: var(--pa-white);
   color: hsl(10,74%,23%);
   color: var(--pa-maroon);
-
-  @supports (-webkit-touch-callout: none) {
-    letter-spacing: -1px;
-  }
 }
 
 .page-title, .nav-title {
@@ -157,7 +153,11 @@ table {
   max-width: 100%;
 }
 
-input {
+select {
+  -webkit-appearance:none;
+}
+
+input, textarea, select {
   font-family: 'National', -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
 }
 
