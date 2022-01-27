@@ -3,7 +3,7 @@
     <div class="container">
       <div class="column" >
         <h1 class="page-title">{{$page.strapi.overOn.Titel}}</h1>
-        <p style="margin-top: 3rem;">
+        <p style="margin-top: 3rem;" class="rte">
           <VueMarkdown :source="$page.strapi.overOn.Beschrijving" />
         </p>
       </div>
