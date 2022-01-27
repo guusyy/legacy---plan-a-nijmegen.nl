@@ -233,7 +233,6 @@ export default {
     padding: 1rem 0rem;
     & h3 {
       font-size: 3rem;
-      font-weight: 600;
     }
   }
 
@@ -281,10 +280,6 @@ export default {
 
 .contact-row {
 
-  & h2 {
-    font-weight: 600;
-  }
-
   form {
     width: 100%;
     max-width: 60rem;
@@ -321,7 +316,6 @@ export default {
 
     & select, input {
       font-size: 2rem;
-      font-weight: 600;      
       width: 100%;
       height: 5rem;      
       border: none;

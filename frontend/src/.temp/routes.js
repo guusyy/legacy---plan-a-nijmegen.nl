@@ -6,7 +6,7 @@ const c5 = () => import(/* webpackChunkName: "page--src-pages-flexwerken-vue" */
 const c6 = () => import(/* webpackChunkName: "page--src-pages-disclaimer-vue" */ "C:\\Users\\guusn\\Documents\\projects\\plan-a-nijmegen.nl\\frontend\\src\\pages\\disclaimer.vue")
 const c7 = () => import(/* webpackChunkName: "page--src-pages-community-vue" */ "C:\\Users\\guusn\\Documents\\projects\\plan-a-nijmegen.nl\\frontend\\src\\pages\\community.vue")
 const c8 = () => import(/* webpackChunkName: "page--src-pages-contact-vue" */ "C:\\Users\\guusn\\Documents\\projects\\plan-a-nijmegen.nl\\frontend\\src\\pages\\Contact.vue")
-const c9 = () => import(/* webpackChunkName: "page--src-pages-abonnementen-vue" */ "C:\\Users\\guusn\\Documents\\projects\\plan-a-nijmegen.nl\\frontend\\src\\pages\\Abonnementen.vue")
+const c9 = () => import(/* webpackChunkName: "page--src-pages-abonnement-vue" */ "C:\\Users\\guusn\\Documents\\projects\\plan-a-nijmegen.nl\\frontend\\src\\pages\\abonnement.vue")
 const c10 = () => import(/* webpackChunkName: "page--src-pages-404-vue" */ "C:\\Users\\guusn\\Documents\\projects\\plan-a-nijmegen.nl\\frontend\\src\\pages\\404.vue")
 const c11 = () => import(/* webpackChunkName: "page--src-pages-index-vue" */ "C:\\Users\\guusn\\Documents\\projects\\plan-a-nijmegen.nl\\frontend\\src\\pages\\Index.vue")
 
@@ -44,7 +44,7 @@ export default [
     component: c8
   },
   {
-    path: "/abonnementen/",
+    path: "/abonnement/",
     component: c9
   },
   {

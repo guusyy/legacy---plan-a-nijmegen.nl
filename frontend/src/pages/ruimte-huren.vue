@@ -246,7 +246,6 @@ export default {
     & h3 {
       margin: 4rem 0 1rem 0;
       font-size: 3rem;
-      font-weight: 600;
     }
 
     & .workspace-description {
@@ -309,8 +308,7 @@ export default {
     
 
     & select, input, textarea {
-      font-size: 2rem;
-      font-weight: 600;      
+      font-size: 2rem;  
       width: 100%;
       height: 5rem;      
       border: none;

@@ -1,21 +1,5 @@
 <template>
   <div class="pa-navbar">
-    <!-- <div class="overlay" :class="[navigationPanelVisible ? 'show' : '']">
-      <transition name="fade">
-        <div v-if="navigationPanelVisible" class="pa-navigation-list-mobile-container overlay-content">
-          <ul class="pa-navigation-list-mobile">
-            <li><g-link to="/bar-restaurant/">Bar/restaurant</g-link></li>
-            <li><g-link to="/flexwerken/">Werken</g-link></li>
-            <li><g-link to="/membership/">Membership</g-link></li>
-            <li><g-link to="/community/">Community</g-link></li>
-            <li><g-link to="/ruimte-huren/">Ruimte huren</g-link></li>
-            <li><g-link to="/over-ons/">Over ons</g-link></li>
-            <li><g-link to="/contact/">Contact</g-link></li>
-          </ul>
-        </div>
-      </transition>
-      <div class="overlay-background" @click="navigationPanelVisible = false"></div>
-    </div> -->
     <div class="logo-holder">
       <div class="logo-left-holder">
         <g-link to="/">
@@ -36,7 +20,7 @@
           <ul class="pa-navigation-list-mobile">
             <li><g-link to="/flexwerken/">Werken</g-link></li>
             <li><g-link to="/eten-drinken/">Eten & Drinken</g-link></li>
-            <li><g-link to="/abonnementen/">Abonnementen</g-link></li>
+            <li><g-link to="/abonnement/">Abonnement</g-link></li>
             <li><g-link to="/ruimte-huren/">Ruimte huren</g-link></li>
             <li><g-link to="/community/">Community</g-link></li>
             <li><g-link to="/over-ons/">Over ons</g-link></li>
@@ -47,7 +31,7 @@
       <ul class="pa-navigation-list">
         <li><g-link to="/flexwerken/">Werken</g-link></li>
         <li><g-link to="/eten-drinken/">Eten & Drinken</g-link></li>
-        <li><g-link to="/abonnementen/">Abonnementen</g-link></li>
+        <li><g-link to="/abonnement/">Abonnement</g-link></li>
         <li><g-link to="/ruimte-huren/">Ruimte huren</g-link></li>
         <li><g-link to="/community/">Community</g-link></li>
         <li><g-link to="/over-ons/">Over ons</g-link></li>
@@ -109,8 +93,8 @@ export default {
 }
 
 .logo-left-holder {
-  min-width: 8rem;
-  height: 5rem;
+  min-width: 9rem;
+  height: 6rem;
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
@@ -123,7 +107,7 @@ export default {
   }
 
   & img {
-    height: 3.2rem;
+    height: 3rem;
 
     @media (max-width: 64em) {
       height: 2.5rem;
@@ -141,8 +125,8 @@ export default {
 }
 
 .logo-right-holder {
-  min-width: 5rem;
-  height: 5rem;
+  min-width: 6rem;
+  height: 6rem;
   display: flex;
   justify-content: flex-start;
   align-items: flex-end;
@@ -155,7 +139,7 @@ export default {
   }
 
   & img {
-    height: 3.2rem;
+    height: 3rem;
     
     @media (max-width: 64em) {
       height: 2.5rem;
@@ -188,7 +172,7 @@ export default {
   }
 
   & .pa-navigation {
-    margin: 5rem 5rem 0 8rem;
+    margin: 6rem 6rem 0 9rem;
     padding: 1rem 0;
 
     display: flex;

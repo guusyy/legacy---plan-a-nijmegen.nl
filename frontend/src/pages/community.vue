@@ -113,13 +113,11 @@ export default {
   gap: 3rem;
 
   & h2 {
-    font-weight: 600;
     margin: .5rem 0;
     font-size: 2.2rem;
   }
 
   & h3 {
-    font-weight: 600;
     font-size: 1.8rem;
   }
 

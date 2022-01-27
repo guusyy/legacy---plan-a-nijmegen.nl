@@ -27,7 +27,7 @@ a {
 }
 
 .pa-content-container {
-  margin: 4rem 5rem 4rem 8rem;
+  margin: 4rem 6rem 4rem 9rem;
   height: 100%;
 
   @media (max-width: 40em) {
