@@ -259,13 +259,19 @@ export default {
   }
 
   & .features {
-    list-style-type: "-";
-    margin: 2rem 0 2rem 1rem;
+    margin: 2rem 0;
+    list-style-type: none;
 
     & li {
-      padding-left: 1rem;
+      padding-left: 2rem;
       margin: .5rem 0;
       font-size: 2.2rem;
+      
+      &:before {
+        content: "–";
+        position: absolute;
+        margin-left: -2rem;
+      }
     }
   }
 
