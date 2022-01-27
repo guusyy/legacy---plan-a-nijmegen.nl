@@ -94,7 +94,7 @@ export default {
 
 .logo-left-holder {
   min-width: 8.5rem;
-  height: calc(5rem + 4px);
+  height: calc(5rem + .4rem);
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
@@ -126,7 +126,7 @@ export default {
 
 .logo-right-holder {
   min-width: 5rem;
-  height: calc(5rem + 4px);
+  height: calc(5rem + .4rem);
   display: flex;
   justify-content: flex-start;
   align-items: flex-end;
