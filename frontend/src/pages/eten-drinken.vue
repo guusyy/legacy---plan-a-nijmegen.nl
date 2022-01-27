@@ -89,7 +89,7 @@ export default {
     };
 
     return {
-      title: fullSeo.metaTitle,
+      title: this.$page.strapi.barRestaurant.Titel,
       meta: getMetaTags(fullSeo),
       link: [
         {

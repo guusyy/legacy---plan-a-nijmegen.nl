@@ -77,7 +77,7 @@ export default {
     };
 
     return {
-      title: fullSeo.metaTitle,
+      title: this.$page.strapi.overOn.Titel,
       meta: getMetaTags(fullSeo),
       link: [
         {

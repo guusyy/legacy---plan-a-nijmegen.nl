@@ -68,7 +68,7 @@ h1 {
 
 p, h3, h4, h5, h6, .text {
   font-size: clamp(2rem, 1vw + 1rem, 2.8rem);
-  line-height: clamp(3rem, 1vw + 1rem, 3.6rem);
+  line-height: clamp(3rem, 1.5vw + 1rem, 3.4rem);
 }
 
 h3, h4, h5, h6 {
@@ -95,11 +95,17 @@ a {
 
   h2 {
     font-size: clamp(2rem, 1vw + 1rem, 2.8rem);
-    line-height: clamp(2.8rem, 1vw + 1rem, 3.6rem);
+    line-height: clamp(3rem, 1.5vw + 1rem, 3.4rem);
   }
 
   ul {
     margin: 2rem 0;
+    padding-left: 4rem;
+    list-style: inherit;
+
+    li {
+      margin-bottom: .5rem;
+    }
   }
 }
 
@@ -151,6 +157,10 @@ a {
   width: 35rem;
   max-width: 100%;
   font-size: 2rem;
+}
+
+table {
+  max-width: 100%;
 }
 
 @import './reset.scss'

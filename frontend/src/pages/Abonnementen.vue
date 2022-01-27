@@ -197,7 +197,7 @@ export default {
     };
 
     return {
-      title: fullSeo.metaTitle,
+      title: this.$page.strapi.membership.Titel,
       meta: getMetaTags(fullSeo),
       link: [
         {

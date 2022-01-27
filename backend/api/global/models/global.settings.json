@@ -56,6 +56,18 @@
       "repeatable": false,
       "component": "gegevens.gegevens",
       "required": true
+    },
+    "Disclaimer": {
+      "type": "component",
+      "repeatable": false,
+      "component": "disclaimer-privacybeleid.disclaimer",
+      "required": true
+    },
+    "privacybeleid": {
+      "type": "component",
+      "repeatable": false,
+      "component": "disclaimer-privacybeleid.disclaimer",
+      "required": true
     }
   }
 }

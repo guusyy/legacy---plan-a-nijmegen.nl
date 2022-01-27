@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_disclaimer_privacybeleid_disclaimers",
+  "info": {
+    "name": "Disclaimer",
+    "icon": "align-justify"
+  },
+  "options": {},
+  "attributes": {
+    "Titel": {
+      "type": "string",
+      "required": true
+    },
+    "tekst": {
+      "type": "richtext"
+    }
+  }
+}

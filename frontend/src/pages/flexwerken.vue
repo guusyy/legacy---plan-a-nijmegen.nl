@@ -84,7 +84,7 @@ export default {
     };
 
     return {
-      title: fullSeo.metaTitle,
+      title: this.$page.strapi.flexwerken.Titel,
       meta: getMetaTags(fullSeo),
       link: [
         {
