@@ -135,16 +135,11 @@ export default {
 .intro-rte h1 {
   font-size: clamp(3.4rem, 3vw + 1rem, 5.2rem);
   color: var(--pa-maroon);
-  font-weight: 600;
+  font-weight: 400;
   max-width: 80%;
   margin: 5rem 0;
   line-height: 1.15;
   word-break: break-word;
-
-  // @media (max-width: 64em) {
-  //   max-width: 100%;
-  //   font-size: 4rem;
-  // }
 
   & a {
     color: var(--pa-maroon);
@@ -205,7 +200,7 @@ export default {
 .intro-contact * {
   text-decoration: none;
   color: var(--pa-maroon);
-  font-weight: 600;
+  font-weight: 400;
   font-size: clamp(2.8rem, 3vw + 1rem, 3.8rem);
 }
 
