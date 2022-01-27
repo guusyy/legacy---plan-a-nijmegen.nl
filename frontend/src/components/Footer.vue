@@ -30,8 +30,10 @@
     </div>
     <div class="col">
       <ul>
-        <li><a target="_blank" :href="$static.strapi.global.Gegevens.Facebook">Facebook</a></li>
-        <li><a target="_blank" :href="$static.strapi.global.Gegevens.Instagram">Instagram</a></li>
+
+        <li v-if="$static.strapi.global.Gegevens.Facebook"><a target="_blank" :href="$static.strapi.global.Gegevens.Facebook">Facebook</a></li>
+        <li v-if="$static.strapi.global.Gegevens.Instagram"><a target="_blank" :href="$static.strapi.global.Gegevens.Instagram">Instagram</a></li>
+      
       </ul>
     </div>
     <div class="col">

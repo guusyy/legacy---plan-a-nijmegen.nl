@@ -6,7 +6,7 @@
 
 module.exports = {
   siteName: "Plan A Nijmegen",
-  siteDescription: "A blog site made using Gridsome and Strapi",
+  siteDescription: "Een multifunctionele plek in Nijmegen-West waar je kan werken, ontmoeten, eten & drinken. Overdag een werkplek, in de avond en het weekend een plek om gezellig te borrelen en dineren.",
   plugins: [
     {
       use: "@gridsome/source-graphql",

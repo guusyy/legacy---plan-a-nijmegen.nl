@@ -128,6 +128,10 @@ export default {
   justify-content: space-between;
 }
 
+.intro-text, .pa-quickbutton, .pa-contact-info {
+  opacity: 0;
+}
+
 .intro-rte h1 {
   font-size: clamp(3.4rem, 3vw + 1rem, 5.2rem);
   color: var(--pa-maroon);
