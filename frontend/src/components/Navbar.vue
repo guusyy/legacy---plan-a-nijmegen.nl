@@ -174,7 +174,7 @@ export default {
 
 .pa-navbar {
 
-  font-family: "Helvetica Neue",Arial,"Noto Sans",sans-serif;
+  font-family: "Helvetica condensed bold", "Helvetica Neue",Arial,"Noto Sans",sans-serif;
   
   & .pa-logo-border {
     width: 100%;
@@ -231,7 +231,7 @@ export default {
         text-decoration: none;
         text-transform: uppercase;
         font-weight: 700;
-        font-size: 2.2rem;
+        font-size: clamp(1.6rem, 1vw + 1rem, 3.2rem);
 
         &:hover {
           text-decoration: underline;
