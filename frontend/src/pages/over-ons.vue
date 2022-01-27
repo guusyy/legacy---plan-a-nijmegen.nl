@@ -8,7 +8,7 @@
         </p>
       </div>
       <div class="column swiper-holder">
-        <div class="image-holder">
+        <div class="image-holder" style="margin-top: 1.6rem">
           <g-image v-if="$page.strapi.overOn.ImageSlider" blur="100" :src="getStrapiMedia($page.strapi.overOn.ImageSlider.url)" :alt="$page.strapi.overOn.ImageSlider.alternativeText || $page.strapi.overOn.ImageSlider.name" />
           <!-- <ClientOnly>
             <progressive-img

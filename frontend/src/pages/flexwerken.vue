@@ -8,7 +8,7 @@
         </p>
       </div>
       <div class="column swiper-holder">
-        <div class="image-holder">
+        <div class="image-holder" style="margin-top: 1.6rem">
           <g-image 
             v-if="$page.strapi.flexwerken.ImageSlider" 
             :width="$page.strapi.flexwerken.ImageSlider.width"

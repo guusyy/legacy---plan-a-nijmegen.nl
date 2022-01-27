@@ -8,7 +8,7 @@
         </p>
       </div>
       <div class="column swiper-holder">
-        <div class="image-holder">
+        <div class="image-holder" style="margin-top: 1.6rem">
           <swiper
             :slides-per-view="3"
             :space-between="50"
