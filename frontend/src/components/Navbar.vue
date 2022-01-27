@@ -93,8 +93,8 @@ export default {
 }
 
 .logo-left-holder {
-  min-width: 9rem;
-  height: 6rem;
+  min-width: 8.5rem;
+  height: calc(5rem + 4px);
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
@@ -125,8 +125,8 @@ export default {
 }
 
 .logo-right-holder {
-  min-width: 6rem;
-  height: 6rem;
+  min-width: 5rem;
+  height: calc(5rem + 4px);
   display: flex;
   justify-content: flex-start;
   align-items: flex-end;
@@ -172,7 +172,7 @@ export default {
   }
 
   & .pa-navigation {
-    margin: 6rem 6rem 0 9rem;
+    margin: 6rem 5rem 0 9.5rem;
     padding: 1rem 0;
 
     display: flex;
@@ -218,6 +218,10 @@ export default {
         letter-spacing: -.1rem;
 
         &:hover {
+          text-decoration: underline;
+        }
+
+        &.active--exact  {
           text-decoration: underline;
         }
       }
@@ -276,6 +280,10 @@ export default {
       letter-spacing: -.1rem;
       text-decoration: none;
       color: var(--pa-maroon);
+      
+      &.active--exact  {
+        text-decoration: underline;
+      }
     }
   }
 
