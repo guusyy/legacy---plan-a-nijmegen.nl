@@ -64,15 +64,11 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
   font-size: clamp(4.5rem, 3vw + 1rem, 6rem);
-
-  // @media (max-width: 64em) {
-  //   font-size: 4rem;
-  // }
 }
 
-p, h3, h4, h5, h6 {
-  font-size: clamp(2rem, 1vw + 1rem, 2.4rem);
-  line-height: clamp(2.8rem, 1vw + 1rem, 3rem);
+p, h3, h4, h5, h6, .text {
+  font-size: clamp(2rem, 1vw + 1rem, 2.8rem);
+  line-height: clamp(2.8rem, 1vw + 1rem, 3.2rem);
 }
 
 h3, h4, h5, h6 {

@@ -34,22 +34,22 @@
       <transition name="fade">
         <div v-if="navigationPanelVisible" class="pa-navigation-list-mobile-container overlay-content">
           <ul class="pa-navigation-list-mobile">
-            <li><g-link to="/bar-restaurant/">Bar/restaurant</g-link></li>
             <li><g-link to="/flexwerken/">Werken</g-link></li>
-            <li><g-link to="/membership/">Membership</g-link></li>
-            <li><g-link to="/community/">Community</g-link></li>
+            <li><g-link to="/bar-restaurant/">Eten & Drinken</g-link></li>
+            <li><g-link to="/abonnementen/">Abonnementen</g-link></li>
             <li><g-link to="/ruimte-huren/">Ruimte huren</g-link></li>
+            <li><g-link to="/community/">Community</g-link></li>
             <li><g-link to="/over-ons/">Over ons</g-link></li>
             <li><g-link to="/contact/">Contact</g-link></li>
           </ul>
         </div>
       </transition>
       <ul class="pa-navigation-list">
-        <li><g-link to="/bar-restaurant/">Bar/restaurant</g-link></li>
         <li><g-link to="/flexwerken/">Werken</g-link></li>
-        <li><g-link to="/membership/">Membership</g-link></li>
-        <li><g-link to="/community/">Community</g-link></li>
+        <li><g-link to="/bar-restaurant/">Eten & Drinken</g-link></li>
+        <li><g-link to="/abonnementen/">Abonnementen</g-link></li>
         <li><g-link to="/ruimte-huren/">Ruimte huren</g-link></li>
+        <li><g-link to="/community/">Community</g-link></li>
         <li><g-link to="/over-ons/">Over ons</g-link></li>
         <li><g-link to="/contact/">Contact</g-link></li>
       </ul>
@@ -303,13 +303,17 @@ export default {
     height: 100vh;
     z-index: 999;
   }
+
+  @media (min-width: 64em) {
+    display: none;
+  }
 }
 
 .fade-enter-active, .fade-leave-active {
   transition: all .5s ease;
 }
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
-  transform: translateY(-300px);
+  transform: translateY(-400px);
   height: 0;
 }
 

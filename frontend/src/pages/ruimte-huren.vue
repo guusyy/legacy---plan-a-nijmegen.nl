@@ -25,7 +25,7 @@
         </div>
       </div>
       <div class="contact-row" ref="form">
-        <h2>{{$page.strapi.ruimteHuren.ContactIntro}}</h2>
+        <h2 class="text">{{$page.strapi.ruimteHuren.ContactIntro}}</h2>
         <form 
           name="ruimteHuren"
           method="post"
@@ -228,10 +228,6 @@ export default {
 
 .intro-row {
   margin-bottom: 4rem;
-
-  & p {
-    font-size: 2.4rem;
-  }
 }
 
 .workspace-row {
@@ -301,13 +297,6 @@ export default {
 }
 
 .contact-row {
-
-  & h2 {
-    font-size: 3.2rem;
-    font-weight: 600;
-    margin: 2rem 0;
-    line-height: 5rem;
-  }
 
   form {
     width: 100%;
