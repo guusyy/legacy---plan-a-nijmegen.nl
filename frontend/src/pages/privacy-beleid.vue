@@ -72,9 +72,16 @@ export default {
 
 <style lang="scss" scoped>
 
-.column {
-  max-width: 120rem;
-  margin: 0 auto;
+.container {
+  display: grid;
+  max-width: 100%;
+  grid-template-columns: calc(40% - 1rem) calc(60% - 1rem);
+  gap: 2rem;
+
+  @media (max-width: 64em) {
+    grid-template-columns: minmax(10px, 1fr);
+    grid-template-row: repeat(2, 1fr);
+  }
 }
 
 </style>

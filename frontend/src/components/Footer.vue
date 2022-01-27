@@ -79,9 +79,10 @@ query {
 
 .pa-footer {
   margin-top: 20rem;
-  border-top: 2px solid var(--pa-maroon);
+  border-top: 1px solid var(--pa-maroon);
   padding: 2rem 0;
-  line-height: 2.5rem;
+  line-height: 2rem;
+  font-size: 1.4rem;
 
   display: flex;
   justify-content: space-between;
@@ -90,6 +91,7 @@ query {
 
   @media (max-width: 64em) {
     flex-direction: column;
+    margin-top: 8rem;
   }
 }
 

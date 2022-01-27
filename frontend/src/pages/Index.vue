@@ -7,7 +7,11 @@
       <div class="pa-quickbuttons-container">
         <g-link class="pa-quickbutton" :to="`/${knop.LinkTekst}`" v-for="knop in $page.strapi.homepage.hero.homepaginaknop" :key="knop.id">
           <h4 class="pa-label">{{knop.TekstKnop}}</h4>
-          <span class="pa-arrow">></span>
+          <span class="pa-arrow">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20.868 29.5">
+              <path d="M1.6,29.7.4,28.1,17.933,15,.4,1.8,1.6.2,21.267,15Z" transform="translate(-0.398 -0.201)" fill="#691e0f"/>
+            </svg>
+          </span>
         </g-link>
       </div>
       <div class="pa-contact-info" v-if="$page.strapi.homepage.hero.infoContact">
@@ -122,10 +126,13 @@ export default {
 <style lang="scss">
 
 .pa-container {
-  min-height: 80vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  @media (min-width: 64em ) {
+    min-height: 80vh;
+  }
 }
 
 .intro-text, .pa-quickbutton, .pa-contact-info {
@@ -133,7 +140,9 @@ export default {
 }
 
 .intro-rte h1 {
-  font-size: clamp(3.4rem, 3vw + 1rem, 5.2rem);
+  font-size: clamp(3rem, 3vw + 1rem, 5.6rem);
+  font-size: clamp(3rem, 3vw + 1rem, 6rem);
+  letter-spacing: -.2rem;
   color: var(--pa-maroon);
   font-weight: 400;
   max-width: 80%;
@@ -145,18 +154,30 @@ export default {
     color: var(--pa-maroon);
     text-decoration: underline;
   }
+
+  @media (max-width: 64em) {
+    max-width: 90%;
+    margin: 2rem 0;
+  }
 }
 
 .pa-quickbuttons-container {
 
   display: flex;
   gap: 2rem;
+  margin: 5rem 0;
 
   @media (max-width: 64em) {
-    flex-wrap: wrap;  
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0,1fr));
+    margin: 2rem 0 5rem 0;
   }
 
-  margin: 5rem 0;
+  @media (max-width: 48em) {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
   
   & .pa-quickbutton {
     width: 100%;
@@ -165,13 +186,20 @@ export default {
     color: var(--pa-maroon);
     min-height: 20rem;
     text-decoration: none;
-
+    font-weight: 400;
+    text-transform: uppercase;
     display: flex;
     justify-content: space-between;
-    padding: 2rem;
-
+    padding: 1.5rem 2rem;
+    flex-direction: column;
 
     transition: all .1s ease;
+
+    @media (max-width: 48em) {
+      min-height: 6.4rem;
+      flex-direction: row;
+      align-items: center;
+    }
     
 
     &:hover {
@@ -181,7 +209,14 @@ export default {
 
     & .pa-label {
       word-break: break-word;
-      font-size: clamp(2.8rem, 3vw + 1rem, 3.2rem);
+      font-size: clamp(1.6rem, 1.3vw + 1rem, 2.8rem);
+      letter-spacing: -.1rem;
+
+      @media (max-width: 64em) {
+        font-size: 2.4rem;
+      }
+
+      font-weight: 400;
     }
 
     & .pa-arrow {
@@ -192,6 +227,11 @@ export default {
       @media (max-width: 64em) {
         flex-wrap: wrap;  
       }
+
+      & svg {
+        width: 2rem;
+        height: 2.9rem;
+      }
     }
   }
 }
@@ -201,7 +241,11 @@ export default {
   text-decoration: none;
   color: var(--pa-maroon);
   font-weight: 400;
-  font-size: clamp(2.8rem, 3vw + 1rem, 3.8rem);
+  font-size: clamp(2.8rem, 3vw + 1rem, 3.2rem);
+
+  @media (max-width: 64em) {
+    font-size: 2.4rem;
+  }
 }
 
 </style>

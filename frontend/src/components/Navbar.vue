@@ -230,8 +230,8 @@ export default {
         color: var(--pa-maroon);
         text-decoration: none;
         text-transform: uppercase;
-        font-weight: 700;
-        font-size: clamp(1.6rem, 1vw + 1rem, 2.6rem);
+        font-size: clamp(1.6rem, 1vw + 1rem, 2.4rem);
+        letter-spacing: -.1rem;
 
         &:hover {
           text-decoration: underline;
@@ -289,6 +289,7 @@ export default {
 
     & li a {
       font-size: 3rem;
+      letter-spacing: -.1rem;
       text-decoration: none;
       color: var(--pa-maroon);
     }

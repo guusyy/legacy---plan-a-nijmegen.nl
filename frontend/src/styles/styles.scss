@@ -39,7 +39,6 @@ html {
 
 body {
   font-size: 1.6rem;
-  font-weight: 600;
 }
 
 img {
@@ -67,8 +66,8 @@ h1 {
 }
 
 p, h3, h4, h5, h6, .text {
-  font-size: clamp(2rem, 1vw + 1rem, 2.8rem);
-  line-height: clamp(3rem, 1.5vw + 1rem, 3.4rem);
+  font-size: 2.4rem;
+  line-height: 3.2rem;
 }
 
 h3, h4, h5, h6 {
