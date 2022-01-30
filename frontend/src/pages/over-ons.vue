@@ -4,12 +4,12 @@
       <div class="column" >
         <h1 class="page-title">{{$page.strapi.overOn.Titel}}</h1>
         <p style="margin-top: 3rem;" class="rte">
-          <VueMarkdown :source="$page.strapi.overOn.Beschrijving" />
+          <!-- <VueMarkdown :source="$page.strapi.overOn.Beschrijving" /> -->
         </p>
       </div>
       <div class="column swiper-holder">
         <div class="image-holder" style="margin-top: 1.6rem">
-          <!-- <g-image v-if="$page.strapi.overOn.ImageSlider" blur="100" :src="getStrapiMedia($page.strapi.overOn.ImageSlider.url)" :alt="$page.strapi.overOn.ImageSlider.alternativeText || $page.strapi.overOn.ImageSlider.name" /> -->
+          <g-image v-if="$page.strapi.overOn.ImageSlider" blur="100" :src="getStrapiMedia($page.strapi.overOn.ImageSlider.url)" :alt="$page.strapi.overOn.ImageSlider.alternativeText || $page.strapi.overOn.ImageSlider.name" />
           <!-- <ClientOnly>
             <progressive-img
               v-if="$page.strapi.overOn.ImageSlider" 
