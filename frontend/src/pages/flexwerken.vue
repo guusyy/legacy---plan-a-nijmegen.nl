@@ -3,8 +3,7 @@
     <div class="container">
       <div class="column" >
         <h1 class="page-title">{{$page.strapi.flexwerken.Titel}}</h1>
-        <p style="margin-top: 3rem;" class="rte">
-          <VueMarkdown :source="$page.strapi.flexwerken.Beschrijving" />
+        <p style="margin-top: 3rem;" class="rte" v-html="$page.strapi.flexwerken.Beschrijving">
         </p>
       </div>
       <div class="column swiper-holder">
@@ -62,16 +61,10 @@ query {
 </page-query>
 
 <script>
-import Articles from "~/components/Articles";
-import VueMarkdown from "vue-markdown";
 import { getMetaTags } from "~/utils/seo";
 import { getStrapiMedia } from "~/utils/medias";
 
 export default {
-  components: {
-    Articles,
-    VueMarkdown
-  },
   methods: {
     getStrapiMedia
   },
