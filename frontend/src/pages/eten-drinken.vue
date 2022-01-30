@@ -6,6 +6,9 @@
         <p style="margin-top: 3rem;" class="rte">
           <VueMarkdown :source="$page.strapi.barRestaurant.Beschrijving" />
         </p>
+        <code>
+          {{$page.strapi.barRestaurant.Beschrijving}}
+        </code>
       </div>
       <div class="column swiper-holder">
         <div class="image-holder" style="margin-top: 1.6rem">
