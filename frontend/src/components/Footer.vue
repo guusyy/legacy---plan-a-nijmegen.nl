@@ -93,6 +93,11 @@ query {
     flex-direction: column;
     margin-top: 8rem;
   }
+
+  table {
+    line-height: 2rem;
+    font-size: 1.4rem;
+  }
 }
 
 .col {

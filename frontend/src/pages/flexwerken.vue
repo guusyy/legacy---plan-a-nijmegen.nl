@@ -3,7 +3,7 @@
     <div class="container">
       <div class="column" >
         <h1 class="page-title">{{$page.strapi.flexwerken.Titel}}</h1>
-        <VueMarkdown style="margin-top: 3rem;" class="rte" :source="$page.strapi.flexwerken.Beschrijving"
+        <VueMarkdown style="margin-top: 3rem;" class="rte" :source="$page.strapi.flexwerken.Beschrijving" />
       </div>
       <div class="column swiper-holder">
         <div class="image-holder" style="margin-top: 1.6rem">
