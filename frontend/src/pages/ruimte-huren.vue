@@ -11,9 +11,7 @@
         <div class="workspace-item" v-for="(ruimte, index) in $page.strapi.ruimteHuren.ruimtes" :key="index">
           <g-image v-if="ruimte.Afbeelding" :src="getStrapiMedia(ruimte.Afbeelding.url)" :alt="ruimte.Afbeelding.alternativeText || ruimte.Afbeelding.name" />
           <h3>{{ruimte.Titel}}</h3>
-          <p class="workspace-description">
-            <VueMarkdown :source="ruimte.Omschrijving" />
-          </p>
+          <VueMarkdown class="workspace-description" :source="ruimte.Omschrijving" />
           <button @click="handleGoToForm(ruimte.Titel)">{{ruimte.ButtonTekst}}</button>
         </div>
       </div>
@@ -118,7 +116,6 @@ query {
 </page-query>
 
 <script>
-import Articles from "~/components/Articles";
 import VueMarkdown from "vue-markdown";
 import { getMetaTags } from "~/utils/seo";
 import { getStrapiMedia } from "~/utils/medias";
@@ -127,7 +124,6 @@ import anime from 'animejs/lib/anime.es.js';
 
 export default {
   components: {
-    Articles,
     VueMarkdown
   },
   data() {
