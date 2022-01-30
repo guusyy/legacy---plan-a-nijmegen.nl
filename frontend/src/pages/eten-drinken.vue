@@ -3,7 +3,8 @@
     <div class="container">
       <div class="column" >
         <h1 class="page-title">{{$page.strapi.barRestaurant.Titel}}</h1>
-        <p style="margin-top: 3rem;" class="rte" v-html="$page.strapi.barRestaurant.Beschrijving">
+        <p style="margin-top: 3rem;" class="rte">
+          <VueMarkdown :source="$page.strapi.barRestaurant.Beschrijving" />
         </p>
       </div>
       <div class="column swiper-holder">
@@ -63,6 +64,8 @@ query {
 </page-query>
 
 <script>
+import Articles from "~/components/Articles";
+import VueMarkdown from "vue-markdown";
 import { getMetaTags } from "~/utils/seo";
 import { getStrapiMedia } from "~/utils/medias";
 
@@ -73,8 +76,10 @@ import 'swiper/swiper.scss'
 
 export default {
   components: {
+    Articles,
     Swiper,
     SwiperSlide,
+    VueMarkdown
   },
   // directives: {
   //   swiper: directive
