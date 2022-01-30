@@ -46,14 +46,12 @@ query {
 </page-query>
 
 <script>
-import Articles from "~/components/Articles";
 import VueMarkdown from "vue-markdown";
 import { getMetaTags } from "~/utils/seo";
 import { getStrapiMedia } from "~/utils/medias";
 
 export default {
   components: {
-    Articles,
     VueMarkdown
   },
   metaInfo() {

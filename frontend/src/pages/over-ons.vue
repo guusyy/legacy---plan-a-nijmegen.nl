@@ -3,8 +3,7 @@
     <div class="container">
       <div class="column" >
         <h1 class="page-title">{{$page.strapi.overOn.Titel}}</h1>
-        <p style="margin-top: 3rem;" class="rte">
-          <!-- <VueMarkdown :source="$page.strapi.overOn.Beschrijving" /> -->
+        <p style="margin-top: 3rem;" class="rte" v-html="$page.strapi.overOn.Beschrijving">
         </p>
       </div>
       <div class="column swiper-holder">
