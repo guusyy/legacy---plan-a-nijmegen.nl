@@ -226,6 +226,7 @@ export default {
   top: 50%;
   transform: translate(0, -50%);
   width: 1.6rem;
+  pointer-events: none;
 }
 
 .intro-row {
@@ -303,6 +304,7 @@ export default {
   max-width: 100%;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 4rem;
+  margin-bottom: 10rem;
 
   @media (max-width: 64em) {
     grid-template-columns: minmax(10px, 1fr);

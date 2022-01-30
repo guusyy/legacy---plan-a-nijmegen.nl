@@ -1,33 +1,8 @@
 <template>
   <footer class="pa-footer">
-    <div class="col">
-      <ul>
-        <li>{{$static.strapi.global.Gegevens.StraatEnHuisnummer}}</li>
-        <li>{{$static.strapi.global.Gegevens.PostcodeEnStad}}</li>
-      </ul>
-    </div>
-    <div class="col">
-      <ul>
-        <li>{{$static.strapi.global.Gegevens.Telefoonnummer}}</li>
-        <li><a :href="'mailto:' + $static.strapi.global.Gegevens.Email">{{$static.strapi.global.Gegevens.Email}}</a></li>
-      </ul>
-    </div>
-    <div class="col">
-      <table class="time-table">
-        <tr v-if="$static.strapi.global.OpeningstijdDoordeweeks.Begintijd && $static.strapi.global.OpeningstijdDoordeweeks.Eindtijd">
-          <td>Maandag t/m vrijdag</td>
-          <td><span>{{$static.strapi.global.OpeningstijdDoordeweeks.Begintijd}}</span>-<span>{{$static.strapi.global.OpeningstijdDoordeweeks.Eindtijd}}</span></td>
-        </tr>
-        <tr v-if="$static.strapi.global.OpeningstijdZaterdag.Begintijd && $static.strapi.global.OpeningstijdZaterdag.Eindtijd">
-          <td>Zaterdag</td>
-          <td><span>{{$static.strapi.global.OpeningstijdZaterdag.Begintijd}}</span>-<span>{{$static.strapi.global.OpeningstijdZaterdag.Eindtijd}}</span></td>
-        </tr>
-        <tr v-if="$static.strapi.global.OpeningstijdZondag.Begintijd && $static.strapi.global.OpeningstijdZondag.Eindtijd">
-          <td>Zondag</td>
-          <td><span>{{$static.strapi.global.OpeningstijdZondag.Begintijd}}</span>-<span>{{$static.strapi.global.OpeningstijdZondag.Eindtijd}}</span></td>
-        </tr>
-      </table>
-    </div>
+    <VueMarkdown class="col" :source="$static.strapi.footer.FooterColumnOne" />
+    <VueMarkdown class="col" :source="$static.strapi.footer.FooterColumnTwo" />
+    <VueMarkdown class="col" :source="$static.strapi.footer.FooterColumnThree" />
     <div class="col">
       <ul>
 
@@ -40,6 +15,8 @@
       <ul>
         <li><g-link to="/disclaimer/">Disclaimer</g-link></li>
         <li><g-link to="/privacy-beleid/">Privacybeleid</g-link></li>
+        <li><g-link to="/algemene-voorwaarden/">Algemene Voorwaarden</g-link></li>
+        <li><g-link to="/colofon/">Colofon</g-link></li>
       </ul>
     </div>
   </footer>
@@ -58,62 +35,69 @@ query {
         Telefoonnummer
         Email
       }
-      OpeningstijdDoordeweeks {
-        Begintijd
-        Eindtijd
-      }
-      OpeningstijdZaterdag {
-        Begintijd
-        Eindtijd
-      }
-      OpeningstijdZondag {
-        Begintijd
-        Eindtijd
-      }
+    }
+    footer {
+      FooterColumnOne
+      FooterColumnTwo
+      FooterColumnThree
     }
   }
 }
 </static-query>
 
-<style lang="scss" scoped>
+<script>
+import VueMarkdown from "vue-markdown";
+
+export default {
+  components:  {
+    VueMarkdown
+  }
+}
+
+</script>
+
+<style lang="scss">
 
 .pa-footer {
-  margin-top: 20rem;
   border-top: 1px solid var(--pa-maroon);
   padding: 2rem 0;
   line-height: 2rem;
   font-size: 1.4rem;
 
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0,1fr));
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 2rem;
 
   @media (max-width: 64em) {
-    flex-direction: column;
+    grid-template-columns: minmax(0,1fr);
     margin-top: 8rem;
   }
 
-  table {
+  & * {
     line-height: 2rem;
     font-size: 1.4rem;
   }
-}
 
-.col {
-  display: flex;
-  gap: 1rem;
+  table {
+    width: 100%;
+    max-width: 25rem;
+  }
 
-  @media (max-width: 64em) {
-    
-    &:nth-child(2) {
-      margin-top: -2rem;
-    }
+  h2, h3, h4 {
+    text-transform: uppercase;
   }
 }
 
 .time-table td:first-child {
   padding: 0rem 2rem 0 0;
+}
+
+.time-table-title {
+  line-height: 2rem;
+  font-size: 1.4rem;
+  text-transform: uppercase;
 }
 
 </style>

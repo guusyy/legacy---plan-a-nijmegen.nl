@@ -1,3 +1,5 @@
+@import './reset.scss';
+
 @font-face {
   font-family: "National";
   src: url("../assets/National2-Regular_convert.woff2") format("woff2"),
@@ -6,6 +8,10 @@
 @font-face {
   font-family: "Helvetica condensed bold";
   src: url("../assets/helvetica-condensed-bold.woff") format("woff"),
+}
+
+main {
+  min-height: calc(100vh - 14rem);
 }
 
 html {
@@ -155,8 +161,6 @@ select {
   -webkit-appearance:none;
 }
 
-input, textarea, select {
+input, textarea, select, button {
   font-family: 'National', -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
 }
-
-@import './reset.scss'

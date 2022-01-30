@@ -109,6 +109,8 @@ export default {
       ...seo,
     };
 
+    console.log(getStrapiMedia(favicon.url));
+
     return {
       title: fullSeo.metaTitle,
       meta: getMetaTags(fullSeo),
