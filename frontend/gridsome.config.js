@@ -19,8 +19,15 @@ module.exports = {
       },
     },
   ],
-  favicon: {
-    src: "/src/favicon.png",
-    sizes: [16, 32, 96],
+  icon: {
+    favicon: {
+      src: "/src/favicon.png",
+      sizes: [16, 32, 96],
+    },
+    touchicon: {
+      src: "./src/favicon.png",
+      sizes: [76, 152, 120, 167],
+      precomposed: true,
+    },
   },
 };

@@ -67,7 +67,7 @@ export default {
       meta: getMetaTags(fullSeo),
       link: [
         {
-          rel: "favicon",
+          rel: "shortcut icon favicon",
           href: getStrapiMedia(favicon.url),
         },
       ],

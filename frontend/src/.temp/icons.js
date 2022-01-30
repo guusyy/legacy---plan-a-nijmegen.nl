@@ -1,7 +1,7 @@
 export default {
   "touchiconMimeType": "image/png",
-  "faviconMimeType": "image/png",
-  "precomposed": false,
+  "faviconMimeType": null,
+  "precomposed": true,
   "touchicons": [],
   "favicons": []
 }
