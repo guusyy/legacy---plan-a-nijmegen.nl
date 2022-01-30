@@ -20,7 +20,7 @@ module.exports = {
     },
   ],
   favicon: {
-    src: "./src/favicon.png",
+    src: "/src/favicon.png",
     sizes: [16, 32, 96],
   },
 };
