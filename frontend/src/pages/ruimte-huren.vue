@@ -11,7 +11,7 @@
         <div class="workspace-item" v-for="(ruimte, index) in $page.strapi.ruimteHuren.ruimtes" :key="index">
           <g-image v-if="ruimte.Afbeelding" :src="getStrapiMedia(ruimte.Afbeelding.url)" :alt="ruimte.Afbeelding.alternativeText || ruimte.Afbeelding.name" />
           <h3>{{ruimte.Titel}}</h3>
-          <p class="workspace-description">{{ruimte.Omschrijving}}</p>
+          <p class="workspace-description" v-html="ruimte.Omschrijving"></p>
           <button @click="handleGoToForm(ruimte.Titel)">{{ruimte.ButtonTekst}}</button>
         </div>
       </div>

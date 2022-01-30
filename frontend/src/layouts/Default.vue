@@ -3,7 +3,9 @@
     <Navbar />
     <div class="pa-content-container">
       <transition name="fade" appear>
-        <slot />
+        <main>
+          <slot />
+        </main>
       </transition>
       <Footer />
     </div>
