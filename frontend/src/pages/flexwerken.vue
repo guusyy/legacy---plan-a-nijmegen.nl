@@ -83,9 +83,11 @@ export default {
       swiperOptions: {
         slidesPerView: 1,
         autoplay: {
-          delay: 3000,
+          delay: 5000,
           disableOnInteraction: false
         },
+        autoHeight: true,
+        effect: 'fade',
         loop: true,
         pagination: {
           el: '.swiper-pagination',

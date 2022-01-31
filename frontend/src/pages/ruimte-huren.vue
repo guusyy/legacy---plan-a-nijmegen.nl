@@ -156,6 +156,8 @@ export default {
         slidesPerView: 1,
         autoplay: false,
         loop: true,
+        autoHeight: true,
+        effect: 'fade',
         pagination: {
           el: '.swiper-pagination',
           clickable: true

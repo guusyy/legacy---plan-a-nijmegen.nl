@@ -116,6 +116,10 @@ a {
 
   --swiper-navigation-color: #FDF9F7;
   --swiper-pagination-color: #FDF9F7;
+
+  @media (max-width: 48em) {
+    --swiper-navigation-size: 22px !important;
+  }
 }
 
 /* width */

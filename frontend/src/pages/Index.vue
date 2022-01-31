@@ -9,7 +9,7 @@
           <h4 class="pa-label">{{knop.TekstKnop}}</h4>
           <span class="pa-arrow">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20.868 29.5">
-              <path d="M1.6,29.7.4,28.1,17.933,15,.4,1.8,1.6.2,21.267,15Z" transform="translate(-0.398 -0.201)" fill="#691e0f"/>
+              <path d="M1.6,29.7.4,28.1,17.933,15,.4,1.8,1.6.2,21.267,15Z" transform="translate(-0.398 -0.201)"/>
             </svg>
           </span>
         </g-link>
@@ -207,6 +207,10 @@ export default {
     &:hover {
       background: var(--pa-maroon);
       color: var(--pa-white);
+
+      & .pa-arrow svg {
+        fill: var(--pa-white);
+      }
     }
 
     & .pa-label {
@@ -233,6 +237,7 @@ export default {
       & svg {
         width: 2rem;
         height: 2.9rem;
+        fill: var(--pa-maroon);
       }
     }
   }
