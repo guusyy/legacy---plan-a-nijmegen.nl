@@ -285,4 +285,8 @@ export default {
   }
 }
 
+.hero-image img {
+  width: 100%;
+}
+
 </style>
