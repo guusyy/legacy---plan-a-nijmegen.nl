@@ -7,21 +7,21 @@
       </div>
       <div class="column swiper-holder">
         <div class="image-holder" style="margin-top: 1.6rem">
+          <g-image 
+            v-if="$page.strapi.barRestaurant.ImageSlider.length < 2"
+            :src="getStrapiMedia($page.strapi.barRestaurant.ImageSlider[0].url)" 
+            :alt="$page.strapi.barRestaurant.ImageSlider[0].alternativeText || $page.strapi.barRestaurant.ImageSlider[0].name" 
+          />
           <swiper
-            :slides-per-view="3"
-            :space-between="50"
-            @swiper="onSwiper"
-            @slideChange="onSlideChange"
+            v-else
+            :options="swiperOptions"
           >
-            <swiper-slide>
-              <g-image v-if="$page.strapi.barRestaurant.ImageSlider" :src="getStrapiMedia($page.strapi.barRestaurant.ImageSlider.url)" :alt="$page.strapi.barRestaurant.ImageSlider.alternativeText || $page.strapi.barRestaurant.ImageSlider.name" />
+            <swiper-slide v-for="image in $page.strapi.barRestaurant.ImageSlider" :key="image.name">
+              <g-image :src="getStrapiMedia(image.url)" :alt="image.alternativeText || image.name" />
             </swiper-slide>
-            <swiper-slide>
-              <g-image v-if="$page.strapi.barRestaurant.ImageSlider" :src="getStrapiMedia($page.strapi.barRestaurant.ImageSlider.url)" :alt="$page.strapi.barRestaurant.ImageSlider.alternativeText || $page.strapi.barRestaurant.ImageSlider.name" />
-            </swiper-slide>
-            <swiper-slide>
-              <g-image v-if="$page.strapi.barRestaurant.ImageSlider" :src="getStrapiMedia($page.strapi.barRestaurant.ImageSlider.url)" :alt="$page.strapi.barRestaurant.ImageSlider.alternativeText || $page.strapi.barRestaurant.ImageSlider.name" />
-            </swiper-slide>
+            <div class="swiper-pagination" slot="pagination"></div>
+            <div class="swiper-button-prev" slot="button-prev"></div>
+            <div class="swiper-button-next" slot="button-next"></div>
           </swiper>
         </div>
       </div>
@@ -67,9 +67,7 @@ import { getMetaTags } from "~/utils/seo";
 import { getStrapiMedia } from "~/utils/medias";
 
 import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
-import 'swiper/swiper.scss'
-
-// import anime from 'animejs/lib/anime.es.js';
+import 'swiper/css/swiper.css'
 
 export default {
   components: {
@@ -77,11 +75,28 @@ export default {
     SwiperSlide,
     VueMarkdown
   },
-  // directives: {
-  //   swiper: directive
-  // },
   methods: {
     getStrapiMedia
+  },
+  data() {
+    return {
+      swiperOptions: {
+        slidesPerView: 1,
+        autoplay: {
+          delay: 3000,
+          disableOnInteraction: false
+        },
+        loop: true,
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev'
+        }
+      }
+    }
   },
   metaInfo() {
     const { defaultSeo, favicon } = this.$page.strapi.global;

@@ -28,7 +28,7 @@
       "required": true
     },
     "Afbeelding": {
-      "model": "file",
+      "collection": "file",
       "via": "related",
       "allowedTypes": [
         "images"

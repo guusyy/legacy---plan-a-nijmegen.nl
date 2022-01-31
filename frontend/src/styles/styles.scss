@@ -12,6 +12,7 @@
 
 main {
   min-height: calc(100vh - 14rem);
+  padding-bottom: 10rem;
 }
 
 html {
@@ -112,6 +113,9 @@ a {
   --pa-red: hsl(7,92%,49%);
   --pa-maroon: hsl(10,74%,23%);
   --pa-white: #FDF9F7;
+
+  --swiper-navigation-color: #FDF9F7;
+  --swiper-pagination-color: #FDF9F7;
 }
 
 /* width */

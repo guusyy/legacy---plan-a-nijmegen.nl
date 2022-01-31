@@ -9,7 +9,22 @@
       </div>
       <div class="workspace-row" v-if="$page.strapi.ruimteHuren.ruimtes">
         <div class="workspace-item" v-for="(ruimte, index) in $page.strapi.ruimteHuren.ruimtes" :key="index">
-          <g-image v-if="ruimte.Afbeelding" :src="getStrapiMedia(ruimte.Afbeelding.url)" :alt="ruimte.Afbeelding.alternativeText || ruimte.Afbeelding.name" />
+          <g-image 
+            v-if="ruimte.Afbeelding.length < 2"
+            :src="getStrapiMedia(ruimte.Afbeelding[0].url)" 
+            :alt="ruimte.Afbeelding[0].alternativeText || ruimte.Afbeelding[0].name" 
+          />
+          <swiper
+            v-else
+            :options="swiperOptions"
+          >
+            <swiper-slide v-for="image in ruimte.Afbeelding" :key="image.name">
+              <g-image :src="getStrapiMedia(image.url)" :alt="image.alternativeText || image.name" />
+            </swiper-slide>
+            <div class="swiper-pagination" slot="pagination"></div>
+            <div class="swiper-button-prev" slot="button-prev"></div>
+            <div class="swiper-button-next" slot="button-next"></div>
+          </swiper>
           <h3>{{ruimte.Titel}}</h3>
           <VueMarkdown class="workspace-description" :source="ruimte.Omschrijving" />
           <button @click="handleGoToForm(ruimte.Titel)">{{ruimte.ButtonTekst}}</button>
@@ -120,17 +135,35 @@ import VueMarkdown from "vue-markdown";
 import { getMetaTags } from "~/utils/seo";
 import { getStrapiMedia } from "~/utils/medias";
 
+import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
+import 'swiper/css/swiper.css'
+
 import anime from 'animejs/lib/anime.es.js';
 
 export default {
   components: {
-    VueMarkdown
+    VueMarkdown,
+    Swiper,
+    SwiperSlide,
   },
   data() {
     return {
       formIsNotSubmitted: true,
       formData: {
         gekozenRuimte: null
+      },
+      swiperOptions: {
+        slidesPerView: 1,
+        autoplay: false,
+        loop: true,
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev'
+        }
       }
     }
   },

@@ -8,19 +8,21 @@
       <div class="column swiper-holder">
         <div class="image-holder" style="margin-top: 1.6rem">
           <g-image 
-            v-if="$page.strapi.flexwerken.ImageSlider" 
-            :width="$page.strapi.flexwerken.ImageSlider.width"
-            :src="getStrapiMedia($page.strapi.flexwerken.ImageSlider.url)" 
-            :alt="$page.strapi.flexwerken.ImageSlider.alternativeText || $page.strapi.flexwerken.ImageSlider.name" 
+            v-if="$page.strapi.flexwerken.ImageSlider.length < 2"
+            :src="getStrapiMedia($page.strapi.flexwerken.ImageSlider[0].url)" 
+            :alt="$page.strapi.flexwerken.ImageSlider[0].alternativeText || $page.strapi.flexwerken.ImageSlider[0].name" 
           />
-          <!-- <ClientOnly>
-            <progressive-img
-              v-if="$page.strapi.flexwerken.ImageSlider" 
-              :src="getStrapiMedia($page.strapi.flexwerken.ImageSlider.url)" 
-              :placeholder="getStrapiMedia($page.strapi.flexwerken.ImageSlider.formats.thumbnail.url)"
-              :aspect-ratio="$page.strapi.flexwerken.ImageSlider.height / $page.strapi.flexwerken.ImageSlider.width"
-            />
-          </ClientOnly> -->
+          <swiper
+            v-else
+            :options="swiperOptions"
+          >
+            <swiper-slide v-for="image in $page.strapi.flexwerken.ImageSlider" :key="image.name">
+              <g-image :src="getStrapiMedia(image.url)" :alt="image.alternativeText || image.name" />
+            </swiper-slide>
+            <div class="swiper-pagination" slot="pagination"></div>
+            <div class="swiper-button-prev" slot="button-prev"></div>
+            <div class="swiper-button-next" slot="button-next"></div>
+          </swiper>
         </div>
       </div>
     </div>
@@ -46,7 +48,7 @@ query {
     flexwerken {
       Titel
       Beschrijving
-      ImageSlider{
+      ImageSlider {
         width
         height
         alternativeText
@@ -64,12 +66,37 @@ import VueMarkdown from "vue-markdown";
 import { getMetaTags } from "~/utils/seo";
 import { getStrapiMedia } from "~/utils/medias";
 
+import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
+import 'swiper/css/swiper.css'
+
 export default {
   components: {
+    Swiper,
+    SwiperSlide,
     VueMarkdown
   },
   methods: {
     getStrapiMedia
+  },
+  data() {
+    return {
+      swiperOptions: {
+        slidesPerView: 1,
+        autoplay: {
+          delay: 3000,
+          disableOnInteraction: false
+        },
+        loop: true,
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev'
+        }
+      }
+    }
   },
   metaInfo() {
     const { defaultSeo, favicon } = this.$page.strapi.global;
