@@ -4,7 +4,7 @@
       <div class="intro-text">
         <VueMarkdown :source="$page.strapi.homepage.hero.introTekst" class="intro-rte" />
       </div>
-      <div class="hero-image" v-if="$page.strapi.homepage.hero.HeroRandomImages[0]">
+      <div class="hero-image" v-if="$page.strapi.homepage.hero.HeroRandomImages[0] && randomImageIndex !== null">
         <g-image 
           :src="getStrapiMedia($page.strapi.homepage.hero.HeroRandomImages[randomImageIndex].url)" 
           :alt="$page.strapi.homepage.hero.HeroRandomImages[randomImageIndex].alternativeText || $page.strapi.homepage.hero.HeroRandomImages[randomImageIndex].name" 
@@ -90,7 +90,7 @@ export default {
   },
   data() {
     return {
-      randomImageIndex: 0
+      randomImageIndex: null
     }
   },
   beforeMount() {
