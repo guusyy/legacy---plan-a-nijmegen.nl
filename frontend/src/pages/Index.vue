@@ -273,7 +273,6 @@ export default {
   }
 }
 
-
 .intro-contact * {
   text-decoration: none;
   color: var(--pa-maroon);
@@ -285,8 +284,11 @@ export default {
   }
 }
 
-.hero-image img {
-  width: 100%;
-}
+.hero-image  {
+  opacity: 0;
 
+  img {
+    width: 100%;
+  }
+}
 </style>
