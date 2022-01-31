@@ -4,6 +4,24 @@
       <div class="column" >
         <h1 class="page-title">{{$page.strapi.flexwerken.Titel}}</h1>
         <VueMarkdown style="margin-top: 3rem;" class="rte" :source="$page.strapi.flexwerken.Beschrijving" />
+        <div class="nav-buttons">
+          <g-link to="/abonnement" class="btn">
+            <span>
+              Word lid
+            </span>
+            <svg class="pa-icon" viewBox="0 0 20.868 29.5">
+              <path d="M1.6,29.7.4,28.1,17.933,15,.4,1.8,1.6.2,21.267,15Z" transform="translate(-0.398 -0.201)"/>
+            </svg>
+          </g-link>
+          <g-link to="/ruimte-huren" class="btn">
+            <span>
+              Ruimte huren
+            </span>
+            <svg class="pa-icon" viewBox="0 0 20.868 29.5">
+              <path d="M1.6,29.7.4,28.1,17.933,15,.4,1.8,1.6.2,21.267,15Z" transform="translate(-0.398 -0.201)"/>
+            </svg>
+          </g-link>
+        </div>
       </div>
       <div class="column swiper-holder">
         <div class="image-holder" style="margin-top: 1.6rem">
@@ -82,10 +100,6 @@ export default {
     return {
       swiperOptions: {
         slidesPerView: 1,
-        autoplay: {
-          delay: 5000,
-          disableOnInteraction: false
-        },
         autoHeight: true,
         effect: 'fade',
         loop: true,
@@ -150,6 +164,16 @@ export default {
     @media (max-width: 64em) {
       width: 100%;
     }
+  }
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 1rem;
+  margin: 4rem 0 2rem 0;
+
+  @media (max-width: 64em) {
+    flex-direction: column;
   }
 }
 </style>

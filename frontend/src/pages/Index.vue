@@ -4,6 +4,12 @@
       <div class="intro-text">
         <VueMarkdown :source="$page.strapi.homepage.hero.introTekst" class="intro-rte" />
       </div>
+      <div class="hero-image" v-if="$page.strapi.homepage.hero.HeroRandomImages">
+        <g-image 
+          :src="getStrapiMedia($page.strapi.homepage.hero.HeroRandomImages[randomImageIndex].url)" 
+          :alt="$page.strapi.homepage.hero.HeroRandomImages[randomImageIndex].alternativeText || $page.strapi.homepage.hero.HeroRandomImages[randomImageIndex].name" 
+        />
+      </div>
       <div class="pa-quickbuttons-container">
         <g-link class="pa-quickbutton" :to="`/${knop.LinkTekst}`" v-for="knop in $page.strapi.homepage.hero.homepaginaknop" :key="knop.id">
           <h4 class="pa-label">{{knop.TekstKnop}}</h4>
@@ -45,6 +51,14 @@ query {
           TekstKnop
           LinkTekst
         }
+        HeroRandomImages {
+          width
+          height
+          alternativeText
+          name
+          url
+          formats
+        }
       }
       seo {
         metaTitle
@@ -71,6 +85,17 @@ export default {
     Articles,
     VueMarkdown
   },
+  methods: {
+    getStrapiMedia
+  },
+  data() {
+    return {
+      randomImageIndex: 0
+    }
+  },
+  beforeMount() {
+    this.randomImageIndex = Math.floor(Math.random() * this.$page.strapi.homepage.hero.HeroRandomImages.length);
+  },
   mounted() {
 
     var tl = anime.timeline({
@@ -86,18 +111,25 @@ export default {
         duration: 1700,
       })
       .add({
+        targets: '.hero-image',
+        translateY: [-5, 0],
+        delay: 100,
+        opacity: [0, 1],
+        duration: 1700,
+      }, 300)
+      .add({
         targets: '.pa-quickbutton',
         translateY: [-5, 0],
         opacity: [0, 1],
         duration: 1700,
         delay: anime.stagger(200) // increase delay by 100ms for each elements.
-      }, 400)
+      }, 700)
       .add({
         targets: '.pa-contact-info',
         translateY: [-5, 0],
         opacity: [0, 1],
         duration: 1400,
-      }, 1200)
+      }, 1500)
   },
   metaInfo() {
     const { seo } = this.$page.strapi.homepage;
@@ -108,8 +140,6 @@ export default {
       ...defaultSeo,
       ...seo,
     };
-
-    console.log(getStrapiMedia(favicon.url));
 
     return {
       title: fullSeo.metaTitle,

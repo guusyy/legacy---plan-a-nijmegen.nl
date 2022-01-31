@@ -82,10 +82,6 @@ export default {
     return {
       swiperOptions: {
         slidesPerView: 1,
-        autoplay: {
-          delay: 5000,
-          disableOnInteraction: false
-        },
         autoHeight: true,
         effect: 'fade',
         loop: true,
