@@ -151,7 +151,7 @@ export default {
 
     &:hover {
       & .info-overlay {
-        top: 0;
+        opacity: 1;
       }
     }
   }
@@ -173,10 +173,11 @@ export default {
     padding: 2rem;
     color: var(--pa-white);
 
-    transition: all .6s ease;
+    transition: all .4s ease;
 
     position: absolute;
-    top: 100%;
+    opacity: 0;
+    top: 0;
     left: 0;
 
     display: flex;
