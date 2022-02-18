@@ -430,8 +430,7 @@ export default {
   align-items: center;
   text-decoration: underline;
   display: flex;
-  text-align: center;
-  max-width: 60rem;
+  text-align: left;
 
   &.hidden {
     display: none;

@@ -20,7 +20,7 @@
           <ul class="pa-navigation-list-mobile">
             <li><g-link to="/eten-drinken/">Eten & Drinken</g-link></li>
             <li><g-link to="/flexwerken/">Werken</g-link></li>
-            <li><g-link to="/abonnement/">Abonnement</g-link></li>
+            <li><g-link to="/membership/">Membership</g-link></li>
             <li><g-link to="/ruimte-huren/">Ruimte huren</g-link></li>
             <li><g-link to="/community/">Community</g-link></li>
             <li><g-link to="/over-ons/">Over ons</g-link></li>
@@ -31,7 +31,7 @@
       <ul class="pa-navigation-list">
         <li><g-link to="/eten-drinken/">Eten & Drinken</g-link></li>
         <li><g-link to="/flexwerken/">Werken</g-link></li>
-        <li><g-link to="/abonnement/">Abonnement</g-link></li>
+        <li><g-link to="/membership/">Membership</g-link></li>
         <li><g-link to="/ruimte-huren/">Ruimte huren</g-link></li>
         <li><g-link to="/community/">Community</g-link></li>
         <li><g-link to="/over-ons/">Over ons</g-link></li>

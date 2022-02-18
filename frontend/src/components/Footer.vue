@@ -70,6 +70,11 @@ export default {
   flex-wrap: wrap;
   gap: 2rem;
 
+  @media (max-width: 80em) {
+    grid-template-columns: minmax(0,1fr) minmax(0,1fr);
+    margin-top: 8rem;
+  }
+
   @media (max-width: 64em) {
     grid-template-columns: minmax(0,1fr);
     margin-top: 8rem;

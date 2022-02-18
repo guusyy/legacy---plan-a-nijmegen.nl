@@ -2,7 +2,8 @@
   "kind": "collectionType",
   "collectionName": "community_members",
   "info": {
-    "name": "CommunityMembers"
+    "name": "CommunityMembers",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -32,6 +33,19 @@
       "plugin": "upload",
       "required": false,
       "pluginOptions": {}
+    },
+    "Website": {
+      "type": "string",
+      "default": "https://www.nu.nl"
+    },
+    "Instagram": {
+      "type": "string"
+    },
+    "LinkedIn": {
+      "type": "string"
+    },
+    "Facebook": {
+      "type": "string"
     }
   }
 }

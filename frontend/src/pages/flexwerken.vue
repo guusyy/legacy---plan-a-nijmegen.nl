@@ -5,9 +5,9 @@
         <h1 class="page-title">{{$page.strapi.flexwerken.Titel}}</h1>
         <VueMarkdown style="margin-top: 3rem;" class="rte" :source="$page.strapi.flexwerken.Beschrijving" />
         <div class="nav-buttons">
-          <g-link to="/abonnement" class="btn">
+          <g-link to="/membership" class="btn">
             <span>
-              Word lid
+              Word member
             </span>
             <svg class="pa-icon" viewBox="0 0 20.868 29.5">
               <path d="M1.6,29.7.4,28.1,17.933,15,.4,1.8,1.6.2,21.267,15Z" transform="translate(-0.398 -0.201)"/>
