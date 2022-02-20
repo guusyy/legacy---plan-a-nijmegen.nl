@@ -101,7 +101,7 @@ export default {
       swiperOptions: {
         slidesPerView: 1,
         autoHeight: true,
-        effect: 'fade',
+        effect: window.innerWidth > 640 ? 'fade' : 'slide',
         loop: true,
         pagination: {
           el: '.swiper-pagination',
