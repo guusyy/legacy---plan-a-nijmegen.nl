@@ -157,7 +157,7 @@ export default {
         autoplay: false,
         loop: true,
         autoHeight: true,
-        effect: window.innerWidth > 640 ? 'fade' : 'slide',
+        effect: 'fade',
         pagination: {
           el: '.swiper-pagination',
           clickable: true
