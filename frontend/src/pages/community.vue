@@ -185,11 +185,11 @@ export default {
     justify-content: space-between;
 
     & h2 {
-      font-size: 1.5rem;
+      font-size: 1.8rem;
     }
 
     & h3 {
-      font-size: 2rem;
+      font-size: 2.2rem;
     }
 
     & .info-links {
