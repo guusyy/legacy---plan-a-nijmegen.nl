@@ -186,10 +186,18 @@ export default {
 
     & h2 {
       font-size: 1.8rem;
+
+      @media (max-width: 64em) {
+        font-size: 2.2rem;
+      }
     }
 
     & h3 {
       font-size: 2.2rem;
+
+      @media (max-width: 64em) {
+        font-size: 2.6rem;
+      }
     }
 
     & .info-links {
