@@ -16,7 +16,6 @@
         <li><g-link to="/disclaimer/">Disclaimer</g-link></li>
         <li><g-link to="/privacy-beleid/">Privacybeleid</g-link></li>
         <li><g-link to="/algemene-voorwaarden/">Algemene Voorwaarden</g-link></li>
-        <li><g-link to="/colofon/">Colofon</g-link></li>
       </ul>
     </div>
   </footer>
