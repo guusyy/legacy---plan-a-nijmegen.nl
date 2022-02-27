@@ -170,7 +170,6 @@ export default {
         effect: 'fade',
         lazy: {
           enabled: true,
-          loadPrevNext: true,
         },
         preloadImages: true,
         pagination: {

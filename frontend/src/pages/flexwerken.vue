@@ -111,7 +111,6 @@ export default {
         effect: 'fade',
         lazy: {
           enabled: true,
-          loadPrevNext: true,
         },
         loop: true,
         pagination: {
