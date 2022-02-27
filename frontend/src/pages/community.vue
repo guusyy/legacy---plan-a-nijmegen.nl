@@ -4,13 +4,24 @@
       <div class="column" >
         <h1 class="page-title">{{$page.strapi.community.Titel}}</h1>
         <div class="community-grid">
-          <article class="community-item" v-for="(communityMember, index) in $page.strapi.community.community_members" :key="index">
-            <img class="community-image img-lazy" v-if="communityMember.Afbeelding" v-lazy="getStrapiMedia(communityMember.Afbeelding.formats.small.url)" :alt="communityMember.Afbeelding.alternativeText || communityMember.Afbeelding.name" fit="contain"  
+          <article 
+            class="community-item" 
+            :class="{'show-info': activeElement === index}" 
+            @click="showDetails(index)"
+            tabindex="0"
+            v-for="(communityMember, index) in $page.strapi.community.community_members" 
+            :key="index">
+            <img 
+              class="community-image img-lazy"               
+              v-if="communityMember.Afbeelding" 
+              v-lazy="getStrapiMedia(communityMember.Afbeelding.formats.small.url)" 
+              :alt="communityMember.Afbeelding.alternativeText || communityMember.Afbeelding.name" 
+              fit="contain"  
               :style="`aspect-ratio: ${communityMember.Afbeelding.width}/${communityMember.Afbeelding.height}`"
               :width="communityMember.Afbeelding.width"
               :height="communityMember.Afbeelding.height"
             />
-            <div class="info-overlay">
+            <div class="info-overlay" >
               <div>
                 <h2>{{communityMember.NaamBedrijf}}</h2>
                 <h3>{{communityMember.NaamAchternaam}}</h3>
@@ -97,8 +108,21 @@ import anime from 'animejs/lib/anime.es.js';
 export default {
   components: {
   },
+  data() {
+    return {
+      activeElement: null
+    }
+  },
   methods: {
-    getStrapiMedia
+    getStrapiMedia,
+    showDetails(index) {
+      if(this.activeElement == index) {
+        this.activeElement = null;
+        return
+      }
+
+      this.activeElement = index;
+    },
   },
   mounted: function() {
     anime({
@@ -157,7 +181,17 @@ export default {
 
     &:hover {
       & .info-overlay {
-        opacity: 1;
+        @media (min-width: 64em) {
+          opacity: 1;
+        }
+      }
+    }
+
+    &.show-info {
+      & .info-overlay {
+        @media (max-width: 64em) {
+          opacity: 1;
+        }
       }
     }
   }
