@@ -183,6 +183,7 @@ export default {
       & .info-overlay {
         @media (min-width: 64em) {
           opacity: 1;
+          pointer-events: all;
         }
       }
     }
@@ -191,6 +192,7 @@ export default {
       & .info-overlay {
         @media (max-width: 64em) {
           opacity: 1;
+          pointer-events: all;
         }
       }
     }
@@ -212,6 +214,7 @@ export default {
     background: var(--pa-maroon);
     padding: 2rem;
     color: var(--pa-white);
+    pointer-events: none;
 
     transition: all .4s ease;
 
