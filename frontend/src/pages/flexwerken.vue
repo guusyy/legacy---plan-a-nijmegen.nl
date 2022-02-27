@@ -25,16 +25,20 @@
       </div>
       <div class="column swiper-holder">
         <div class="image-holder" style="margin-top: 1.6rem">
-          <g-image 
+          <img
             v-if="$page.strapi.flexwerken.ImageSlider.length < 2"
             v-lazy="getStrapiMedia($page.strapi.flexwerken.ImageSlider[0].url)" 
             :alt="$page.strapi.flexwerken.ImageSlider[0].alternativeText || $page.strapi.flexwerken.ImageSlider[0].name" 
             :style="`aspect-ratio: ${$page.strapi.flexwerken.ImageSlider[0].width}/${$page.strapi.flexwerken.ImageSlider[0].height}`"
+            :width="$page.strapi.flexwerken.ImageSlider[0].width"
+            :height="$page.strapi.flexwerken.ImageSlider[0].height"
           />
           <swiper
             v-else
             :options="swiperOptions"
-            :style="`aspect-ratio: ${$page.strapi.flexwerken.ImageSlider[0].width}/${$page.strapi.flexwerken.ImageSlider[0].height}`"
+            :style="`aspect-ratio: ${$page.strapi.flexwerken.ImageSlider[0].width}/${$page.strapi.flexwerken.ImageSlider[0].height}; height: auto;`"
+            :width="$page.strapi.flexwerken.ImageSlider[0].width"
+            :height="$page.strapi.flexwerken.ImageSlider[0].height"
           >
             <swiper-slide v-for="image in $page.strapi.flexwerken.ImageSlider" :key="image.name">
               <img

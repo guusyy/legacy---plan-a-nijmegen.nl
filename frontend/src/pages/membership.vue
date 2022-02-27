@@ -240,6 +240,8 @@ export default {
 
     border-top: 1px solid var(--pa-maroon);
     padding: 1rem 0rem;
+    opacity: 0;
+
     & h3 {
       font-size: 3rem;
     }
@@ -300,6 +302,7 @@ export default {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 4rem;
   margin-bottom: 10rem;
+  opacity: 0;
 
   @media (max-width: 64em) {
     grid-template-columns: minmax(10px, 1fr);

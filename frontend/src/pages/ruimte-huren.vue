@@ -14,11 +14,15 @@
             v-lazy="getStrapiMedia(ruimte.Afbeelding[0].formats.large.url)" 
             :alt="ruimte.Afbeelding[0].alternativeText || ruimte.Afbeelding[0].name" 
             :style="`aspect-ratio: ${ruimte.Afbeelding[0].width}/${ruimte.Afbeelding[0].height}`"
+            :width="ruimte.Afbeelding[0].width"
+            :height="ruimte.Afbeelding[0].height"
           />
           <swiper
             v-else
             :options="swiperOptions"
-            :style="`aspect-ratio: ${ruimte.Afbeelding[0].width}/${ruimte.Afbeelding[0].height}`"
+            :style="`aspect-ratio: ${ruimte.Afbeelding[0].width}/${ruimte.Afbeelding[0].height}; height: auto;`"
+            :width="ruimte.Afbeelding[0].width"
+            :height="ruimte.Afbeelding[0].height"
           >
             <swiper-slide v-for="image in ruimte.Afbeelding" :key="image.name">
               <div class="swiper-slide">
@@ -296,6 +300,8 @@ export default {
 
   & .workspace-item {
     padding: 1rem 0rem;
+    opacity: 0;
+
     & h3 {
       margin: 4rem 0 1rem 0;
       font-size: 3rem;
@@ -355,6 +361,7 @@ export default {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 4rem;
   margin-bottom: 10rem;
+  opacity: 0;
 
   @media (max-width: 64em) {
     grid-template-columns: minmax(10px, 1fr);
