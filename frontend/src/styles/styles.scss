@@ -231,6 +231,10 @@ img {
   width: 100%;
 }
 
+img[data-src] {
+  opacity: 0;
+}
+
 img[lazy=loading] {
   opacity: 0;
 }
