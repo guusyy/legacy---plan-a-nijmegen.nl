@@ -5,7 +5,7 @@
         <h1 class="page-title">{{$page.strapi.community.Titel}}</h1>
         <div class="community-grid">
           <article class="community-item" v-for="(communityMember, index) in $page.strapi.community.community_members" :key="index">
-            <img class="community-image" v-if="communityMember.Afbeelding" v-lazy="getStrapiMedia(communityMember.Afbeelding.formats.small.url)" :alt="communityMember.Afbeelding.alternativeText || communityMember.Afbeelding.name" fit="contain"  
+            <img class="community-image img-lazy" v-if="communityMember.Afbeelding" v-lazy="getStrapiMedia(communityMember.Afbeelding.formats.small.url)" :alt="communityMember.Afbeelding.alternativeText || communityMember.Afbeelding.name" fit="contain"  
               :style="`aspect-ratio: ${communityMember.Afbeelding.width}/${communityMember.Afbeelding.height}`"
               :width="communityMember.Afbeelding.width"
               :height="communityMember.Afbeelding.height"
