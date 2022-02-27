@@ -7,13 +7,14 @@
       </div>
       <div class="column swiper-holder">
         <div class="image-holder" style="margin-top: 1.6rem">
-          <g-image 
+          <img
             v-if="$page.strapi.barRestaurant.ImageSlider.length < 2"
             v-lazy="getStrapiMedia($page.strapi.barRestaurant.ImageSlider[0].url)" 
             :alt="$page.strapi.barRestaurant.ImageSlider[0].alternativeText || $page.strapi.barRestaurant.ImageSlider[0].name"             
             :style="`aspect-ratio: ${$page.strapi.barRestaurant.ImageSlider[0].width}/${$page.strapi.barRestaurant.ImageSlider[0].height}`"
             :width="$page.strapi.barRestaurant.ImageSlider[0].width"
             :height="$page.strapi.barRestaurant.ImageSlider[0].height"
+            class="img-lazy"
           />
           <swiper
             v-else

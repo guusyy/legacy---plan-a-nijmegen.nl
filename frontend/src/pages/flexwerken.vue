@@ -28,6 +28,7 @@
           <img
             v-if="$page.strapi.flexwerken.ImageSlider.length < 2"
             v-lazy="getStrapiMedia($page.strapi.flexwerken.ImageSlider[0].url)" 
+            class="img-lazy"
             :alt="$page.strapi.flexwerken.ImageSlider[0].alternativeText || $page.strapi.flexwerken.ImageSlider[0].name" 
             :style="`aspect-ratio: ${$page.strapi.flexwerken.ImageSlider[0].width}/${$page.strapi.flexwerken.ImageSlider[0].height}`"
             :width="$page.strapi.flexwerken.ImageSlider[0].width"

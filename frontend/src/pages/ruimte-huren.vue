@@ -10,6 +10,7 @@
       <div class="workspace-row" v-if="$page.strapi.ruimteHuren.ruimtes">
         <div class="workspace-item" v-for="(ruimte, index) in $page.strapi.ruimteHuren.ruimtes" :key="index">
           <img
+            class="img-lazy"
             v-if="ruimte.Afbeelding.length < 2"
             v-lazy="getStrapiMedia(ruimte.Afbeelding[0].formats.large.url)" 
             :alt="ruimte.Afbeelding[0].alternativeText || ruimte.Afbeelding[0].name" 

@@ -232,14 +232,18 @@ img {
   width: 100%;
 }
 
-img[data-src] {
+.img-lazy {
   opacity: 0;
 }
 
-img[lazy=loading] {
+.img-lazy[data-src] {
   opacity: 0;
 }
 
-img[lazy=loaded] {
+.img-lazy[lazy=loading] {
+  opacity: 0;
+}
+
+.img-lazy[lazy=loaded] {
   opacity: 1;
 }

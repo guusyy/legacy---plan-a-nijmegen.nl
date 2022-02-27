@@ -8,6 +8,7 @@
       <div class="column swiper-holder">
         <div class="image-holder" style="margin-top: 1.6rem">
           <img 
+            class="img-lazy"
             v-if="$page.strapi.overOn.ImageSlider.length < 2"
             v-lazy="getStrapiMedia($page.strapi.overOn.ImageSlider[0].url)" 
             :alt="$page.strapi.overOn.ImageSlider[0].alternativeText || $page.strapi.overOn.ImageSlider[0].name" 
