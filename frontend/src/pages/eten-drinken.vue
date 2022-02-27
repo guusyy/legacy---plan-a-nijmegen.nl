@@ -94,6 +94,7 @@ export default {
         loop: true,
         lazy: {
           enabled: true,
+          loadPrevNext: true,
         },
         pagination: {
           el: '.swiper-pagination',
