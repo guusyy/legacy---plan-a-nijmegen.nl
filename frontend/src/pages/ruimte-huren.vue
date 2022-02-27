@@ -11,15 +11,24 @@
         <div class="workspace-item" v-for="(ruimte, index) in $page.strapi.ruimteHuren.ruimtes" :key="index">
           <g-image 
             v-if="ruimte.Afbeelding.length < 2"
-            :src="getStrapiMedia(ruimte.Afbeelding[0].url)" 
+            v-lazy="getStrapiMedia(ruimte.Afbeelding[0].formats.large.url)" 
             :alt="ruimte.Afbeelding[0].alternativeText || ruimte.Afbeelding[0].name" 
+            :style="`aspect-ratio: ${ruimte.Afbeelding[0].width}/${ruimte.Afbeelding[0].height}`"
           />
           <swiper
             v-else
             :options="swiperOptions"
+            :style="`aspect-ratio: ${ruimte.Afbeelding[0].width}/${ruimte.Afbeelding[0].height}`"
           >
             <swiper-slide v-for="image in ruimte.Afbeelding" :key="image.name">
-              <g-image :src="getStrapiMedia(image.url)" :alt="image.alternativeText || image.name" />
+              <div class="swiper-slide">
+                <img
+                  :data-src="getStrapiMedia(image.formats.large.url)"
+                  :data-srcset="getStrapiMedia(image.formats.large.url)"
+                  class="swiper-lazy"
+                  :alt="image.alternativeText || image.name"
+                />
+              </div>
             </swiper-slide>
             <div class="swiper-pagination" slot="pagination"></div>
             <div class="swiper-button-prev" slot="button-prev"></div>
@@ -108,10 +117,11 @@ query {
     ruimteHuren{
      	Titel
       introTekst
-      ruimtes {
+      ruimtes(sort: "ViewOrder:asc") {
         Titel
         Omschrijving
         ButtonTekst
+        
         Afbeelding {
           width
           height
@@ -158,6 +168,10 @@ export default {
         loop: true,
         autoHeight: true,
         effect: window.innerWidth > 640 ? 'fade' : 'slide',
+        lazy: {
+          enabled: true,
+        },
+        preloadImages: true,
         pagination: {
           el: '.swiper-pagination',
           clickable: true
@@ -266,6 +280,7 @@ export default {
 
 .intro-row {
   margin-bottom: 4rem;
+  max-width: 120rem;
 }
 
 .workspace-row {
@@ -375,7 +390,8 @@ export default {
 
       &::placeholder {
         opacity: 0.4;
-        font-weight: 400;
+        font-weight: 400;        
+        color: var(--pa-maroon);
       }
     }
 

@@ -222,6 +222,7 @@ export default {
 
 .intro-row {
   margin-bottom: 4rem;
+  max-width: 120rem;
 }
 
 .membership-row {
@@ -359,6 +360,7 @@ export default {
       &::placeholder {
         opacity: 0.4;
         font-weight: 400;
+        color: var(--pa-maroon);
       }
     }
 

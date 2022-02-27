@@ -9,15 +9,22 @@
         <div class="image-holder" style="margin-top: 1.6rem">
           <g-image 
             v-if="$page.strapi.barRestaurant.ImageSlider.length < 2"
-            :src="getStrapiMedia($page.strapi.barRestaurant.ImageSlider[0].url)" 
-            :alt="$page.strapi.barRestaurant.ImageSlider[0].alternativeText || $page.strapi.barRestaurant.ImageSlider[0].name" 
+            v-lazy="getStrapiMedia($page.strapi.barRestaurant.ImageSlider[0].url)" 
+            :alt="$page.strapi.barRestaurant.ImageSlider[0].alternativeText || $page.strapi.barRestaurant.ImageSlider[0].name"             
+            :style="`aspect-ratio: ${$page.strapi.barRestaurant.ImageSlider[0].width}/${$page.strapi.barRestaurant.ImageSlider[0].height}`"
           />
           <swiper
             v-else
             :options="swiperOptions"
+            :style="`aspect-ratio: ${$page.strapi.barRestaurant.ImageSlider[0].width}/${$page.strapi.barRestaurant.ImageSlider[0].height}`"
           >
             <swiper-slide v-for="image in $page.strapi.barRestaurant.ImageSlider" :key="image.name">
-              <g-image :src="getStrapiMedia(image.url)" :alt="image.alternativeText || image.name" />
+              <img
+                  :data-src="getStrapiMedia(image.url)"
+                  :data-srcset="getStrapiMedia(image.url)"
+                  :alt="image.alternativeText || image.name"
+                  class="swiper-lazy"
+                />
             </swiper-slide>
             <div class="swiper-pagination" slot="pagination"></div>
             <div class="swiper-button-prev" slot="button-prev"></div>
@@ -85,6 +92,9 @@ export default {
         autoHeight: true,
         effect: window.innerWidth > 640 ? 'fade' : 'slide',
         loop: true,
+        lazy: {
+          enabled: true,
+        },
         pagination: {
           el: '.swiper-pagination',
           clickable: true

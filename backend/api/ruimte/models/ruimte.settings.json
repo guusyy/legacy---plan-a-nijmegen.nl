@@ -36,6 +36,11 @@
       "plugin": "upload",
       "required": false,
       "pluginOptions": {}
+    },
+    "ViewOrder": {
+      "type": "integer",
+      "required": true,
+      "default": 1
     }
   }
 }

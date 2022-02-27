@@ -5,9 +5,10 @@
         <VueMarkdown :source="$page.strapi.homepage.hero.introTekst" class="intro-rte" />
       </div>
       <div class="hero-image" v-if="$page.strapi.homepage.hero.HeroRandomImages[0]">
-        <g-image 
-          :src="getStrapiMedia($page.strapi.homepage.hero.HeroRandomImages[randomImageIndex].url)" 
+        <img
+          v-lazy="getStrapiMedia($page.strapi.homepage.hero.HeroRandomImages[randomImageIndex].url)" 
           :alt="$page.strapi.homepage.hero.HeroRandomImages[randomImageIndex].alternativeText || $page.strapi.homepage.hero.HeroRandomImages[randomImageIndex].name" 
+          :style="`aspect-ratio: ${$page.strapi.homepage.hero.HeroRandomImages[randomImageIndex].width}/${$page.strapi.homepage.hero.HeroRandomImages[randomImageIndex].height}`"
         />
       </div>
       <div class="pa-quickbuttons-container">

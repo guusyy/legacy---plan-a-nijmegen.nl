@@ -213,6 +213,28 @@ input, textarea, select, button {
   font-family: 'National', -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
 }
 
-.swiper-wrapper {
-  aspect-ratio: 2160 / 1728;
+.swiper-slide {
+  height: 100% !important;
+}
+
+.swiper-lazy {
+  opacity: 0;
+  transition: opacity .6s ease;
+}
+
+.swiper-lazy-loaded {
+  opacity: 1;
+}
+
+img {
+  transition: opacity .6s ease;
+  width: 100%;
+}
+
+img[lazy=loading] {
+  opacity: 0;
+}
+
+img[lazy=loaded] {
+  opacity: 1;
 }
