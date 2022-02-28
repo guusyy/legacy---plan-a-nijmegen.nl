@@ -171,7 +171,7 @@ export default {
         slidesPerView: 1,
         autoplay: false,
         loop: true,
-        autoHeight: true,
+        autoHeight: false,
         effect: 'fade',
         lazy: {
           enabled: true,
