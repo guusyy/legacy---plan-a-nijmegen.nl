@@ -116,7 +116,7 @@ export default {
       swiperOptions: {
         slidesPerView: 1,
         autoHeight: false,
-        effect: 'fade',
+        effect: 'slide',
         lazy: {
           enabled: true,
         },

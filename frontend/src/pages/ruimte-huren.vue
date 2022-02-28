@@ -172,7 +172,7 @@ export default {
         autoplay: false,
         loop: true,
         autoHeight: false,
-        effect: 'fade',
+        effect: 'slide',
         lazy: {
           enabled: true,
         },
