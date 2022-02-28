@@ -95,11 +95,10 @@ export default {
       swiperOptions: {
         slidesPerView: 1,
         autoHeight: false,
-        effect: 'slide',
+        effect: 'fade',
         loop: true,
         lazy: {
           enabled: true,
-          loadPrevNextAmount: 1,
         },
         pagination: {
           el: '.swiper-pagination',

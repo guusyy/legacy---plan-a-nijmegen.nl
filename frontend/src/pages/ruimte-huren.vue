@@ -172,10 +172,9 @@ export default {
         autoplay: false,
         loop: true,
         autoHeight: false,
-        effect: 'slide',
+        effect: 'fade',
         lazy: {
           enabled: true,
-          loadPrevNextAmount: 1,
         },
         preloadImages: true,
         pagination: {
