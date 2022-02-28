@@ -46,6 +46,9 @@
                 :data-src="getStrapiMedia(image.url)"
                 :data-srcset="getStrapiMedia(image.url)"
                 :alt="image.alternativeText || image.name"
+                :width="image.width"
+                :height="image.height"
+                :style="`aspect-ratio: ${image.width}/${image.height}; height: auto;`"
                 class="swiper-lazy"
               />
             </swiper-slide>
@@ -113,7 +116,7 @@ export default {
       swiperOptions: {
         slidesPerView: 1,
         autoHeight: true,
-        effect: 'fade',
+        effect: window === undefined ? 'fade' : window.innerWidth < 800 ? 'slide' : 'fade',
         lazy: {
           enabled: true,
         },
