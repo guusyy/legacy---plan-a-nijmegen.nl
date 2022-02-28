@@ -116,7 +116,7 @@ export default {
       swiperOptions: {
         slidesPerView: 1,
         autoHeight: true,
-        effect: window === undefined ? 'fade' : window.innerWidth < 800 ? 'slide' : 'fade',
+        effect: 'fade',
         lazy: {
           enabled: true,
         },
