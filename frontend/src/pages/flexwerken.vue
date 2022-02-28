@@ -119,6 +119,7 @@ export default {
         effect: 'slide',
         lazy: {
           enabled: true,
+          loadPrevNextAmount: 1,
         },
         loop: true,
         pagination: {

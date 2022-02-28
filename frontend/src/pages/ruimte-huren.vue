@@ -175,6 +175,7 @@ export default {
         effect: 'slide',
         lazy: {
           enabled: true,
+          loadPrevNextAmount: 1,
         },
         preloadImages: true,
         pagination: {
