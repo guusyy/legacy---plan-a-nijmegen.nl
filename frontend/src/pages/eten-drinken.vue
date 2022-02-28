@@ -93,7 +93,7 @@ export default {
     return {
       swiperOptions: {
         slidesPerView: 1,
-        autoHeight: true,
+        autoHeight: false,
         effect: 'fade',
         loop: true,
         lazy: {
