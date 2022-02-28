@@ -108,9 +108,11 @@ export default {
 
   & img {
     height: 3rem;
+    width: 6.4rem;
 
     @media (max-width: 64em) {
       height: 2.5rem;
+      width: 5.2rem;
     }
   }
 
@@ -140,9 +142,11 @@ export default {
 
   & img {
     height: 3rem;
+    width: 2.4rem;
     
     @media (max-width: 64em) {
       height: 2.5rem;
+      width: 1.9rem;
     }
   }
 
