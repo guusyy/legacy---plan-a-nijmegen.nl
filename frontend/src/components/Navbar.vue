@@ -2,13 +2,13 @@
   <div class="pa-navbar">
     <div class="logo-holder">
       <div class="logo-left-holder">
-        <g-link to="/">
+        <g-link to="/" aria-label="Home">
           <img src="../assets/PLAN_A_Logo_1_onderdeel_1.svg" alt="">
         </g-link>
       </div>
       <div class="pa-logo-border"></div>
       <div class="logo-right-holder">
-        <g-link to="/">
+        <g-link to="/" aria-label="Home">
           <img src="../assets/PLAN_A_Logo_1_onderdeel_3.svg" alt="">
         </g-link>
       </div>

@@ -8,14 +8,14 @@
         </div>
       </div>
       <div class="membership-row">
-        <div class="membership-item" v-for="(membership, index) in $page.strapi.membership.abonnementens" :key="index">
+        <article class="membership-item" v-for="(membership, index) in $page.strapi.membership.abonnementens" :key="index">
           <h3>{{membership.titel}}</h3>
           <div class="price">€{{membership.prijsPm.toFixed(2).toString().replace(".", ",")}} <span class="price-label">per maand</span></div>
           <ul class="features">
             <li v-for="(perk, index) in membership.perks" :key="index">{{perk.Perknaam}}</li>
           </ul>
           <button @click="handleGoToForm(membership.titel)">{{membership.buttonTekst}}</button>
-        </div>
+        </article>
       </div>
       <div class="contact-row" ref="form">
         <div>

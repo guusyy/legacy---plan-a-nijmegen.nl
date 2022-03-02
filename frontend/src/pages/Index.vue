@@ -14,7 +14,7 @@
       </div>
       <div class="pa-quickbuttons-container">
         <g-link class="pa-quickbutton" :to="`/${knop.LinkTekst}`" v-for="knop in $page.strapi.homepage.hero.homepaginaknop" :key="knop.id">
-          <h4 class="pa-label">{{knop.TekstKnop}}</h4>
+          <h2 class="pa-label">{{knop.TekstKnop}}</h2>
           <span class="pa-arrow">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20.868 29.5">
               <path d="M1.6,29.7.4,28.1,17.933,15,.4,1.8,1.6.2,21.267,15Z" transform="translate(-0.398 -0.201)"/>
