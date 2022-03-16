@@ -144,7 +144,7 @@ export default {
     };
 
     return {
-      title: fullSeo.metaTitle,
+      title: 'Plan A Nijmegen',
       meta: getMetaTags(fullSeo),
       link: [
         {
