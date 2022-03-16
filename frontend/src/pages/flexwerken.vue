@@ -46,10 +46,12 @@
                 :data-src="getStrapiMedia(image.url)"
                 :data-srcset="getStrapiMedia(image.url)"
                 :alt="image.alternativeText || image.name"
+                :width="image.width"
+                :height="image.height"
+                :style="`aspect-ratio: ${image.width}/${image.height}; height: auto;`"
                 class="swiper-lazy"
               />
             </swiper-slide>
-            <div class="swiper-pagination" slot="pagination"></div>
             <div class="swiper-button-prev" slot="button-prev"></div>
             <div class="swiper-button-next" slot="button-next"></div>
           </swiper>
@@ -112,15 +114,11 @@ export default {
     return {
       swiperOptions: {
         slidesPerView: 1,
-        autoHeight: true,
+        autoHeight: false,
         effect: 'fade',
+        loop: true,
         lazy: {
           enabled: true,
-        },
-        loop: true,
-        pagination: {
-          el: '.swiper-pagination',
-          clickable: true
         },
         navigation: {
           nextEl: '.swiper-button-next',

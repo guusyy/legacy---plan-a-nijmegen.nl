@@ -2,13 +2,13 @@
   <div class="pa-navbar">
     <div class="logo-holder">
       <div class="logo-left-holder">
-        <g-link to="/">
+        <g-link to="/" aria-label="Home">
           <img src="../assets/PLAN_A_Logo_1_onderdeel_1.svg" alt="">
         </g-link>
       </div>
       <div class="pa-logo-border"></div>
       <div class="logo-right-holder">
-        <g-link to="/">
+        <g-link to="/" aria-label="Home">
           <img src="../assets/PLAN_A_Logo_1_onderdeel_3.svg" alt="">
         </g-link>
       </div>
@@ -108,9 +108,11 @@ export default {
 
   & img {
     height: 3rem;
+    width: 6.4rem;
 
     @media (max-width: 64em) {
       height: 2.5rem;
+      width: 5.2rem;
     }
   }
 
@@ -140,9 +142,11 @@ export default {
 
   & img {
     height: 3rem;
+    width: 2.4rem;
     
     @media (max-width: 64em) {
       height: 2.5rem;
+      width: 1.9rem;
     }
   }
 

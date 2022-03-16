@@ -2,12 +2,14 @@
 
 @font-face {
   font-family: "National";
-  src: url("../assets/National2-Regular_convert.woff2") format("woff2"),
+  src: url("../assets/National2-Regular_convert.woff2") format("woff2");
+  font-display: swap;
 }
 
 @font-face {
   font-family: "Helvetica condensed bold";
-  src: url("../assets/helvetica-condensed-bold.woff") format("woff"),
+  src: url("../assets/helvetica-condensed-bold.woff") format("woff");
+  font-display: swap;
 }
 
 main {
@@ -121,7 +123,7 @@ a {
   --swiper-navigation-size: 33px !important;
 
   @media (max-width: 48em) {
-    --swiper-navigation-size: 0px !important;
+    --swiper-navigation-size: 22px !important;
   }
 }
 
