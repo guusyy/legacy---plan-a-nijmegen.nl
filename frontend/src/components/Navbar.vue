@@ -37,7 +37,7 @@
         <li><g-link to="/over-ons/">Over ons</g-link></li>
         <li><g-link to="/contact/">Contact</g-link></li>
       </ul>
-      <button class="pa-mobile-nav-button" @click="navigationPanelVisible = !navigationPanelVisible">
+      <button class="pa-mobile-nav-button" @click="navigationPanelVisible = !navigationPanelVisible" aria-label="Open menu">
         <svg viewBox="0 0 341.333 341.333">
           <g>
             <g>
