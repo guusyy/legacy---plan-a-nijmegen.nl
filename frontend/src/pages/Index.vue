@@ -7,7 +7,8 @@
       <div class="hero-image" v-if="$page.strapi.homepage.hero.HeroRandomImages[0]">
         <img
           class="img-lazy"
-          v-lazy="getStrapiMedia($page.strapi.homepage.hero.HeroRandomImages[randomImageIndex].url)" 
+          v-lazy="getStrapiMedia($page.strapi.homepage.hero.HeroRandomImages[randomImageIndex].url)"
+          :data-srcset="`${getStrapiMedia($page.strapi.homepage.hero.HeroRandomImages[randomImageIndex].formats.small.url)} 500w, ${getStrapiMedia($page.strapi.homepage.hero.HeroRandomImages[randomImageIndex].formats.medium.url)} 750w, ${getStrapiMedia($page.strapi.homepage.hero.HeroRandomImages[randomImageIndex].formats.large.url)} 1000w`"
           :alt="$page.strapi.homepage.hero.HeroRandomImages[randomImageIndex].alternativeText || $page.strapi.homepage.hero.HeroRandomImages[randomImageIndex].name" 
           :style="`aspect-ratio: ${$page.strapi.homepage.hero.HeroRandomImages[randomImageIndex].width}/${$page.strapi.homepage.hero.HeroRandomImages[randomImageIndex].height}`"
         />
