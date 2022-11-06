@@ -49,7 +49,8 @@
               <input type="text" name="woonplaats" placeholder="Woonplaats" v-model="formData.woonplaats" />
             </p>
             <p>
-              <input type="date" name="proefdag" placeholder="Proefdag" v-model="formData.proefdag" />
+              <label for="proefdag">Proefdag:</label>
+              <input type="date" name="proefdag" placeholder="Proefdag" id="proefdag" v-model="formData.proefdag" />
             </p>
             <p>
               <button type="submit"><span>Verstuur</span><span>></span></button>
@@ -230,6 +231,12 @@ export default {
       }
     }
 
+    label {
+      font-size: 18px;
+      padding: 0.5rem 1rem 0;
+      line-height: 1;
+      display: block;
+    }
 
     & select, input {
       font-size: 2rem;
