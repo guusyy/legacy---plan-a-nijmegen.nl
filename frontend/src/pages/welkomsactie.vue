@@ -89,6 +89,8 @@ import VueMarkdown from "vue-markdown";
 import { getMetaTags } from "~/utils/seo";
 import { getStrapiMedia } from "~/utils/medias";
 
+import anime from 'animejs/lib/anime.es.js';
+
 export default {
   components: {
     VueMarkdown
